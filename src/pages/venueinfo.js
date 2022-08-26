@@ -22,7 +22,7 @@ let strings = new LocalizedStrings({
 })
 
 export default function VenueInfo(props) {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowWidth, setWindowWidth] = useState(800)
 
 useEffect(() => {
   const handleResizeWindow = () => setWindowWidth(window.innerWidth);
