@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, {useState, useEffect} from "react"
 import LocalizedStrings from 'react-localization';
 
 //Components
@@ -46,17 +46,26 @@ let strings = new LocalizedStrings({
     zoomlink: "Lien pour Zoom",
   }
 })
+console.log('strings', strings)
+export default function LookupMaterials(props) {
 
-function LookupMaterials(props) {
+  const [initialLocaleCode, setInitialLocaleCode] = useState('en')
+
+  useEffect(() => {
+    if(window){
+      setInitialLocaleCode(window.navigator.userLanguage)
+    }
+  }, [])
+
     const eventId = props.params.id
-    const events = strings.events[navigator.language]
+    const events = strings.events[initialLocaleCode]
     var specificEvent = events[eventId];
 
     return (
 
         <Layout>
 
-          <h5>{strings.title}</h5>
+          <h5></h5>
                <p>
                {""}
                <DownloadArray>
@@ -68,11 +77,11 @@ function LookupMaterials(props) {
       <Paper square sx={{ pb: '50px' }}>
         <Typography variant="h5"
         gutterBottom component="div" sx={{ p: 2, pb: 0 }}>
-        {specificEvent.title}
+        {strings ? strings.title : null}
         </Typography>
 
         {/* This is where we list the lookup materials  */}
-        {specificEvent.Materials.map(material => {
+        {specificEvent ? specificEvent.Materials.map(material => {
           return (
             <ListItem>
             <ListItemButton href={'src/docs/event-1'}>
@@ -93,7 +102,7 @@ function LookupMaterials(props) {
             </ListItemButton>
             </ListItem>
           );
-     })}
+     }) : null}
 
       </Paper>
 
@@ -164,5 +173,3 @@ function LookupMaterials(props) {
 
 
 export const Head = () => <Seo title="Lookup Material" />
-
-export default LookupMaterials
