@@ -72,8 +72,12 @@ useEffect(() => {
     const eventId = props.params.id
     const events = strings.events[initialLocaleCode]
     var specificEvent = events[eventId];
+  
+  let eventPresentation
 
-    const eventPresentation = data.allFile.edges.filter(edges => edges.node.name === specificEvent.Materials)
+    if(specificEvent && specificEvent.Materials){
+    eventPresentation = data.pdf.edges.filter(edges => edges.node.name === specificEvent.Materials)
+  }
     const [showPdf, setShowPdf] = useState(false)
 
     return (
