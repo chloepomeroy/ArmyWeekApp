@@ -100,7 +100,7 @@ export default function SelectedEvent(props) {
   let venueFloorplan
   let eventPresentation
 
-  if(specificEvent && specificEvent.RoomFloorplan && specificEvent.VenueFloorplan && specificEvent.Materials){
+  if(specificEvent && specificEvent.RoomFloorplan){
     roomFloorplan = data.img.edges.filter(edges => edges.node.relativePath === specificEvent.RoomFloorplan)
   }
 
