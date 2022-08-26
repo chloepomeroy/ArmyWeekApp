@@ -21,11 +21,22 @@ let strings = new LocalizedStrings({
     }
 })
 
-export default class VenueInfo extends React.Component {
-    render(){
-      let width = window.innerWidth;
-      //Desktop
-      if (width>768) {
+export default function VenueInfo(props) {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+useEffect(() => {
+  const handleResizeWindow = () => setWindowWidth(window.innerWidth);
+  window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      // unsubscribe "onComponentDestroy"
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);  
+
+  //Where we decide what width is mobile vs desktop
+  const breakpoint = 700;
+
+      if (windowWidth>breakpoint) {
     return (
         <Layout>
             <h2>{strings.title}</h2>
@@ -82,5 +93,3 @@ export default class VenueInfo extends React.Component {
         )
       }
     }
-    
-}
