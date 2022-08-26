@@ -35,7 +35,7 @@ export default function Cal(props) {
     setInitialLocaleCode(window.navigator.language)
 }, [])
 
-const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+const [windowWidth, setWindowWidth] = useState(800)
 
 useEffect(() => {
   const handleResizeWindow = () => setWindowWidth(window.innerWidth);
