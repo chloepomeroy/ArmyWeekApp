@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ResponsiveAppBar from '../components/Navbar/navbar';
 import LocalizedStrings from 'react-localization';
 
@@ -10,9 +10,6 @@ import listPlugin from '@fullcalendar/list';
 import Grid from '@mui/material/Grid';
 
 const allevents = require('../data/enevents.json').events;
-
-//gets users browser language
-var initialLocaleCode = navigator.language;
 
 var en = require('../data/enevents.json').events;
 var fr = require('../data/frevents.json').events;
@@ -30,7 +27,14 @@ let strings = new LocalizedStrings({
   }
 })
 
-function Cal() {
+export default function Cal(props) {
+
+  const [initialLocaleCode, setInitialLocaleCode] = useState('en')
+
+  useEffect(() => {
+      setInitialLocaleCode(window.navigator.userLanguage)
+  }, [])
+
     return (
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item xs={12}>
@@ -66,6 +70,5 @@ function Cal() {
          </Grid>
         </Grid>
     );
+   
   }
-
-export default Cal;
