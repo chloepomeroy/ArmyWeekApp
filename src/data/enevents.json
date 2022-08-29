@@ -14,7 +14,7 @@
         "VenueFloorplan": "",
         "id": 0,
         "Materials": "OSINT-Overview",
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "",
         "color": "#76b079"
        },
        {
@@ -27,11 +27,11 @@
         "title": "Dial in",
         "Presenter": "EA/Coords",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 1,
         "Materials": "PRESENTATION TITLE",
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -44,11 +44,11 @@
         "title": "Opening Remarks",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png",  
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg",  
         "id": 2,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -61,11 +61,11 @@
         "title": "Comd Philosophy",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 3,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -78,12 +78,12 @@
         "title": "Break",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 4,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#bdb48a"
        },
        {
@@ -96,11 +96,11 @@
         "title": "Business Planning & Risks",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 5,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -113,11 +113,11 @@
         "title": "CAMS Annual Report",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 6,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -130,12 +130,12 @@
         "title": "Lunch",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 7,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#bdb48a"
        },
        {
@@ -148,11 +148,11 @@
         "title": "Reconstitution",
         "Presenter": "COS Ops",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 8,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -165,11 +165,11 @@
         "title": "Digital Governance",
         "Presenter": "COS Strat",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 9,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -182,12 +182,12 @@
         "title": "Break",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 10,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#bdb48a"
        },
        {
@@ -200,11 +200,11 @@
         "title": "Force 2025",
         "Presenter": "COS Strat",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 11,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -217,11 +217,11 @@
         "title": "FTSE Results",
         "Presenter": "ATA",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 12,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -234,11 +234,11 @@
         "title": "Closing Points",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 13,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
        {
@@ -252,10 +252,10 @@
         "Presenter": "COS Ops",
         "location": "Room 304",
         "RoomFloorplan": "",
-        "VenueFloorplan": "venue304.png", 
+        "VenueFloorplan": "venue304.jpg", 
         "id": 14,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#3e6990"
        },
        {
@@ -268,11 +268,11 @@
         "title": "Dial in",
         "Presenter": "EA/Coords",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png",
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg",
         "id": 15,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -285,11 +285,11 @@
         "title": "Review Day 1",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 16,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -302,11 +302,11 @@
         "title": "Def Policy Update",
         "Presenter": "COS Strat",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 17,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -319,11 +319,11 @@
         "title": "L2 Round Table",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 18,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -336,12 +336,12 @@
         "title": "Break",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 19,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#bdb48a"
        },
        {
@@ -354,11 +354,11 @@
         "title": "GO/SM Discussion",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 20,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -371,11 +371,11 @@
         "title": "CCA Closing",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 21,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -388,12 +388,12 @@
         "title": "Lunch",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 22,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#bdb48a"
        },
        {
@@ -406,11 +406,11 @@
         "title": "Talent Management",
         "Presenter": "DCCA/DLPM",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 23,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
        {
@@ -424,10 +424,10 @@
         "Presenter": "DG Ares",
         "location": "Room 106H",
         "RoomFloorplan": "",
-        "VenueFloorplan": "venue106H.png",
+        "VenueFloorplan": "venue106H.jpg",
         "id": 24,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#f39b6d"
        },
        {
@@ -442,7 +442,7 @@
         "location": "Offsite",
         "id": 25,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "",
         "color": "#f67e7d"
        },
        {
@@ -455,11 +455,11 @@
         "title": "Dial in",
         "Presenter": "EA/Coords",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 26,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -472,11 +472,11 @@
         "title": "Opening Remarks",
         "Presenter": "DAS",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 27,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -489,11 +489,11 @@
         "title": "Keynote Address",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 28,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -506,12 +506,12 @@
         "title": "Break",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 29,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#bdb48a"
        },
        {
@@ -524,11 +524,11 @@
         "title": "Reconstitution Under Fire",
         "Presenter": "COS Ops",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 30,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -541,12 +541,12 @@
         "title": "Lunch",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 31,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#bdb48a"
        },
        {
@@ -559,11 +559,11 @@
         "title": "Digital Transformation",
         "Presenter": "COS Strat",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 32,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -576,12 +576,12 @@
         "title": "Break",
         "Presenter": "N/A",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 33,
         "Break": true,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#bdb48a"
        },
        {
@@ -594,11 +594,11 @@
         "title": "Modern Challenges to Leadership",
         "Presenter": "CA SM",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 34,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -611,11 +611,11 @@
         "title": "Closing Remarks",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 35,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -628,11 +628,11 @@
         "title": "SALS Receptiont",
         "Presenter": "COS Ops",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 36,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
        {
@@ -647,7 +647,7 @@
         "location": "Hotel Restaurant",
         "id": 37,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "",
         "color": "#76b079"
        },
        {
@@ -660,11 +660,11 @@
         "title": "GO Town Hall",
         "Presenter": "CCA",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 38,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_5LA3hSh8S4K4KWOyU-IoXQ",
         "color": "#76b079"
        },
        {
@@ -677,11 +677,11 @@
         "title": "Col Town Hall",
         "Presenter": "DCCA",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 39,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_Wh2XkNe9RyGk_62je--k4w",
         "color": "#76b079"
        },
        {
@@ -694,11 +694,11 @@
         "title": "CO/RSM Town Hall",
         "Presenter": "CCA/CASM",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 40,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_EKeVV9FzTTm-KFj5Tlfcyw",
         "color": "#76b079"
        },
        {
@@ -711,11 +711,11 @@
         "title": "HCol Town Hall",
         "Presenter": "DG ARes",
         "location": "Room 106",
-        "RoomFloorplan": "106 - 2.png",
-        "VenueFloorplan": "venue106.png", 
+        "RoomFloorplan": "106 - 2.jpg",
+        "VenueFloorplan": "venue106.jpg", 
         "id": 41,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_U6x2S1V6SzytYT0OGMYsgQ",
         "color": "#76b079"
        },
        {
@@ -730,7 +730,7 @@
         "location": "Offsite",
         "id": 42,
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
-        "ZoomLink":  "https://www.zoom.us/",
+        "ZoomLink":  "",
         "color": "#f67e7d"
        }
     ]

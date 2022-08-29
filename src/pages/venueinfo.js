@@ -56,9 +56,9 @@ useEffect(() => {
             <Grid item xs={12}>
             <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
             <h3>{strings.floorplantitle}</h3>
-            <StaticImage src="../images/floor1-1.png" alt="floorplan" />
-            <StaticImage src="../images/floor2.png" alt="floorplan" />
-            <StaticImage src="../images/floor3.png" alt="floorplan" />
+            <StaticImage src="../images/floor1.jpg" alt="floorplan" />
+            <StaticImage src="../images/floor2.jpg" alt="floorplan" />
+            <StaticImage src="../images/floor3.jpg" alt="floorplan" />
             </Grid>
             </Grid>            
             
@@ -83,9 +83,9 @@ useEffect(() => {
             <Grid item xs={12}>
             <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
             <h3>{strings.floorplantitle}</h3>
-            <StaticImage src="../images/floor1-1.png" alt="floorplan" />
-            <StaticImage src="../images/floor2.png" alt="floorplan" />
-            <StaticImage src="../images/floor3.png" alt="floorplan" />
+            <StaticImage src="../images/floor1.jpg" alt="floorplan" />
+            <StaticImage src="../images/floor2.jpg" alt="floorplan" />
+            <StaticImage src="../images/floor3.jpg" alt="floorplan" />
             </Grid>
             </Grid>            
             

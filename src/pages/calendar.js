@@ -58,7 +58,7 @@ useEffect(() => {
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item xs={12}>
       <ResponsiveAppBar />
-      </Grid>     
+      </Grid>      
          <Grid item xs={11}>          
         <FullCalendar
           plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
