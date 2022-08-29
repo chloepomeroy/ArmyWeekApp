@@ -35,8 +35,10 @@ const moreLinks = [
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 export default function IndexPage(props) {
+  return(
   <Layout>
     <Seo title="Home" />
+    
 
     <div className={styles.textCenter}>
       <StaticImage
@@ -90,6 +92,6 @@ export default function IndexPage(props) {
     ))}
 
   </Layout>
-}
+)}
 
 // const Head = () => <Seo title="Home" />
