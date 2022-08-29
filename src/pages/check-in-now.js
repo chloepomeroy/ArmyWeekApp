@@ -1,8 +1,7 @@
-
-
 import * as React from "react"
 
 import Layout from "../components/layout"
+import "../components/layout.css"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { deepPurple, green } from '@mui/material/colors';
@@ -32,7 +31,7 @@ import textField from '../components/textField'
 import HelperTextAligned from "../components/textField";
 import FreeSoloCreateOptionDialog from "../components/addUserName"
 import ImagePreview from "../components/imagePreview";
-
+import BtnCounter from "../components/btn-counter";
 
 const StyledFab = styled(Fab)({
 
@@ -74,6 +73,14 @@ function CheckInNow() {
                 <FreeSoloCreateOptionDialog>
 
                 </FreeSoloCreateOptionDialog>
+
+
+Check in Now!
+
+
+<BtnCounter>
+</BtnCounter>
+
 
 
 

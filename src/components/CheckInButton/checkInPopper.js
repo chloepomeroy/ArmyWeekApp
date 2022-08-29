@@ -8,9 +8,9 @@ const CheckInPopper = () => {
 const StyledPopperDiv = styled('div')(
   ({ theme }) => `
   padding: 0.9rem;
-  border: 1px solid;
+  border: 0.5px solid;
   background-color: ${theme.palette.mode === 'dark' ? '#43A047' : '#ffff'};
-  opacity: 9;
+  opacity: 5;
   margin: 0.25rem 0px;
 `,
 );

@@ -4,9 +4,12 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import "../components/layout.css"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
+import BtnCounter from "../components/btn-counter"
+import CheckInPopper from "../components/CheckInButton/checkInPopper"
 
 const links = [
   {
@@ -17,12 +20,13 @@ const links = [
   }
 ]
 
+
 const samplePageLinks = [
-  {
-    text: "All Events",
-    url: "allevents"
-  },
-{ text: "Check in now", url: "qrApp"},
+  // {
+  //   text: "All Events",
+  //   url: "allevents"
+  // },
+// { text: "Check in now", url: "check-in-now"},
 { text: "Calendar", url: "calendar" },
 { text: "FAQ", url: "faq" }
 ]
@@ -38,7 +42,7 @@ export default function IndexPage(props) {
   return(
   <Layout>
     <Seo title="Home" />
-    
+
 
     <div className={styles.textCenter}>
       <StaticImage
@@ -55,16 +59,27 @@ export default function IndexPage(props) {
       <b> Welcome to Army Week</b>
       </h1>
 
+<BtnCounter>
+   
+</BtnCounter>
+
       <p className={styles.intro}>
-       {" "}
+      {" "}
+
+    {" "}
+
         {samplePageLinks.map((link, i) => (
           <React.Fragment key={link.url}>
             <Link to={link.url}>{link.text}</Link>
             {i !== samplePageLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
+  {" "}
+
       </p>
+
     </div>
+
 
     <ul className={styles.intro}>
       {links.map(link => (
@@ -88,6 +103,7 @@ export default function IndexPage(props) {
           {link.text}
         </a>
         {i !== moreLinks.length - 1 && <> · </>}
+
       </React.Fragment>
     ))}
 
