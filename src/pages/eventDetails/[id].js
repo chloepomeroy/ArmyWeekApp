@@ -40,6 +40,8 @@ let strings = new LocalizedStrings({
     lookupmaterials: "Documents",
     zoomlink: "Zoom Link",
     floorplan: "Floorplan",
+    download: "Download",
+    display: "View PDF"
   },
   fr: {
     events: {fr},
@@ -52,6 +54,8 @@ let strings = new LocalizedStrings({
     lookupmaterials: "Documents",
     zoomlink: "Lien pour Zoom",
     floorplan: "Plan d'étage",
+    download: "Téléchargez",
+    display: "Afficher le PDF"
   }
 })
 
@@ -60,7 +64,11 @@ export default function SelectedEvent(props) {
   const [initialLocaleCode, setInitialLocaleCode] = useState('en')
 
   useEffect(() => {
-    setInitialLocaleCode(window.navigator.language)
+    if((window.navigator.language).includes("fr")){
+      setInitialLocaleCode("fr")
+    } else {
+      setInitialLocaleCode("en")
+    }      
 }, [])
 
   const data = useStaticQuery(graphql`
@@ -139,11 +147,11 @@ export default function SelectedEvent(props) {
                       visible={showPdf}
                       name= {x.node.name}
                       />
-                    <PictureAsPdf onClick={()=>setShowPdf(!showPdf)}>
-                      Display Pdf
-                    </PictureAsPdf>
+                    <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
+                    {strings ? strings.display : null}
+                    </Button>
                   <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
-                  Download
+                  {strings ? strings.download : null}
                   </Button>
                   </Stack>
                  </p>

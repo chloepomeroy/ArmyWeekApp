@@ -169,7 +169,7 @@ export default function Help() {
                 </Grid>
                 <Box m="auto">
                 <h5>{strings.more}</h5>
-                Replace with message capability
+                (Phone Number/Email to contact)
                     {/* <Button variant="contained" color="success" href="/contact">
                     Contact Us
                     </Button> */}

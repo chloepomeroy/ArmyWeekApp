@@ -32,7 +32,11 @@ export default function Cal(props) {
   const [initialLocaleCode, setInitialLocaleCode] = useState('en')
 
   useEffect(() => {
-    setInitialLocaleCode(window.navigator.language)
+    if((window.navigator.language).includes("fr")){
+      setInitialLocaleCode("fr")
+    } else {
+      setInitialLocaleCode("en")
+    }      
 }, [])
 
 const [windowWidth, setWindowWidth] = useState(800)
@@ -54,8 +58,8 @@ useEffect(() => {
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item xs={12}>
       <ResponsiveAppBar />
-      </Grid>     
-         <Grid item xs={11}>
+      </Grid>      
+         <Grid item xs={11}>          
         <FullCalendar
           plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           initialView = "timeGridWeek"

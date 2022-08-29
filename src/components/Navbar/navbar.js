@@ -26,11 +26,13 @@ let strings = new LocalizedStrings({
   en: {Calendar: "Calendar",
   Venueinfo: "Venue Info",
   Help: "Help",
+  metrics: "Attendance Metrics",
   title: "ARMY WEEK 2022"
   },
   fr: {Calendar: "Calendrier",
   Venueinfo: "Informations sur le lieu",
   Help: "Aide",
+  metrics: "Mesures de présence",
   title: "SEMAINE DE L'ARMÉE 2022"
   }
 })
@@ -165,9 +167,9 @@ const ResponsiveAppBar = () => {
                         <Button href="/venueinfo" color="success" target="_blank" variant="contained">
                         {strings?strings.Venueinfo: null}
                         </Button>
-                        {/* <Button href="/messages" color="success" target="_blank" variant="contained">
-                        Messages
-                        </Button> */}
+                        <Button href="/metrics" color="success" target="_blank" variant="contained">
+                        {strings?strings.metrics: null}
+                        </Button>
                         <Button href="/faq" color="success" target="_self" variant="contained">
                         {strings?strings.Help: null}
                         </Button>
@@ -206,9 +208,9 @@ const ResponsiveAppBar = () => {
                         <Button href="/venueinfo" color="success" target="_blank" variant="contained">
                         {strings? strings.Venueinfo: null}
                         </Button>
-                        {/* <Button href="/messages" color="success" target="_blank" variant="contained">
-                        Messages
-                        </Button> */}
+                        <Button href="/metrics" color="success" target="_blank" variant="contained">
+                        {strings?strings.metrics: null}
+                        </Button>
                         <Button href="/faq" color="success" target="_top" variant="contained">
                         {strings? strings.Help: null}
                         </Button>

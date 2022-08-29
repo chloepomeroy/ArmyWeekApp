@@ -18,12 +18,9 @@ const links = [
 ]
 
 const samplePageLinks = [
-  {
-    text: "All Events",
-    url: "allevents"
-  },
-{ text: "Check in now", url: "qrApp"},
 { text: "Calendar", url: "calendar" },
+{ text: "Venue info", url: "venueinfo"},
+{ text: "Attendance Metrics", url: "metrics"},
 { text: "FAQ", url: "faq" }
 ]
 
@@ -38,7 +35,6 @@ export default function IndexPage(props) {
   return(
   <Layout>
     <Seo title="Home" />
-    
 
     <div className={styles.textCenter}>
       <StaticImage
