@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import ResponsiveAppBar from '../components/Navbar/navbar';
 import LocalizedStrings from 'react-localization';
 
 import FullCalendar from '@fullcalendar/react';
@@ -8,9 +7,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import Grid from '@mui/material/Grid';
+import Layout from "../components/layout"
 
-//gets users browser language
-// var initialLocaleCode = navigator.language;
 
 var en = require('../data/enevents.json').events;
 var fr = require('../data/frevents.json').events;
@@ -39,27 +37,10 @@ export default function Cal(props) {
     }      
 }, [])
 
-const [windowWidth, setWindowWidth] = useState(800)
-
-useEffect(() => {
-  const handleResizeWindow = () => setWindowWidth(window.innerWidth);
-  window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      // unsubscribe "onComponentDestroy"
-      window.removeEventListener("resize", handleResizeWindow);
-    };
-  }, []);  
-
-  //Where we decide what width is mobile vs desktop
-  const breakpoint = 700;
-
-  if (windowWidth>breakpoint) {
     return (
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-      <ResponsiveAppBar />
-      </Grid>      
-         <Grid item xs={11}>          
+      <Layout>
+      <Grid container spacing={2} alignItems="center" justifyContent="center">     
+         <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}>          
         <FullCalendar
           plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
           initialView = "timeGridWeek"
@@ -84,20 +65,10 @@ useEffect(() => {
           slotDuration="00:10:00"
           eventOverlap = {false}
           eventClick = {(event) => {var eventId = event.event.id
-            window.open(`/eventDetails/${eventId}`)}}
+            window.open(`/eventDetails/${eventId}`, '_self')}}
         />
          </Grid>
-        </Grid>
-    );
-  } else {
-    //For mobile
-    //the same but without week view
-    return (
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-      <Grid item xs={12}>
-    <ResponsiveAppBar />
-    </Grid>     
-       <Grid item xs={11}>
+         <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
       <FullCalendar
         plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
         initialView = "timeGridDay"
@@ -122,10 +93,11 @@ useEffect(() => {
         slotDuration="00:10:00"
         eventOverlap = {false}
         eventClick = {(event) => {var eventId = event.event.id
-          window.open(`/eventDetails/${eventId}`)}}
+          window.location(`/eventDetails/${eventId}`)}}
       />
        </Grid>
-      </Grid>
+        </Grid>
+        </Layout>
     )
   }
-}
+

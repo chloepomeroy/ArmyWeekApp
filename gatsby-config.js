@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Home`,
-    description: `Go back home silly.`,
+    description: `Army Week 2022`,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },

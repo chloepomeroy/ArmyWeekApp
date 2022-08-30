@@ -20,7 +20,7 @@ const links = [
 const samplePageLinks = [
 { text: "Calendar", url: "calendar" },
 { text: "Venue info", url: "venueinfo"},
-{ text: "Attendance Metrics", url: "metrics"},
+{ text: "Dashboards", url: "dashboards"},
 { text: "FAQ", url: "faq" }
 ]
 
@@ -60,7 +60,7 @@ export default function IndexPage(props) {
           </React.Fragment>
         ))}
       </p>
-    </div>
+    
 
     <ul className={styles.intro}>
       {links.map(link => (
@@ -76,6 +76,8 @@ export default function IndexPage(props) {
         </li>
       ))}
     </ul>
+    </div>
+    
     {moreLinks.map((link, i) => (
       <React.Fragment key={link.url}>
          <p className={styles.intro}></p>
