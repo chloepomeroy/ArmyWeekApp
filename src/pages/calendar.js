@@ -84,7 +84,7 @@ useEffect(() => {
           slotDuration="00:10:00"
           eventOverlap = {false}
           eventClick = {(event) => {var eventId = event.event.id
-            window.open(`/eventDetails/${eventId}`)}}
+            window.location(`/eventDetails/${eventId}`)}}
         />
          </Grid>
         </Grid>
@@ -122,7 +122,7 @@ useEffect(() => {
         slotDuration="00:10:00"
         eventOverlap = {false}
         eventClick = {(event) => {var eventId = event.event.id
-          window.open(`/eventDetails/${eventId}`)}}
+          window.location(`/eventDetails/${eventId}`)}}
       />
        </Grid>
       </Grid>
