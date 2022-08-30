@@ -187,7 +187,7 @@ export default function SelectedEvent(props) {
     href={specificEvent ? specificEvent.ZoomLink: null}
     sx={{ bgcolor: green[500] }}
     endIcon={< VideoLibraryRoundedIcon />}
-    style={ specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}}>
+    style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
     {strings ? strings.zoomlink : null}
   </Button>
 
@@ -289,7 +289,7 @@ export default function SelectedEvent(props) {
     href={specificEvent ? specificEvent.ZoomLink: null}
     sx={{ bgcolor: green[500] }}
     endIcon={< VideoLibraryRoundedIcon />}
-    style={ specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}}>
+    style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
     {strings ? strings.zoomlink : null}
   </Button>
 
