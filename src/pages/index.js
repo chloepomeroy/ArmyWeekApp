@@ -20,7 +20,7 @@ const links = [
 const samplePageLinks = [
 { text: "Calendar", url: "calendar" },
 { text: "Venue info", url: "venueinfo"},
-{ text: "Attendance Metrics", url: "metrics"},
+{ text: "Dashboards", url: "dashboards"},
 { text: "FAQ", url: "faq" }
 ]
 

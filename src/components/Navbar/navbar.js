@@ -26,13 +26,13 @@ let strings = new LocalizedStrings({
   en: {Calendar: "Calendar",
   Venueinfo: "Venue Info",
   Help: "Help",
-  metrics: "Attendance Metrics",
+  dashboards: "Dashboards",
   title: "ARMY WEEK 2022"
   },
   fr: {Calendar: "Calendrier",
   Venueinfo: "Informations sur le lieu",
   Help: "Aide",
-  metrics: "Mesures de présence",
+  dashboards: "Tableaux de bord",
   title: "SEMAINE DE L'ARMÉE 2022"
   }
 })
@@ -115,7 +115,7 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'none', s: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -126,7 +126,7 @@ const ResponsiveAppBar = () => {
             {strings.title}
           </Typography>
 
-          <Box sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
           <Tooltip title="Open settings">
               <IconButton
               size="large"
@@ -154,7 +154,7 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', s: 'block', md: 'none' },
               }}
             >
 
@@ -164,11 +164,11 @@ const ResponsiveAppBar = () => {
                         <Button href="/calendar" color="success" target="_self" variant="contained">
                         {strings?strings.Calendar: null}
                         </Button>
-                        <Button href="/venueinfo" color="success" target="_blank" variant="contained">
+                        <Button href="/venueinfo" color="success" target="_self" variant="contained">
                         {strings?strings.Venueinfo: null}
                         </Button>
-                        <Button href="/metrics" color="success" target="_blank" variant="contained">
-                        {strings?strings.metrics: null}
+                        <Button href="/dashboards" color="success" target="_self" variant="contained">
+                        {strings?strings.dashboards: null}
                         </Button>
                         <Button href="/faq" color="success" target="_self" variant="contained">
                         {strings?strings.Help: null}
@@ -187,7 +187,7 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'block', md: 'none' },
+              display: { xs: 'block', s: 'block', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -198,18 +198,18 @@ const ResponsiveAppBar = () => {
           >
             {strings? strings.title: null}
           </Typography>
-          <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex',} }}>
+          <Box sx={{ flexGrow: 5, display: { xs: 'none', s: 'none', md: 'flex'} }}>
             <ButtonGroup spacing={2} direction="row" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
                     <Router>
                     <Button href="/calendar" color="success" target="_top" variant="contained">
                         {strings? strings.Calendar: null}
                         </Button>
-                        <Button href="/venueinfo" color="success" target="_blank" variant="contained">
+                        <Button href="/venueinfo" color="success" target="_top" variant="contained">
                         {strings? strings.Venueinfo: null}
                         </Button>
-                        <Button href="/metrics" color="success" target="_blank" variant="contained">
-                        {strings?strings.metrics: null}
+                        <Button href="/dashboards" color="success" target="_top" variant="contained">
+                        {strings?strings.dashboards: null}
                         </Button>
                         <Button href="/faq" color="success" target="_top" variant="contained">
                         {strings? strings.Help: null}
