@@ -7,7 +7,7 @@ import LocalizedStrings from 'react-localization';
 import Grid from '@mui/material/Grid';
 // import Box from '@mui/material/Box';
 import ResponsiveAppBar from '../components/Navbar/navbar';
-import DashboardCard from "../components/dashboardCard/dashboardCard";
+import DashboardCard from "../components/DashboardCard/dashboardCard";
 
 import { Stack } from "@mui/material";
 
