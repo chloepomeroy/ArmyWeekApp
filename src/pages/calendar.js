@@ -39,17 +39,6 @@ export default function Cal(props) {
     }      
 }, [])
 
-const [windowWidth, setWindowWidth] = useState(800)
-
-useEffect(() => {
-  const handleResizeWindow = () => setWindowWidth(window.innerWidth);
-  window.addEventListener("resize", handleResizeWindow);
-    return () => {
-      // unsubscribe "onComponentDestroy"
-      window.removeEventListener("resize", handleResizeWindow);
-    };
-  }, []);  
-
     return (
       <Grid container spacing={2} alignItems="center" justifyContent="center">
         <Grid item xs={12}>
