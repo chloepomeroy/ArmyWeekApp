@@ -195,7 +195,6 @@ const ResponsiveAppBar = () => {
               color: 'inherit',
               textDecoration: 'none',
             }}
-            justifyContent="center"
           >
             {strings? strings.title: null}
           </Typography>

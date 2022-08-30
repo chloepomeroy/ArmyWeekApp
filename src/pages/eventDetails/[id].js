@@ -229,8 +229,7 @@ export default function SelectedEvent(props) {
           </Grid>          
 
 {/* Mobile View */}
-          <div sx={{display: { xs: 'flex', md: 'none' }}}>
-          <Grid item xs={4}>
+          <Grid item xs={4} sx={{display: { xs: 'flex', md: 'none' }}}>
           <Card sx={{ minWidth: 300 }}>
       <CardContent>
         <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
@@ -323,7 +322,6 @@ export default function SelectedEvent(props) {
 
             </Card>
             </Grid>
-            </div>
         </Layout>
     );
 }
