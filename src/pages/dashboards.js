@@ -13,24 +13,24 @@ import { Stack } from "@mui/material";
 
 let dashboard_list = [
     {"title": "Canadian Army Modernization Strategy",
-        "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
-        "file_title": "CAMS Placemat Desktop",
-        "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
+    "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
+    "file_title": "CAMS Placemat Desktop",
+    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
     },
     {"title": "Army 101 Dashboard",
     "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
     "file_title": "Army 101",
     "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
     },
-    {"title": "Canadian Army Modernization Strategy",
-        "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
-        "file_title": "CAMS Placemat Desktop",
-        "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
+    {"title": "CA Interactive Org Chart",
+        "description": "See how the CA is structured and where the various organizations are located.",
+        "file_title": "CA Org Structure",
+        "embed_url": "https://app.powerbi.com/reportEmbed?reportId=789dcf29-c678-4725-8206-c5d0aaaa62e4&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
     },
-    {"title": "Army 101 Dashboard",
-    "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
-    "file_title": "Army 101",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
+    {"title": "Commander and Senior Leader Dashboard",
+    "description": "Peruse the Commander and Senior Leader Bios of the CA.",
+    "file_title": "CA General Officers",
+    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
     }
 ]
 

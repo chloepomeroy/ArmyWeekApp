@@ -150,7 +150,13 @@ export default function Help() {
 
     return (
         <Layout>
-        <div>
+            <div
+        style={{
+          margin: `0 auto`,
+          maxWidth: `var(--size-content)`,
+          padding: `var(--size-gutter)`,
+        }}
+      >
             <Grid container spacing={2}>
                 <Grid item xs={22}>
                     <Item>
