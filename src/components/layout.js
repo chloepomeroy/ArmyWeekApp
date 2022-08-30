@@ -11,6 +11,8 @@ import PropTypes from "prop-types"
 
 import "./layout.css"
 import ResponsiveAppBar from "./Navbar/navbar"
+import BackToTop from "./back-to-top"
+
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`
@@ -26,6 +28,7 @@ const Layout = ({ children }) => {
   return (
     <>
     <ResponsiveAppBar />
+    <BackToTop/>
       <div
         style={{
           margin: `0 auto`,
@@ -33,6 +36,7 @@ const Layout = ({ children }) => {
           padding: `var(--size-gutter)`,
         }}
       >
+
         <main>{children}</main>
         {/* <Bottombar /> */}
         </div>

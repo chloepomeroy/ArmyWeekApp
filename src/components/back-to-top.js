@@ -39,7 +39,7 @@ function ScrollTop(props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
+        sx={{ position: 'fixed', bottom: 16, right: 12 }}
       >
         {children}
       </Box>
@@ -53,14 +53,9 @@ export default function BackToTop(props) {
     <React.Fragment>
       <CssBaseline />
       <AppBar>
-        {/* <Toolbar> */}
-          {/* <Typography variant="h6" component="div">
-            Scroll to see button
-          </Typography>
-        </Toolbar> */}
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
-      <Container>
+      {/* <Container>
         <Box sx={{ my: 2 }}>
           {[...new Array(12)]
             .map(
@@ -68,7 +63,7 @@ export default function BackToTop(props) {
             )
             .join('\n')}
         </Box>
-      </Container>
+      </Container> */}
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
