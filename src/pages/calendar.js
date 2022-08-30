@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react"
-import ResponsiveAppBar from '../components/Navbar/navbar';
 import LocalizedStrings from 'react-localization';
 
 import FullCalendar from '@fullcalendar/react';
@@ -8,9 +7,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import Grid from '@mui/material/Grid';
+import Layout from "../components/layout"
 
-//gets users browser language
-// var initialLocaleCode = navigator.language;
 
 var en = require('../data/enevents.json').events;
 var fr = require('../data/frevents.json').events;
@@ -40,10 +38,8 @@ export default function Cal(props) {
 }, [])
 
     return (
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-      <ResponsiveAppBar />
-      </Grid>      
+      <Layout>
+      <Grid container spacing={2} alignItems="center" justifyContent="center">     
          <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}>          
         <FullCalendar
           plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
@@ -101,8 +97,7 @@ export default function Cal(props) {
       />
        </Grid>
         </Grid>
-    //For mobile
-    //the same but without week view
+        </Layout>
     )
   }
 

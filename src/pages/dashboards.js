@@ -5,10 +5,8 @@ import LocalizedStrings from 'react-localization';
 
 //Components
 import Grid from '@mui/material/Grid';
-// import Box from '@mui/material/Box';
-import ResponsiveAppBar from '../components/Navbar/navbar';
+import Layout from "../components/layout";
 import DashboardCard from "../components/DashboardCard/dashboardCard";
-
 import { Stack } from "@mui/material";
 
 let dashboard_list = [
@@ -36,10 +34,8 @@ let dashboard_list = [
 
 export default function Metrics() {
     return (
+        <Layout>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12}>
-            <ResponsiveAppBar />
-        </Grid>
         <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
         {dashboard_list ? dashboard_list.map(x => {
             return(
@@ -69,5 +65,6 @@ export default function Metrics() {
         </Stack>
         </Grid>
         </Grid>
+        </Layout>
     )
 }
