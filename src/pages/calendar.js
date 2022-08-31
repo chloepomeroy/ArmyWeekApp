@@ -38,71 +38,75 @@ export default function Cal(props) {
 }, [])
 
     return (
-      <Layout>        
-      <Grid container spacing={2} alignItems="center" justifyContent="center"> 
-         <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}>          
-        <FullCalendar
-          plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-          initialView = "timeGridWeek"
-          initialDate = "2022-09-12"
-          locale= {initialLocaleCode}
-          headerToolbar = {{
-            start: 'timeGridWeek,timeGridDay,listWeek',
-            // center: 'title',   
-            end: 'prev,next'
-          }}
-          buttonText={{week: strings.week, day: strings.day, list: strings.list }}
-          slotMinTime='08:00'
-          height="auto"
-          expandRows={true} 
-          navLinks={true}
-          events = {strings.events[initialLocaleCode]}
-          handleWindowResize={true}           
-          nowIndicator
-          eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
-          slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
-          firstDay={1}
-          allDayText=""
-          allDaySlot = {true}
-          contentHeight="auto"
-          slotDuration="00:10:00"
-          eventOverlap = {false}
-          eventClick = {(event) => {var eventId = event.event.id
-            window.open(`/eventDetails/${eventId}`, '_self')}}
-        />
-         </Grid>
-         <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
-      <FullCalendar
-        plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-        initialView = "listWeek"
-        initialDate = "2022-09-12"
-        locale= {initialLocaleCode}
-        headerToolbar = {{
-          start: 'timeGridDay,listWeek',
-          // center: 'title',   
-          end: 'prev,next'
-        }}
-        buttonText={{day: strings.day, list: strings.list }}
-        slotMinTime='08:00'
-        height="auto"
-        expandRows={true} 
-        navLinks={true}
-        events = {strings.events[initialLocaleCode]}
-        handleWindowResize={true}           
-        nowIndicator
-        eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
-        slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
-        firstDay={1}
-        allDaySlot = {false}
-        contentHeight="auto"
-        slotDuration="00:10:00"
-        eventOverlap = {false}
-        eventClick = {(event) => {var eventId = event.event.id
-          window.open(`/eventDetails/${eventId}`, '_self')}}
-      />
-       </Grid>
+      <Layout>
+   
+        <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}> 
+          <Grid item xs={11} >          
+            <FullCalendar
+              plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+              initialView = "timeGridWeek"
+              initialDate = "2022-09-12"
+              locale= {initialLocaleCode}
+              headerToolbar = {{
+                start: 'timeGridWeek,timeGridDay,listWeek',
+                // center: 'title',   
+                end: 'prev,next'
+              }}
+              buttonText={{week: strings.week, day: strings.day, list: strings.list }}
+              slotMinTime='08:00'
+              height="auto"
+              expandRows={true} 
+              navLinks={true}
+              events = {strings.events[initialLocaleCode]}
+              handleWindowResize={true}           
+              nowIndicator
+              eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+              slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+              firstDay={1}
+              allDayText=""
+              allDaySlot = {true}
+              contentHeight="auto"
+              slotDuration="00:10:00"
+              eventOverlap = {false}
+              eventClick = {(event) => {var eventId = event.event.id
+                window.open(`/eventDetails/${eventId}`, '_self')}}
+            />
+          </Grid>
         </Grid>
-        </Layout>
+
+        <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
+          <Grid item xs={11}>
+            <FullCalendar
+              plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
+              initialView = "listWeek"
+              initialDate = "2022-09-12"
+              locale= {initialLocaleCode}
+              headerToolbar = {{
+                start: 'timeGridDay,listWeek',
+                // center: 'title',   
+                end: 'prev,next'
+              }}
+              buttonText={{day: strings.day, list: strings.list }}
+              slotMinTime='08:00'
+              height="auto"
+              expandRows={true} 
+              navLinks={true}
+              events = {strings.events[initialLocaleCode]}
+              handleWindowResize={true}           
+              nowIndicator
+              eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+              slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+              firstDay={1}
+              allDaySlot = {false}
+              contentHeight="auto"
+              slotDuration="00:10:00"
+              eventOverlap = {false}
+              eventClick = {(event) => {var eventId = event.event.id
+                window.open(`/eventDetails/${eventId}`, '_self')}}
+            />
+          </Grid>
+        </Grid>
+      </Layout>
     )
   }
 
