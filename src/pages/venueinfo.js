@@ -41,7 +41,9 @@ export default function VenueInfo(props) {
           >
             <PageTitle
               title= {strings.pagetitle}
-            />        
+            />
+
+            </div>      
 
           {/* <Grid container spacing={2} alignItems="center" justifyContent="center" m={3}> */}
 
@@ -87,6 +89,13 @@ export default function VenueInfo(props) {
             </Grid>
             
 {/* Mobile */}
+<div
+          style={{
+          margin: `0 auto`,
+          maxWidth: `var(--size-content)`,
+          padding: `0 var(--size-gutter)`,
+          }}
+          >
           <div
           style={{
           margin: `0 auto`,
@@ -133,7 +142,7 @@ export default function VenueInfo(props) {
                             
             </Stack> 
           </div>
-        </div>
+          </div>
       </Layout>
     )
   }
