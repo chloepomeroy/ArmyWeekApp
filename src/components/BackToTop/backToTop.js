@@ -10,17 +10,26 @@ import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
+import { Zoom } from '@mui/material';
+import { green } from '@mui/material/colors';
 
 function ScrollTop(props) {
   const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
     disableHysteresis: true,
     threshold: 100,
   });
+
+  const fabStyle = {
+    position: 'absolute',
+    bottom: 12,
+    right: 15,
+    zIndex: 1000
+  };
+
+
 
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
@@ -28,25 +37,34 @@ function ScrollTop(props) {
     );
 
     if (anchor) {
-      anchor.scrollIntoView({
-        block: 'center',
-      });
+      anchor.scrollIntoView({ behavior: 'smooth',
+       block: 'center' });
     }
   };
 
+  const fabGreenStyle = {
+    color: 'common.white',
+    bgcolor: green[500],
+    '&:hover': {
+      bgcolor: green[600],
+    },
+  };
+
   return (
-    <Fade in={trigger}>
+    <Zoom in={trigger}>
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: 'fixed', bottom: 16, right: 12 }}
+        sx={{ position: 'fixed',
+        bottom: 12,
+        right: 15,
+        zIndex: 1000 }}
       >
         {children}
       </Box>
-    </Fade>
+    </Zoom>
   );
 }
-
 
 export default function BackToTop(props) {
   return (
@@ -55,7 +73,7 @@ export default function BackToTop(props) {
       <AppBar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
-      {/* <Container>
+      <Container>
         <Box sx={{ my: 2 }}>
           {[...new Array(12)]
             .map(
@@ -63,9 +81,11 @@ export default function BackToTop(props) {
             )
             .join('\n')}
         </Box>
-      </Container> */}
+      </Container>
       <ScrollTop {...props}>
-        <Fab size="small" aria-label="scroll back to top">
+        <Fab size="large"
+        color="primary"
+        aria-label="scroll back to top">
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
