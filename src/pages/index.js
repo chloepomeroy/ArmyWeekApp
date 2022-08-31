@@ -62,7 +62,7 @@ export default function IndexPage(props) {
       </p>
     
 
-    <ul className={styles.intro}>
+    {/* <ul className={styles.intro}>
       {links.map(link => (
         <li key={link.url} className={styles.intro}>
           <a
@@ -75,7 +75,7 @@ export default function IndexPage(props) {
           >{link.description}</p>
         </li>
       ))}
-    </ul>
+    </ul> */}
     </div>
     
     {moreLinks.map((link, i) => (

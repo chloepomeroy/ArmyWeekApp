@@ -732,6 +732,21 @@
         "Materials": [{"filename": "file.txt"}, {"filename": "asdf.pdf"}],
         "ZoomLink":  "",
         "color": "#f67e7d"
+       },
+       {
+         "Day": "1-4",
+        "date": "Mon Sept 12-Sun Sept 18",
+        "Time": "Mon Sept 12 08:30-Sun Sept 18 17:00",
+        "start": "2022-09-12T08:30:00",
+        "end": "2022-09-19T08:30:00",
+        "allDay": true,
+        "Category": "Course de l'Armée virtuelle",
+        "title": "Course de l'Armée virtuelle",
+        "Presenter": "DG Rés A",
+        "location": "Offsite",
+        "id": 43,
+        "ZoomLink":  "",
+        "color": "#f67e7d"
        }
     ]
     }

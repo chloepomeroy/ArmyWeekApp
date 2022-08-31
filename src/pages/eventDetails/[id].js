@@ -7,6 +7,7 @@ import LocalizedStrings from 'react-localization';
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import PdfViewer from '../../components/PdfViewer/pdfViewer.js'
+import PageTitle from "../../components/PageTitle/pageTitle"
 
 //MUI
 import Stack from '@mui/material/Stack';
@@ -31,7 +32,7 @@ var fr = require('../../data/frevents.json').events;
 let strings = new LocalizedStrings({
   en: {
     events: {en},
-    title: "Selected Event - Details",
+    pagetitle: "Event Details",
     presenter: "Presenter:",
     category: "Category:",
     date: "Date:",
@@ -45,7 +46,7 @@ let strings = new LocalizedStrings({
   },
   fr: {
     events: {fr},
-    title: "Évènement selectionné - Détails",
+    pagetitle: "Détails sur l'évènement",
     presenter: "Présentateur:",
     category: "Catégorie:",
     date: "Date:",
@@ -122,106 +123,111 @@ export default function SelectedEvent(props) {
 
   const [showPdf, setShowPdf] = useState(false)
 
-     return (
-
-      //Desktop view
+     return (   
         <Layout>
+          <div
+            style={{
+              margin: `0 auto`,
+              maxWidth: `var(--size-content)`,
+              padding: `0 var(--size-gutter)`,
+            }}
+          >
+            <PageTitle
+              title= {strings.pagetitle} 
+            />
+          </div>
+
+          {/* Desktop view */}
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
             <Grid item xs={4}>
-          <Card sx={{ minWidth: 300 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
-        {strings ? strings.title : null}
-        </Typography>
-        {eventPresentation ? eventPresentation.map(x => {
-          const Download = () => {
-            const link = document.createElement("a");
-            link.download = x.node.name;
-            link.href = x.node.publicURL;
-            link.click();
-          }; 
-              return (
-                <p>
-                  <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    spacing="10px">
-                    <PdfViewer pdf={x.node.publicURL}
-                      onCancel={()=>setShowPdf(false)}
-                      visible={showPdf}
-                      name= {x.node.name}
-                      />
-                    <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
-                    {strings ? strings.display : null}
-                    </Button>
-                  <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
-                  {strings ? strings.download : null}
+              <Card sx={{ minWidth: 300 }}>
+                <CardContent>
+                  {eventPresentation ? eventPresentation.map(x => {
+                    const Download = () => {
+                      const link = document.createElement("a");
+                      link.download = x.node.name;
+                      link.href = x.node.publicURL;
+                      link.click();
+                    }; 
+                        return (
+                          <p>
+                            <Stack
+                              direction="row"
+                              justifyContent="flex-start"
+                              spacing="10px">
+                              <PdfViewer pdf={x.node.publicURL}
+                                onCancel={()=>setShowPdf(false)}
+                                visible={showPdf}
+                                name= {x.node.name}
+                                />
+                              <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
+                                {strings ? strings.display : null}
+                              </Button>
+                              <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
+                                {strings ? strings.download : null}
+                              </Button>
+                            </Stack>
+                          </p>
+                        );
+                      }): null}
+                      <Typography variant="h5" component="div">
+                        {specificEvent ? specificEvent.title: null}
+                      </Typography>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
+                      </Typography>
+                      <Typography variant="body2">
+                        {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
+                        <br />
+                        {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
+                        <br />
+                        {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
+                        <br />
+                        {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
+                        <br />
+                      </Typography>
+                </CardContent>
+                <CardActions>
+
+                  <Button variant="contained"
+                    href={specificEvent ? specificEvent.ZoomLink: null}
+                    sx={{ bgcolor: green[500] }}
+                    endIcon={< VideoLibraryRoundedIcon />}
+                    style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
+                    {strings ? strings.zoomlink : null}
                   </Button>
-                  </Stack>
-                 </p>
-              );
-            }): null}
-        <Typography variant="h5" component="div">
-        {specificEvent ? specificEvent.title: null}
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
 
-        </Typography>
-        <Typography variant="body2">
-        {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
-          <br />
-          {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
-          <br />
-          {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
-          <br />
-          {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
-          <br />
+                </CardActions>
+                {/* Venue Floorplan Image Please make it pretty :D */}
+                {venueFloorplan ? venueFloorplan.map(x => {
+                        return (
+                          <Grid container justifyContent='center'>
+                              <Typography variant="h6" component="div">
+                                {/* {strings ? strings.location: null} */}
+                              </Typography>            
+                          <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
+                          </Grid>
+                        );
+                      }): null}
 
-        </Typography>
-
-      </CardContent>
-      <CardActions>
-
-  <Button variant="contained"
-    href={specificEvent ? specificEvent.ZoomLink: null}
-    sx={{ bgcolor: green[500] }}
-    endIcon={< VideoLibraryRoundedIcon />}
-    style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
-    {strings ? strings.zoomlink : null}
-  </Button>
-
-      </CardActions>
-      {/* Venue Floorplan Image Please make it pretty :D */}
-      {venueFloorplan ? venueFloorplan.map(x => {
-              return (
-                <Grid container justifyContent='center'>
-                    <Typography variant="h6" component="div">
-                      {/* {strings ? strings.location: null} */}
-                    </Typography>            
-                <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
-                </Grid>
-              );
-            }): null}
-
-</Card>
-</Grid>
-
-          <Grid item xs={4}>
-            {roomFloorplan ? roomFloorplan.map(x => {
-          return (
-            <Grid container justifyContent='center'>
-            <Card sx={{ maxWidth: 500 }}>
-              <CardContent>
-                <Typography variant="h6" component="div">
-                  {specificEvent.location} {strings ? strings.floorplan: null}
-                </Typography>
-              </CardContent>
-            <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
-            </Card>
+              </Card>
             </Grid>
-          );
-            }): null}
+
+            <Grid item xs={4}>
+              {roomFloorplan ? roomFloorplan.map(x => {
+                return (
+                  <Grid container justifyContent='center'>
+                  <Card sx={{ maxWidth: 500 }}>
+                    <CardContent>
+                      <Typography variant="h6" component="div">
+                        {specificEvent.location} {strings ? strings.floorplan: null}
+                      </Typography>
+                    </CardContent>
+                  <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
+                  </Card>
+                  </Grid>
+                );
+              }): null}
             
             </Grid>
             
@@ -229,101 +235,98 @@ export default function SelectedEvent(props) {
           </Grid>          
 
 {/* Mobile View */}
-          <Grid item xs={4} sx={{display: { xs: 'flex', md: 'none' }}}>
-          <Card sx={{ minWidth: 300 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
-        {strings ? strings.title : null}
-        </Typography>
-        {eventPresentation ? eventPresentation.map(x => {
-          const Download = () => {
-            const link = document.createElement("a");
-            link.download = x.node.name;
-            link.href = x.node.publicURL;
-            link.click();
-          }; 
-              return (
-                <p>
-                  <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    spacing="10px">
-                    <PdfViewer pdf={x.node.publicURL}
-                      onCancel={()=>setShowPdf(false)}
-                      visible={showPdf}
-                      name= {x.node.name}
-                      />
-                    <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
-                    {strings ? strings.display : null}
-                    </Button>
-                  <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
-                  {strings ? strings.download : null}
-                  </Button>
-                  </Stack>
-                 </p>
-              );
-            }): null}
-        <Typography variant="h5" component="div">
-        {specificEvent ? specificEvent.title: null}
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
-
-        </Typography>
-        <Typography variant="body2">
-        {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
-          <br />
-          {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
-          <br />
-          {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
-          <br />
-          {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
-          <br />
-
-        </Typography>
-
-      </CardContent>
-      <CardActions>
-
-  <Button variant="contained"
-    href={specificEvent ? specificEvent.ZoomLink: null}
-    sx={{ bgcolor: green[500] }}
-    endIcon={< VideoLibraryRoundedIcon />}
-    style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
-    {strings ? strings.zoomlink : null}
-  </Button>
-
-      </CardActions>
-      {/* Venue Floorplan Image Please make it pretty :D */}
-      {venueFloorplan ? venueFloorplan.map(x => {
-              return (
-                <Grid container justifyContent='center'>
-                    <Typography variant="h6" component="div">
-                      {/* {strings ? strings.location: null} */}
-                    </Typography>            
-                <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
-                </Grid>
-              );
-            }): null}
-
-          <Grid item>
-            {roomFloorplan ? roomFloorplan.map(x => {
-          return (
-            <Grid container justifyContent='center'>
-                <Typography variant="h6" component="div">
-                  {specificEvent.location} {strings ? strings.floorplan: null}
+          <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={1} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}>
+          <Grid item xs={10}>
+            <Card>
+              <CardContent>
+                {eventPresentation ? eventPresentation.map(x => {
+                  const Download = () => {
+                    const link = document.createElement("a");
+                    link.download = x.node.name;
+                    link.href = x.node.publicURL;
+                    link.click();
+                  }; 
+                      return (
+                        <p>
+                          <Stack
+                            direction="row"
+                            justifyContent="flex-start"
+                            spacing="10px">
+                            <PdfViewer pdf={x.node.publicURL}
+                              onCancel={()=>setShowPdf(false)}
+                              visible={showPdf}
+                              name= {x.node.name}
+                              />
+                            <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
+                              {strings ? strings.display : null}
+                            </Button>
+                            <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
+                              {strings ? strings.download : null}
+                            </Button>
+                          </Stack>
+                        </p>
+                      );
+                    }): null}
+                <Typography variant="h5" component="div">
+                  {specificEvent ? specificEvent.title: null}
                 </Typography>
-            <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
-            </Grid>
-          );
-            }): null}
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
+                </Typography>
+                <Typography variant="body2">
+                  {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
+                  <br />
+                  {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
+                  <br />
+                  {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
+                  <br />
+                  {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
+                  <br />
+                </Typography>
+
+              </CardContent>
+
+              <CardActions>
+                <Button variant="contained"
+                  href={specificEvent ? specificEvent.ZoomLink: null}
+                  sx={{ bgcolor: green[500] }}
+                  endIcon={< VideoLibraryRoundedIcon />}
+                  style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
+                  {strings ? strings.zoomlink : null}
+                </Button>
+              </CardActions>
+
+              {/* Venue Floorplan Image Please make it pretty :D */}
+              {venueFloorplan ? venueFloorplan.map(x => {
+                      return (
+                        <Grid container justifyContent='center'>
+                            <Typography variant="h6" component="div">
+                              {/* {strings ? strings.location: null} */}
+                            </Typography>            
+                        <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
+                        </Grid>
+                      );
+                    }): null}
+
+              <Grid item mb={8}>
+                {roomFloorplan ? roomFloorplan.map(x => {
+                  return (
+                    <Grid container justifyContent='center'>
+                        <Typography variant="h6" component="div">
+                          {specificEvent.location} {strings ? strings.floorplan: null}
+                        </Typography>
+                    <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
+                    </Grid>
+                  );
+                }): null}
             
-            </Grid>
+              </Grid>
 
             </Card>
-            </Grid>
+          </Grid>
+          </Grid>
         </Layout>
     );
 }
 
-export const Head = () => <Seo title="Selected Event" />
+export const Head = () => <Seo title="Event Details" />

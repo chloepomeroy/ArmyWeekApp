@@ -4,12 +4,11 @@ import LocalizedStrings from 'react-localization';
 //Components
 import Faq from "react-faq-component";
 import Layout from "../components/layout"
+import PageTitle from "../components/PageTitle/pageTitle"
 
 //MUI
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 
 let strings = new LocalizedStrings({
@@ -108,15 +107,6 @@ let strings = new LocalizedStrings({
     },
    });
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
-  //This is placeholder data and will need to be filled with actual Questions/Answers
 
 const styles = {
     // bgColor: 'white',
@@ -150,18 +140,18 @@ export default function Help() {
 
     return (
         <Layout>
-            <div
+          <div
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
+          padding: `0 var(--size-gutter)`,
         }}
       >
             <Grid container spacing={2}>
                 <Grid item xs={22}>
-                    <Item>
-                        <h2>{strings.pagetitle}</h2>
-                    </Item>
+                    <PageTitle
+                        title= {strings.pagetitle} 
+                    />
 
                 </Grid>
                 <Grid item xs={12}>
@@ -173,7 +163,7 @@ export default function Help() {
                         />
                     </Box>
                 </Grid>
-                <Box m="auto">
+                <Box m="auto" mb={7}>
                 <h5>{strings.more}</h5>
                 (Phone Number/Email to contact)
                     {/* <Button variant="contained" color="success" href="/contact">
