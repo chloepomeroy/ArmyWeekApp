@@ -40,7 +40,6 @@ export default function VenueInfo(props) {
 
     return (
         <Layout>
-          <div sx={{display: { xs: 'none', md: 'flex' }}}>
           <div
         style={{
           margin: `0 auto`,
@@ -91,10 +90,8 @@ export default function VenueInfo(props) {
               </Card>
             </Grid>
             </Grid>
-            </div> 
             </div>
 
-            <div sx={{display: { xs: 'flex', md: 'none' }}}>
           <div
         style={{
           margin: `0 auto`,
@@ -140,7 +137,6 @@ export default function VenueInfo(props) {
               </Card>
                            
             </Stack>
-            </div>
             </div>
                                 
           
