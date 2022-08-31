@@ -38,8 +38,8 @@ export default function Cal(props) {
 }, [])
 
     return (
-      <Layout>
-      <Grid container spacing={2} alignItems="center" justifyContent="center">     
+      <Layout>        
+      <Grid container spacing={2} alignItems="center" justifyContent="center"> 
          <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}>          
         <FullCalendar
           plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
@@ -74,7 +74,7 @@ export default function Cal(props) {
          <Grid item xs={11} sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
       <FullCalendar
         plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
-        initialView = "timeGridDay"
+        initialView = "listWeek"
         initialDate = "2022-09-12"
         locale= {initialLocaleCode}
         headerToolbar = {{
