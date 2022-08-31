@@ -59,8 +59,11 @@ export default function Cal(props) {
           events = {strings.events[initialLocaleCode]}
           handleWindowResize={true}           
           nowIndicator
+          eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+          slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
           firstDay={1}
-          allDaySlot = {false}
+          allDayText=""
+          allDaySlot = {true}
           contentHeight="auto"
           slotDuration="00:10:00"
           eventOverlap = {false}
@@ -87,13 +90,15 @@ export default function Cal(props) {
         events = {strings.events[initialLocaleCode]}
         handleWindowResize={true}           
         nowIndicator
+        eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
+        slotLabelFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
         firstDay={1}
         allDaySlot = {false}
         contentHeight="auto"
         slotDuration="00:10:00"
         eventOverlap = {false}
         eventClick = {(event) => {var eventId = event.event.id
-          window.location(`/eventDetails/${eventId}`)}}
+          window.open(`/eventDetails/${eventId}`, '_self')}}
       />
        </Grid>
         </Grid>
