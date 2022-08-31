@@ -7,10 +7,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 //Components
 import Layout from "../components/layout";
-import { styled } from '@mui/material/styles';
+import PageTitle from "../components/PageTitle/pageTitle"
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -28,13 +27,6 @@ let strings = new LocalizedStrings({
     }
   })
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
 let dashboard_list = [
     {"title": "Canadian Army Modernization Strategy",
@@ -86,91 +78,90 @@ export default function Metrics() {
             <div
         style={{
           margin: `0 auto`,
-          maxWidth: `600`,
-          padding: `var(--size-gutter)`,
+          maxWidth: `var(--size-content)`,
+          padding: `0 var(--size-gutter)`,
         }}
       >
-        <Item>
-        <h1>{strings? strings.pagetitle: null}</h1>
-        </Item> 
-        <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
+                <PageTitle
+                    title= {strings.pagetitle} 
+                />
+            </div>
+
+            <Grid container spacing={2} alignItems="center" justifyContent="center">
+                <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
         
-        {dashboard_list ? dashboard_list.map(db => {
-            let db_img
-              if(db && db.img){
-                db_img = data.img.edges.filter(edges => edges.node.relativePath === db.img)
-              }
-            return(
-                <Grid item xs={4}>
-                    <Card sx={{ maxWidth: 500 }}>
-                        {db_img ? db_img.map(db_img => {
-                            return (
-                                <Grid container justifyContent='center'>
-                                    <Typography variant="h6" component="div">
-                                        {/* {strings ? strings.location: null} */}
-                                    </Typography>            
-                                    <GatsbyImage image={getImage(db_img.node)} alt={db.title}/>
-                                </Grid>
-                                    );
-                        }): null}
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                            {db.title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            {db.description}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small" href={db.embed_url}>{strings ? strings.view: null}</Button>
-                        </CardActions>
-                    </Card>                
+                    {dashboard_list ? dashboard_list.map(db => {
+                        let db_img
+                        if(db && db.img){
+                            db_img = data.img.edges.filter(edges => edges.node.relativePath === db.img)
+                        }
+                        return(
+                            <Grid item xs={4}>
+                                <Card sx={{ maxWidth: 500 }}>
+                                    {db_img ? db_img.map(db_img => {
+                                        return (
+                                            <Grid container justifyContent='center'>
+                                                <Typography variant="h6" component="div">
+                                                    {/* {strings ? strings.location: null} */}
+                                                </Typography>            
+                                                <GatsbyImage image={getImage(db_img.node)} alt={db.title}/>
+                                            </Grid>
+                                                );
+                                    }): null}
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {db.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {db.description}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" href={db.embed_url}>{strings ? strings.view: null}</Button>
+                                    </CardActions>
+                                </Card>                
+                            </Grid>
+                        )
+                    }): null}
                 </Grid>
-            )
-        }): null}
-        </Grid>
 
-
-        {/* <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}> */}
-        <Stack  direction="column"  justifyContent="flex-start"  alignItems="center"  spacing={4} sx={{display: { xs: 'flex', md: 'none' }}} mt={5}>
-        {dashboard_list ? dashboard_list.map(db => {
-            let db_img
-              if(db && db.img){
-                db_img = data.img.edges.filter(edges => edges.node.relativePath === db.img)
-              }
-            return(
-                <Grid item xs={9}>
-                    <Card sx={{ maxWidth: 500 }}>
-                        {db_img ? db_img.map(db_img => {
-                            return (
-                                <Grid container justifyContent='center'>
-                                    <Typography variant="h6" component="div">
-                                        {/* {strings ? strings.location: null} */}
-                                    </Typography>            
-                                    <GatsbyImage image={getImage(db_img.node)} alt={db.title}/>
-                                </Grid>
-                                    );
-                        }): null}
-                        <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                            {db.title}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                            {db.description}
-                            </Typography>
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small" href={db.embed_url}>{strings ? strings.view: null}</Button>
-                        </CardActions>
-                    </Card>                
-                </Grid>
-            )
-        }): null}
-        </Stack>
-        {/* </Grid> */}
-        </Grid>
-        </div>
+{/* Mobile */}
+                <Stack  direction="column"  justifyContent="flex-start"  alignItems="center"  spacing={4} mb={7} sx={{display: { xs: 'flex', md: 'none' }}} mt={5}>
+                    {dashboard_list ? dashboard_list.map(db => {
+                        let db_img
+                        if(db && db.img){
+                            db_img = data.img.edges.filter(edges => edges.node.relativePath === db.img)
+                        }
+                        return(
+                            <Grid item xs={10}>
+                                <Card sx={{ maxWidth: 500 }}>
+                                    {db_img ? db_img.map(db_img => {
+                                        return (
+                                            <Grid container justifyContent='center'>
+                                                <Typography variant="h6" component="div">
+                                                    {/* {strings ? strings.location: null} */}
+                                                </Typography>            
+                                                <GatsbyImage image={getImage(db_img.node)} alt={db.title}/>
+                                            </Grid>
+                                                );
+                                    }): null}
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="div">
+                                            {db.title}
+                                        </Typography>
+                                        <Typography variant="body2" color="text.secondary">
+                                            {db.description}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button size="small" href={db.embed_url}>{strings ? strings.view: null}</Button>
+                                    </CardActions>
+                                </Card>                
+                            </Grid>
+                        )
+                    }): null}
+                </Stack>
+            </Grid>
         </Layout>
     )
 }
