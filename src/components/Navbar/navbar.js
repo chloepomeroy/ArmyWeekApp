@@ -37,6 +37,13 @@ let strings = new LocalizedStrings({
   }
 })
 
+const buttonSX = {
+  ':hover': {
+    bgcolor: 'white', // theme.palette.primary.main
+    color: 'green',
+  },
+}
+
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -119,8 +126,11 @@ const ResponsiveAppBar = () => {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
-              color: 'inherit',
+              color: 'white',
               textDecoration: 'none',
+              ':hover': {
+                color: 'lightgreen',
+              },
             }}
           >
             {strings.title}
@@ -161,16 +171,16 @@ const ResponsiveAppBar = () => {
                 <MenuItem>
                   <Router>
                       <Stack spacing={2}>
-                        <Button href="/calendar" color="success" target="_self" variant="contained">
+                        <Button href="/calendar" color="success" target="_self" variant="text">
                         {strings?strings.Calendar: null}
                         </Button>
-                        <Button href="/venueinfo" color="success" target="_self" variant="contained">
+                        <Button href="/venueinfo" color="success" target="_self" variant="text">
                         {strings?strings.Venueinfo: null}
                         </Button>
-                        <Button href="/dashboards" color="success" target="_self" variant="contained">
+                        <Button href="/dashboards" color="success" target="_self" variant="text">
                         {strings?strings.dashboards: null}
                         </Button>
-                        <Button href="/faq" color="success" target="_self" variant="contained">
+                        <Button href="/faq" color="success" target="_self" variant="text">
                         {strings?strings.Help: null}
                         </Button>
                         </Stack>
@@ -187,7 +197,7 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'block', s: 'block', md: 'none' },
+              display: { xs: 'flex', s: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -198,20 +208,20 @@ const ResponsiveAppBar = () => {
           >
             {strings? strings.title: null}
           </Typography>
-          <Box sx={{ flexGrow: 5, display: { xs: 'none', s: 'none', md: 'flex'} }}>
-            <ButtonGroup spacing={2} direction="row" variant="contained" aria-label="outlined primary button group">
+          <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
+            <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
                     <Router>
-                    <Button href="/calendar" color="success" target="_top" variant="contained">
+                    <Button href="/calendar" color="success" target="_top" variant="contained" sx={buttonSX}>
                         {strings? strings.Calendar: null}
                         </Button>
-                        <Button href="/venueinfo" color="success" target="_top" variant="contained">
+                        <Button href="/venueinfo" color="success" target="_top" variant="contained" sx={buttonSX}>
                         {strings? strings.Venueinfo: null}
                         </Button>
-                        <Button href="/dashboards" color="success" target="_top" variant="contained">
+                        <Button href="/dashboards" color="success" target="_top" variant="contained" sx={buttonSX}>
                         {strings?strings.dashboards: null}
                         </Button>
-                        <Button href="/faq" color="success" target="_top" variant="contained">
+                        <Button href="/faq" color="success" target="_top" variant="contained" sx={buttonSX}>
                         {strings? strings.Help: null}
                         </Button>
                     </Router>
