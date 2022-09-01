@@ -44,7 +44,7 @@ let dashboard_list = [
     {"title": "CA Interactive Org Chart",
     "description": "See how the CA is structured and where the various organizations are located.",
     "file_title": "CA Org Structure",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=789dcf29-c678-4725-8206-c5d0aaaa62e4&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=dad185ad-5fd1-4c2f-b56d-bbc512e52025&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
     "img": "orgstructss.JPG"
     },
     {"title": "Commander and Senior Leader Dashboard",
