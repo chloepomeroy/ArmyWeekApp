@@ -29,10 +29,10 @@ let strings = new LocalizedStrings({
                     or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to 
                     register for the Zoom Webinar.`,
             },
-            {
-                title: "How do I check in to an event?",
-                content: `Scan the QR Code on your phone and you'll be redirected to a page that will ask you to type your name.`,
-            },
+            // {
+            //     title: "How do I check in to an event?",
+            //     content: `Scan the QR Code on your phone and you'll be redirected to a page that will ask you to type your name.`,
+            // },
             {
                 title: "Where can I see the event's location?",
                 content: `From the calendar you can click on a particular event which will show you further information about that event, 
@@ -40,7 +40,7 @@ let strings = new LocalizedStrings({
             },
             {
                 title: "How can I contact the event's organizer?",
-                content: `If you have questions not answered by this FAQ yoou can contact the organizers at (email address).` ,
+                content: `If you have questions not answered by this FAQ you can contact the organizers at (email address).` ,
             },
             {
                 title: "What Covid protocols are in place?",
@@ -95,13 +95,13 @@ let strings = new LocalizedStrings({
                 Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
                 Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
             },
-            {
-                title: "How do I 'Check in' to an event?",
-                content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-                Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-                Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-                Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
-            },
+            // {
+            //     title: "How do I 'Check in' to an event?",
+            //     content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
+            //     Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
+            //     Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
+            //     Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
+            // },
         ],
     },
     },

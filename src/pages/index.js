@@ -38,7 +38,7 @@ export default function IndexPage(props) {
 
     <div className={styles.textCenter}>
       <StaticImage
-        src="../images/army-week-logo-black-font.svg"
+        src="../images/army-week-logo-black-font.jpg"
         loading="eager"
         width={350}
         quality={95}
