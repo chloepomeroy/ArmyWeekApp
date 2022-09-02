@@ -29,30 +29,36 @@ let strings = new LocalizedStrings({
 
 
 let dashboard_list = [
+    {"title": "2022 Army Week Registration",
+    "description": "Take a look at Army Week attendance metrics.",
+    "file_title": "2022 Army Week Registration",
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+    "img": "armyweekregss.JPG"
+    },
     {"title": "Canadian Army Modernization Strategy",
     "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
     "file_title": "CAMS Placemat Desktop",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiN2JhYTIwZGQtMDlhMS00ZjA3LTk4YzMtYTg4ZjA0ZGQ4MzY3IiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
     "img": "camsss.JPG"
     },
     {"title": "Army 101 Dashboard",
     "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
     "file_title": "Army 101",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiMTQ2NWIwMDAtN2I5ZS00MjJmLWExNGYtNGI2ZGZlOGRlNjAzIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
     "img": "army101ss.JPG"
     },
     {"title": "CA Interactive Org Chart",
     "description": "See how the CA is structured and where the various organizations are located.",
     "file_title": "CA Org Structure",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=dad185ad-5fd1-4c2f-b56d-bbc512e52025&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-    "img": "orgstructss.JPG"
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiM2IzMDdlYzQtODg0MC00YWYwLWJjNjAtNjI1MmE2NTBlMTJhIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9&pageName=ReportSection",
+    "img": "orgstructss.jpg"
     },
     {"title": "Commander and Senior Leader Dashboard",
     "description": "Peruse the Commander and Senior Leader Bios of the CA.",
     "file_title": "CA General Officers",
-    "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
     "img": "CAGenOffss.JPG"
-    }
+    },
 ]
 
 export default function Metrics() {
@@ -88,7 +94,7 @@ export default function Metrics() {
             </div>
 
             <Grid container spacing={2} alignItems="center" justifyContent="center">
-                <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
+                <Grid container spacing={5} alignItems="flex-start" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
         
                     {dashboard_list ? dashboard_list.map(db => {
                         let db_img
@@ -97,7 +103,7 @@ export default function Metrics() {
                         }
                         return(
                             <Grid item xs={4}>
-                                <Card sx={{ maxWidth: 500 }}>
+                                <Card sx={{ maxWidth: 500}}>
                                     {db_img ? db_img.map(db_img => {
                                         return (
                                             <Grid container justifyContent='center'>
