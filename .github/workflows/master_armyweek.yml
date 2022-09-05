@@ -28,7 +28,7 @@ jobs:
       
       # Zip artifacts to speed things up
       - name: Zip artifact for deployment
-        run: zip -r release.zip *
+        run: zip -r release.zip * server
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
