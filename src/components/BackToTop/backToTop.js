@@ -54,7 +54,7 @@ export default function BackToTop(props) {
       <CssBaseline />
       <AppBar>
       </AppBar>
-      <Toolbar id="back-to-top-anchor" />
+      <Toolbar id="back-to-top-anchor" style={{minHeight: '10px'}} />
       <Container>
         <Box sx={{ my: 2 }}>
           {[...new Array(12)]
