@@ -1,40 +1,40 @@
 module.exports = {
   siteMetadata: {
-    title: `Home`,
-    description: `Army Week 2022`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: "AGM",
+    description: "Army Governance Management System",
+    author: "@DAS",
+    siteUrl: "https://armyweek.azurewebsites.net/",
   },
   plugins: [
-    `gatsby-plugin-image`,
+    "gatsby-plugin-image",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-json`,
+    "gatsby-transformer-json",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/`,
+        path: "./src/data/",
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
+        name: "Army Governance Management System",
+        short_name: "AGM",
+        start_url: "/",
+        background_color: "green",
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        theme_color: `#319197`,
-        display: `minimal-ui`,
-        icon: `src/images/army-week-logo-black-font.jpg`, // This path is relative to the root of the site.
+        theme_color: "green",
+        display: "standalone",
+        icon: "./src/images/icon.png"
       },
     },
   ],
