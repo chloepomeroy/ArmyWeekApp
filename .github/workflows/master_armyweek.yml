@@ -20,11 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
       
       # Zip artifacts to speed things up
       - name: Zip artifact for deployment
@@ -59,4 +54,4 @@ jobs:
           app-name: 'ArmyWeek'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_40C7860C75994701BD82B2A2FEDFB30D }}
-          package: .
+          package: 
