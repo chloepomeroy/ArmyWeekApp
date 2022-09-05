@@ -46,7 +46,7 @@ export default function IndexPage(props) {
             quality={95}
             formats={["auto", "webp", "avif"]}
             alt=""
-            style={{ marginTop: `var(--space-1)` }}
+            style={{ marginTop: `var(--space-1)`, marginLeft: '-12px'}}
           />
 
           <h1>
