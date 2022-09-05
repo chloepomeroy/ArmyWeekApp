@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import LocalizedStrings from 'react-localization';
 
@@ -22,12 +22,12 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import { DownloadRounded } from "@mui/icons-material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 //import the events JSON
 var en = require('../../data/enevents.json').events;
 var fr = require('../../data/frevents.json').events;
-
 
 let strings = new LocalizedStrings({
   en: {
@@ -123,22 +123,14 @@ export default function SelectedEvent(props) {
 
   const [showPdf, setShowPdf] = useState(false)
 
-     return (   
-        <Layout>
-          <div
-            style={{
-              margin: `0 auto`,
-              maxWidth: `var(--size-content)`,
-              padding: `0 var(--size-gutter)`,
-            }}
-          >
-            <PageTitle
-              title= {strings.pagetitle} 
-            />
-          </div>
-
+     return (
+        <Layout>        
+        
           {/* Desktop view */}
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
+            <Grid item>
+              <ArrowBackIcon color="black" style={{marginRight: '30px'}} onClick={() => navigate(-1)} />
+            </Grid>
             <Grid item xs={4}>
               <Card sx={{ minWidth: 300 }}>
                 <CardContent>
@@ -234,9 +226,12 @@ export default function SelectedEvent(props) {
           
           </Grid>          
 
-{/* Mobile View */}
-          <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={1} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}>
+          {/* Mobile View */}
+          <ArrowBackIcon color="black" align="left" onClick={() => navigate(-1)} style={{marginLeft: '5px', fontSize: 'xx-large'}}/>
+          <Grid container spacing={0} alignItems="flex-start" justifyContent="center" mt={1} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}>
+        
           <Grid item xs={10}>
+          
             <Card>
               <CardContent>
                 {eventPresentation ? eventPresentation.map(x => {
@@ -300,9 +295,7 @@ export default function SelectedEvent(props) {
               {venueFloorplan ? venueFloorplan.map(x => {
                       return (
                         <Grid container justifyContent='center'>
-                            <Typography variant="h6" component="div">
-                              {/* {strings ? strings.location: null} */}
-                            </Typography>            
+                                   
                         <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
                         </Grid>
                       );
@@ -312,9 +305,9 @@ export default function SelectedEvent(props) {
                 {roomFloorplan ? roomFloorplan.map(x => {
                   return (
                     <Grid container justifyContent='center'>
-                        <Typography variant="h6" component="div">
-                          {specificEvent.location} {strings ? strings.floorplan: null}
-                        </Typography>
+                      <Typography variant="h6" component="div">
+                      {specificEvent.location} {strings ? strings.floorplan: null}
+                      </Typography>
                     <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
                     </Grid>
                   );
@@ -325,6 +318,7 @@ export default function SelectedEvent(props) {
             </Card>
           </Grid>
           </Grid>
+          
         </Layout>
     );
 }

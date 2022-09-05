@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 
+const browser = typeof window !== "undefined" && window;
 
 const links = [
   {
@@ -33,63 +34,65 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 
 export default function IndexPage(props) {
   return(
-  <Layout>
-    <Seo title="Home" />
+    browser && (
+      <Layout>
+        <Seo title="Home" />
 
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/army-week-logo-black-font.jpg"
-        loading="eager"
-        width={350}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginTop: `var(--space-1)` }}
-      />
+        <div className={styles.textCenter}>
+          <StaticImage
+            src="../images/army-week-logo-black-font.jpg"
+            loading="eager"
+            width={350}
+            quality={95}
+            formats={["auto", "webp", "avif"]}
+            alt=""
+            style={{ marginTop: `var(--space-1)` }}
+          />
 
-      <h1>
-      <b> Welcome to Army Week</b>
-      </h1>
+          <h1>
+          <b> Welcome to Army Week</b>
+          </h1>
 
-      <p className={styles.intro}>
-       {" "}
-        {samplePageLinks.map((link, i) => (
+          <p className={styles.intro}>
+          {" "}
+            {samplePageLinks.map((link, i) => (
+              <React.Fragment key={link.url}>
+                <Link to={link.url}>{link.text}</Link>
+                {i !== samplePageLinks.length - 1 && <> · </>}
+              </React.Fragment>
+            ))}
+          </p>
+        
+
+        {/* <ul className={styles.intro}>
+          {links.map(link => (
+            <li key={link.url} className={styles.intro}>
+              <a
+                className={styles.listItemLink}
+                href={`${link.url}${utmParameters}`}
+              >
+                {link.text} ↗
+              </a>
+              <p className={styles.listItemDescription}
+              >{link.description}</p>
+            </li>
+          ))}
+        </ul> */}
+        </div>
+        
+        {moreLinks.map((link, i) => (
           <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
+            <p className={styles.intro}></p>
+            <a href={`${link.url}${utmParameters}`}
+            >
+              {link.text}
+            </a>
+            {i !== moreLinks.length - 1 && <> · </>}
           </React.Fragment>
         ))}
-      </p>
-    
 
-    {/* <ul className={styles.intro}>
-      {links.map(link => (
-        <li key={link.url} className={styles.intro}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}
-          >{link.description}</p>
-        </li>
-      ))}
-    </ul> */}
-    </div>
-    
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-         <p className={styles.intro}></p>
-        <a href={`${link.url}${utmParameters}`}
-        >
-          {link.text}
-        </a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-
-  </Layout>
+      </Layout>
+    )
 )}
 
 // const Head = () => <Seo title="Home" />
