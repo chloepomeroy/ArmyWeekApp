@@ -75,17 +75,6 @@ export default function Metrics() {
 
     return (
         <Layout>
-            <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `0 var(--size-gutter)`,
-        }}
-      >
-                <PageTitle
-                    title= {strings.pagetitle} 
-                />
-            </div>
 
             <Grid container spacing={2} alignItems="center" justifyContent="center">
                 <Grid container spacing={5} alignItems="center" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>

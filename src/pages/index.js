@@ -1,11 +1,21 @@
 import * as React from "react"
 
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
+import BusinessIcon from '@mui/icons-material/Business'
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import LiveHelpIcon from '@mui/icons-material/LiveHelp';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
+import Grid from '@mui/material/Grid'
+import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
 const browser = typeof window !== "undefined" && window;
 
@@ -22,7 +32,8 @@ const samplePageLinks = [
 { text: "Calendar", url: "calendar" },
 { text: "Venue info", url: "venueinfo"},
 { text: "Dashboards", url: "dashboards"},
-{ text: "FAQ", url: "faq" }
+{ text: "FAQ", url: "faq" },
+{ text: "Presentations", url: "presentations"}
 ]
 
 
@@ -63,6 +74,50 @@ export default function IndexPage(props) {
             ))}
           </p>
         
+          <Grid container spacing={3} justifyContent="space-around" alignItems="center">
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
+              <Stack direction="row" spacing={2}>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/calendar")}>
+                  <CalendarMonthIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                    Agenda
+                  </Typography>
+                </Button>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/venueinfo")}>
+                  <BusinessIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                    Venue Info
+                  </Typography>
+                </Button>
+              </Stack>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
+              <Stack direction="row" spacing={2}>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/dashboards")}>
+                  <AssessmentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                    Dashboards
+                  </Typography>
+                </Button>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/faq")}>
+                  <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                    Support
+                  </Typography>
+                </Button>
+              </Stack>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
+              <Stack direction="row" spacing={2}>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/dashboards")}>
+                  <CoPresentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                    Presentations
+                  </Typography>
+                </Button>
+              </Stack>
+            </Grid>
+          </Grid>
 
         {/* <ul className={styles.intro}>
           {links.map(link => (

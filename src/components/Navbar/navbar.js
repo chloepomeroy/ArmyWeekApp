@@ -109,7 +109,6 @@ const ResponsiveAppBar = () => {
     },
   });
 
-
   return (
 
     <AppBar position="static" color="success">

@@ -32,19 +32,7 @@ export default function VenueInfo(props) {
 
     return (
         <Layout>
-          <div
-          style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `0 var(--size-gutter)`,
-          }}
-          >
-            <PageTitle
-              title= {strings.pagetitle}
-            />
-
-            </div>      
-
+          
           {/* <Grid container spacing={2} alignItems="center" justifyContent="center" m={3}> */}
 
 {/* Desktop */}         

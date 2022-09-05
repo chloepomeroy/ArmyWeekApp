@@ -140,20 +140,8 @@ export default function Help() {
 
     return (
         <Layout>
-          <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `0 var(--size-gutter)`,
-        }}
-      >
+         
             <Grid container spacing={2}>
-                <Grid item xs={22}>
-                    <PageTitle
-                        title= {strings.pagetitle} 
-                    />
-
-                </Grid>
                 <Grid item xs={12}>
                     <Box m={5}>
                         <Faq
@@ -171,7 +159,6 @@ export default function Help() {
                     </Button> */}
                 </Box>
             </Grid>
-        </div>
         </Layout>
     );
 }
