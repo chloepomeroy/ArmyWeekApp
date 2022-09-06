@@ -11,19 +11,22 @@ import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import { CardHeader } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
 let strings = new LocalizedStrings({
     en: {pagetitle: "Venue Info",
-    address: "Ottawa Conference and Event Centre, 200 Coventry Road, Ottawa, ON",
+    name: "Ottawa Conference and Event Centre",
+    address: "200 Coventry Road, Ottawa, ON",
     moreinfo: "More Information",
-    floorplantitle: "Floorplan"
+    floorplantitle: "Facilities Floorplan"
     },
     fr: {
         pagetitle: "Informations sur le lieu",
-        address: "Ottawa Conference and Event Centre, 200 Coventry Road, Ottawa, ON",
+        name: "Ottawa Conference and Event Centre",
+        address: "200 Coventry Road, Ottawa, ON",
         moreinfo: "Plus d'information",
-        floorplantitle: "Plan d'étage"
+        floorplantitle: "Plan d'étage d'installation"
     }
 })
 
@@ -39,7 +42,12 @@ export default function VenueInfo(props) {
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
             <Grid item xs={4}>
               <Card sx={{ maxWidth: 650 }}>
-              <Grid container justifyContent="center">
+              <CardHeader
+                title={strings? strings.name : null}
+                subheader={strings? strings.address : null}
+              />
+              <CardContent>
+                <Grid container justifyContent="center">
                 <iframe
                   title="Venue"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.420185993698!2d-75.6567551!3d45.4210305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0579e9f90d19%3A0x9f5ab468c23b6b6!2s200%20Coventry%20Rd%2C%20Ottawa%2C%20ON%20K1K%204S3!5e0!3m2!1sen!2sca!4v1661179337038!5m2!1sen!2sca"
@@ -50,10 +58,6 @@ export default function VenueInfo(props) {
                   loading="lazy"
                 ></iframe>
                 </Grid>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  <h5>{strings? strings.address: null}</h5>
-                </Typography>
               </CardContent>
               <CardActions>
                 <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
@@ -61,17 +65,24 @@ export default function VenueInfo(props) {
               </Card>          
             </Grid>
 
-            <Grid item xs={4}>
-            <h3>{strings.floorplantitle}</h3>
+            <Grid item xs={4} style={{marginTop: '30px'}}>
+              <h3>{strings ? strings.floorplantitle : null}</h3>
 
               <Card sx={{ maxWidth: 450 }}>
-                <StaticImage src="../images/floor1.jpg" alt="floorplan" />
+              <CardContent>
+                <StaticImage src="../images/floor1.jpg" alt="1st floor" />
+              </CardContent>
+              </Card>
+
+              <Card sx={{ maxWidth: 450 }}>
+                <CardContent>
+                  <StaticImage src="../images/floor2.jpg" alt="2nd floor" /> 
+                </CardContent>
               </Card>
               <Card sx={{ maxWidth: 450 }}>
-                <StaticImage src="../images/floor2.jpg" alt="floorplan" /> 
-              </Card>
-              <Card sx={{ maxWidth: 450 }}>
-                <StaticImage src="../images/floor3.jpg" alt="floorplan" />
+                <CardContent>
+                  <StaticImage src="../images/floor3.jpg" alt="3rd floor" />
+                </CardContent>
               </Card>
             </Grid>
             </Grid>
@@ -93,40 +104,46 @@ export default function VenueInfo(props) {
           >
             <Stack justifyContent="center" spacing="10px" mb = {7} xs = {10} sx={{display: { xs: 'flex', md: 'none' }}}>              
               <Card sx={{ maxWidth: 450 }}>
-                <Grid container justifyContent="center">
-                  <iframe
-                    title="Venue"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.420185993698!2d-75.6567551!3d45.4210305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0579e9f90d19%3A0x9f5ab468c23b6b6!2s200%20Coventry%20Rd%2C%20Ottawa%2C%20ON%20K1K%204S3!5e0!3m2!1sen!2sca!4v1661179337038!5m2!1sen!2sca"
-                    width="400"
-                    height="300"
-                    style={{ border: "0" }}
-                    allowfullscreen=""
-                    loading="lazy"
-                  ></iframe>
-                </Grid>
+              <CardHeader
+                title={strings? strings.name : null}
+                subheader={strings? strings.address : null}
+              />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    <h5>{strings? strings.address: null}</h5>
-                  </Typography>
+                  <Grid container justifyContent="center">
+                    <iframe
+                      title="Venue"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.420185993698!2d-75.6567551!3d45.4210305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0579e9f90d19%3A0x9f5ab468c23b6b6!2s200%20Coventry%20Rd%2C%20Ottawa%2C%20ON%20K1K%204S3!5e0!3m2!1sen!2sca!4v1661179337038!5m2!1sen!2sca"
+                      width="400"
+                      height="300"
+                      style={{ border: "0" }}
+                      allowfullscreen=""
+                      loading="lazy"
+                    ></iframe>
+                  </Grid>
                 </CardContent>
                 <CardActions>
                   <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
                 </CardActions>
               </Card>              
               
-                <h3>{strings.floorplantitle}</h3>                
-                
-              <Card sx={{ maxWidth: 450 }}>              
-                <StaticImage src="../images/floor1.jpg" alt="floorplan" />
-              </Card>                
-                
-              <Card sx={{ maxWidth: 450 }}>   
-                <StaticImage src="../images/floor2.jpg" alt="floorplan" /> 
-              </Card>                
-                
-              <Card sx={{ maxWidth: 450 }} mb={7}>  
-                <StaticImage src="../images/floor3.jpg" alt="floorplan" />
-              </Card>             
+              <h3>{strings ? strings.floorplantitle : null}</h3>
+
+              <Card sx={{ maxWidth: 450 }}>
+              <CardContent>
+                <StaticImage src="../images/floor1.jpg" alt="1st floor" />
+              </CardContent>
+              </Card>
+
+              <Card sx={{ maxWidth: 450 }}>
+                <CardContent>
+                  <StaticImage src="../images/floor2.jpg" alt="2nd floor" /> 
+                </CardContent>
+              </Card>
+              <Card sx={{ maxWidth: 450 }}>
+                <CardContent>
+                  <StaticImage src="../images/floor3.jpg" alt="3rd floor" />
+                </CardContent>
+              </Card>    
                             
             </Stack> 
           </div>
