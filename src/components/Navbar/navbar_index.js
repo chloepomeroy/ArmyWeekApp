@@ -190,30 +190,6 @@ const ResponsiveAppBar = ({pageTitle}) => {
             </Menu>
           </Box>
 
-          <Grid container alignItems="center" justifyContent="center" sx={{ display: { xs: 'flex', s: 'flex', md: 'none' } }}>
-            <Grid item sx={4}>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', s: 'flex', md: 'none' },
-              flexGrow: 1,
-              align: 'center',
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            {pageTitle}
-          </Typography>
-          </Grid>
-          </Grid>
-
           <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
