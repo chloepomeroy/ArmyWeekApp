@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
@@ -112,7 +113,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
   return (
 
     <AppBar position="static" color="success">
-      <Container maxWidth="xl" color="#43A047">
+      <Container maxWidth="xl" color="#43A047">        
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -189,6 +190,8 @@ const ResponsiveAppBar = ({pageTitle}) => {
             </Menu>
           </Box>
 
+          <Grid container alignItems="center" justifyContent="center">
+            <Grid item sx={4}>
           <Typography
             variant="h5"
             noWrap
@@ -196,9 +199,9 @@ const ResponsiveAppBar = ({pageTitle}) => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: 'flex', s: 'flex', md: 'none' },
               flexGrow: 1,
-              textAlign: "center",
+              align: 'center',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -208,6 +211,9 @@ const ResponsiveAppBar = ({pageTitle}) => {
           >
             {pageTitle}
           </Typography>
+          </Grid>
+          </Grid>
+
           <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
