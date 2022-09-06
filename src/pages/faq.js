@@ -19,14 +19,14 @@ let strings = new LocalizedStrings({
         rows: [
             {
                 title: "Where can I find the presentation?",
-                content: `From the calendar you can click on a particular event which will show you further information about that event, 
+                content: `From the calendar you can click on a particular event which will show you further information about that event,
                 including the presentation.`,
             },
             {
                 title: "Do I need to register?",
                 content:
-                    `Yes, you need to register for the Zoom Webinar for each part of army week, regardless if you are participating virtually 
-                    or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to 
+                    `Yes, you need to register for the Zoom Webinar for each part of army week, regardless if you are participating virtually
+                    or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to
                     register for the Zoom Webinar.`,
             },
             // {
@@ -35,7 +35,7 @@ let strings = new LocalizedStrings({
             // },
             {
                 title: "Where can I see the event's location?",
-                content: `From the calendar you can click on a particular event which will show you further information about that event, 
+                content: `From the calendar you can click on a particular event which will show you further information about that event,
                 including the location.` ,
             },
             {
@@ -153,7 +153,8 @@ export default function Help() {
                 </Grid>
                 <Box m="auto" mb={7}>
                 <h5>{strings.more}</h5>
-                (Phone Number/Email to contact)
+                (Phone:
+                Email: +CA Analytics - AC Analytique@C Army Dir Army Staff@Ottawa-Hull P-OTG.CAAnalytics@intern.mil.ca)
                     {/* <Button variant="contained" color="success" href="/contact">
                     Contact Us
                     </Button> */}

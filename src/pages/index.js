@@ -19,6 +19,9 @@ import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
+
+
+
 const browser = typeof window !== "undefined" && window;
 
 let strings = new LocalizedStrings({
@@ -51,7 +54,6 @@ const samplePageLinks = [
 const moreLinks = [
 
 ]
-
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 export default function IndexPage(props) {
@@ -72,11 +74,11 @@ export default function IndexPage(props) {
             style={{ marginTop: `var(--space-1)`, marginLeft: '-12px'}}
           />
 
-          <h1>
+          {/* <h1>
           <b> Welcome to Army Week</b>
-          </h1>
+          </h1> */}
 
-          <p className={styles.intro}>
+          {/* <p className={styles.intro}>
           {" "}
             {samplePageLinks.map((link, i) => (
               <React.Fragment key={link.url}>
@@ -84,36 +86,41 @@ export default function IndexPage(props) {
                 {i !== samplePageLinks.length - 1 && <> · </>}
               </React.Fragment>
             ))}
-          </p>
-        
+          </p> */}
+
           <Grid container spacing={3} justifyContent="space-around" alignItems="center">
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
               <Stack direction="row" spacing={2}>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/calendar")}>
+
+                <Button variant="extended" style={{flexDirection: 'column', minWidth: '136px', color: 'white'}} onClick={() => navigate("/calendar")}>
                   <CalendarMonthIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                  <Typography variant="body" style={{color: 'black'}}  >
                     Agenda
                   </Typography>
                 </Button>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/venueinfo")}>
+
+                <Button variant="extended" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}}
+                onClick={() => navigate("/venueinfo")}>
                   <BusinessIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                  <Typography variant="body" style={{color: 'black'}}  >
                     Venue Info
                   </Typography>
                 </Button>
               </Stack>
             </Grid>
+
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
               <Stack direction="row" spacing={2}>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/dashboards")}>
+              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}}
+                onClick={() => navigate("/dashboards")}>
                   <AssessmentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                  <Typography variant="body" style={{color: 'black'}}  >
                     Dashboards
                   </Typography>
                 </Button>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/faq")}>
+                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
                   <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                  <Typography variant="body" style={{color: 'black'}}  >
                     Support
                   </Typography>
                 </Button>
@@ -121,17 +128,16 @@ export default function IndexPage(props) {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
               <Stack direction="row" spacing={2}>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '0.5px solid green'}} onClick={() => navigate("/dashboards")}>
+              <Button variant= "text" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>
                   <CoPresentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                  <Typography variant="body1" style={{color: 'darkgreen'}}>
+                  <Typography variant="body" style={{color: 'black'}}  >
                     Presentations
                   </Typography>
                 </Button>
               </Stack>
             </Grid>
           </Grid>
-
-        {/* <ul className={styles.intro}>
+                  {/* <ul className={styles.intro}>
           {links.map(link => (
             <li key={link.url} className={styles.intro}>
               <a
@@ -146,7 +152,7 @@ export default function IndexPage(props) {
           ))}
         </ul> */}
         </div>
-        
+
         {moreLinks.map((link, i) => (
           <React.Fragment key={link.url}>
             <p className={styles.intro}></p>
@@ -156,6 +162,7 @@ export default function IndexPage(props) {
             </a>
             {i !== moreLinks.length - 1 && <> · </>}
           </React.Fragment>
+
         ))}
 
 </Grid>
