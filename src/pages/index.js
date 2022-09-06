@@ -7,6 +7,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
+import ResponsiveAppBar from "../components/Navbar/navbar_index";
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import BusinessIcon from '@mui/icons-material/Business'
@@ -56,7 +57,8 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 export default function IndexPage(props) {
   return(
     browser && (
-      <Layout pageTitle="ARMY WEEK 2022">
+      <Grid>
+      <ResponsiveAppBar pageTitle={strings? strings.pagetitle: null}/>
         <Seo title="Home" />
 
         <div className={styles.textCenter}>
@@ -156,7 +158,7 @@ export default function IndexPage(props) {
           </React.Fragment>
         ))}
 
-      </Layout>
+</Grid>
     )
 )}
 
