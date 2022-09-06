@@ -124,7 +124,7 @@ export default function SelectedEvent(props) {
   const [showPdf, setShowPdf] = useState(false)
 
      return (
-        <Layout>        
+        <Layout pageTitle={strings ? strings.pagetitle: null}>        
         
           {/* Desktop view */}
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>

@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
@@ -23,13 +24,13 @@ import { Stack } from '@mui/material';
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 let strings = new LocalizedStrings({
-  en: {Calendar: "Calendar",
+  en: {Calendar: "Agenda",
   Venueinfo: "Venue Info",
   Help: "Help",
   dashboards: "Dashboards",
   title: "ARMY WEEK 2022"
   },
-  fr: {Calendar: "Calendrier",
+  fr: {Calendar: "Agenda",
   Venueinfo: "Informations sur le lieu",
   Help: "Aide",
   dashboards: "Tableaux de bord",
@@ -45,7 +46,7 @@ const buttonSX = {
 }
 
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({pageTitle}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -112,7 +113,7 @@ const ResponsiveAppBar = () => {
   return (
 
     <AppBar position="static" color="success">
-      <Container maxWidth="xl" color="#43A047">
+      <Container maxWidth="xl" color="#43A047">        
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -121,7 +122,7 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', s: 'none', md: 'flex' },
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -132,7 +133,7 @@ const ResponsiveAppBar = () => {
               },
             }}
           >
-            {strings.title}
+            {pageTitle}
           </Typography>
 
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
@@ -189,6 +190,8 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
 
+          <Grid container alignItems="center" justifyContent="center">
+            <Grid item sx={4}>
           <Typography
             variant="h5"
             noWrap
@@ -198,6 +201,7 @@ const ResponsiveAppBar = () => {
               mr: 2,
               display: { xs: 'flex', s: 'flex', md: 'none' },
               flexGrow: 1,
+              align: 'center',
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -205,8 +209,11 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            {strings? strings.title: null}
+            {pageTitle}
           </Typography>
+          </Grid>
+          </Grid>
+
           <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
