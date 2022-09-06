@@ -226,9 +226,9 @@ export default function SelectedEvent(props) {
           
           </Grid>          
 
-          {/* Mobile View */}
-          <ArrowBackIcon color="black" align="left" onClick={() => navigate(-1)} style={{marginLeft: '5px', fontSize: 'xx-large'}}/>
+          {/* Mobile View */}          
           <Grid container spacing={0} alignItems="flex-start" justifyContent="center" mt={1} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}>
+          <ArrowBackIcon color="black" align="left" onClick={() => navigate(-1)} style={{marginLeft: '5px', fontSize: 'xx-large'}}/>
         
           <Grid item xs={10}>
           
