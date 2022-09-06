@@ -9,6 +9,7 @@ import PageTitle from "../components/PageTitle/pageTitle"
 //MUI
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 
 let strings = new LocalizedStrings({
@@ -140,8 +141,8 @@ export default function Help() {
 
     return (
         <Layout pageTitle={strings ? strings.pagetitle: null}>
-         
-            <Grid container spacing={2}>
+     
+            <Grid container spacing={2} textAlign="center">
                 <Grid item xs={12}>
                     <Box m={5}>
                         <Faq
@@ -153,8 +154,8 @@ export default function Help() {
                 </Grid>
                 <Box m="auto" mb={7}>
                 <h5>{strings.more}</h5>
-                (Phone:
-                Email: +CA Analytics - AC Analytique@C Army Dir Army Staff@Ottawa-Hull P-OTG.CAAnalytics@intern.mil.ca)
+                <div>Send an Email to<br /><h5>+CA Analytics - AC Analytique@C Army Dir Army Staff@Ottawa-Hull P-OTG.CAAnalytics@intern.mil.ca</h5>
+                </div>
                     {/* <Button variant="contained" color="success" href="/contact">
                     Contact Us
                     </Button> */}
