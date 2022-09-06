@@ -24,13 +24,13 @@ import { Stack } from '@mui/material';
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
 let strings = new LocalizedStrings({
-  en: {Calendar: "Calendar",
+  en: {Calendar: "Agenda",
   Venueinfo: "Venue Info",
   Help: "Help",
   dashboards: "Dashboards",
   title: "ARMY WEEK 2022"
   },
-  fr: {Calendar: "Calendrier",
+  fr: {Calendar: "Agenda",
   Venueinfo: "Informations sur le lieu",
   Help: "Aide",
   dashboards: "Tableaux de bord",

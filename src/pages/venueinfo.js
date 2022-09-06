@@ -15,14 +15,14 @@ import { CardHeader } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
 let strings = new LocalizedStrings({
-    en: {pagetitle: "VENUE INFO",
+    en: {pagetitle: "VENUE",
     name: "Ottawa Conference and Event Centre",
     address: "200 Coventry Road, Ottawa, ON",
     moreinfo: "More Information",
     floorplantitle: "Facilities Floorplan"
     },
     fr: {
-        pagetitle: "INFORMATIONS SUR LE LIEU",
+        pagetitle: "LIEU",
         name: "Ottawa Conference and Event Centre",
         address: "200 Coventry Road, Ottawa, ON",
         moreinfo: "Plus d'information",
