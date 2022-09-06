@@ -124,7 +124,7 @@ export default function SelectedEvent(props) {
   const [showPdf, setShowPdf] = useState(false)
 
      return (
-        <Layout>        
+        <Layout pageTitle={strings ? strings.pagetitle: null}>        
         
           {/* Desktop view */}
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
@@ -226,9 +226,9 @@ export default function SelectedEvent(props) {
           
           </Grid>          
 
-          {/* Mobile View */}
-          <ArrowBackIcon color="black" align="left" onClick={() => navigate(-1)} style={{marginLeft: '5px', fontSize: 'xx-large'}}/>
+          {/* Mobile View */}          
           <Grid container spacing={0} alignItems="flex-start" justifyContent="center" mt={1} mb={5} sx={{display: { xs: 'flex', md: 'none' }}}>
+          <ArrowBackIcon color="black" align="left" onClick={() => navigate(-1)} style={{marginLeft: '5px', fontSize: 'xx-large'}}/>
         
           <Grid item xs={10}>
           

@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 let strings = new LocalizedStrings({
-    en:{pagetitle:"Help",
+    en:{pagetitle:"HELP",
     more:"Still have questions?",
       data: {
         title: "FAQ",
@@ -57,7 +57,7 @@ let strings = new LocalizedStrings({
         ],
     },
     },
-    fr: {pagetitle:"Aide",
+    fr: {pagetitle:"AIDE",
     more:"Encore des questions?",
       data: {
         title: "FAQ",
@@ -139,8 +139,8 @@ export default function Help() {
 //   }, [])
 
     return (
-        <Layout>
-
+        <Layout pageTitle={strings ? strings.pagetitle: null}>
+         
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Box m={5}>
