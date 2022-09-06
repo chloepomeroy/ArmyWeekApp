@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 
 let strings = new LocalizedStrings({
-    en:{pagetitle:"HELP",
+    en:{pagetitle:"Help",
     more:"Still have questions?",
       data: {
         title: "FAQ",
@@ -57,7 +57,7 @@ let strings = new LocalizedStrings({
         ],
     },
     },
-    fr: {pagetitle:"AIDE",
+    fr: {pagetitle:"Aide",
     more:"Encore des questions?",
       data: {
         title: "FAQ",

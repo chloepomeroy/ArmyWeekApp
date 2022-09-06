@@ -20,10 +20,10 @@ import Typography from '@mui/material/Typography';
 
 let strings = new LocalizedStrings({
     en: {view: "View",
-    pagetitle: "DASHBOARDS",
+    pagetitle: "Dashboards",
     },
     fr: {view: "Affichez", 
-    pagetitle: "TABLEAUX DE BORD",
+    pagetitle: "Tableaux de bord",
     }
   })
 
