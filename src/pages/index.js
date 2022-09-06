@@ -1,4 +1,5 @@
 import * as React from "react"
+import LocalizedStrings from 'react-localization';
 
 import { Link, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
@@ -18,6 +19,15 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
 const browser = typeof window !== "undefined" && window;
+
+let strings = new LocalizedStrings({
+  en: {
+    pagetitle: "ARMY WEEK 2022"
+  },
+  fr: {
+    pagetitle: "SEMAINE DE L'ARMÉE 2022"
+  }
+})
 
 const links = [
   {
@@ -46,7 +56,7 @@ const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=de
 export default function IndexPage(props) {
   return(
     browser && (
-      <Layout>
+      <Layout pageTitle="ARMY WEEK 2022">
         <Seo title="Home" />
 
         <div className={styles.textCenter}>

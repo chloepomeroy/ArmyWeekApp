@@ -6,11 +6,12 @@ import BackToTop from "./BackToTop/backToTop"
 import "./layout.css"
 import ResponsiveAppBar from "./Navbar/navbar"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pageTitle}) => {
 
   return (
     <>
-    <ResponsiveAppBar />
+    <ResponsiveAppBar 
+    pageTitle = {pageTitle}/>
     <BackToTop/>
       {/* <div
         style={{

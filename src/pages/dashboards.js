@@ -20,10 +20,10 @@ import Typography from '@mui/material/Typography';
 
 let strings = new LocalizedStrings({
     en: {view: "View",
-    pagetitle: "Dashboards",
+    pagetitle: "DASHBOARDS",
     },
     fr: {view: "Affichez", 
-    pagetitle: "Tableaux de bord",
+    pagetitle: "TABLEAUX DE BORD",
     }
   })
 
@@ -32,7 +32,7 @@ let dashboard_list = [
     {"title": "2022 Army Week Registration",
     "description": "Take a look at Army Week attendance metrics.",
     "file_title": "2022 Army Week Registration",
-    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+    "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiZDI2YWM2MWEtYjAzNC00MjJiLWI0MTAtZTczNmQzNzcwMzNjIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
     "img": "armyweekregss.JPG"
     },
     {"title": "Canadian Army Modernization Strategy",
@@ -80,7 +80,7 @@ export default function Metrics() {
     }`);
 
     return (
-        <Layout>
+        <Layout pageTitle={strings ? strings.pagetitle: null}>
 
             <Grid container spacing={2} alignItems="center" justifyContent="center">
                 <Grid container spacing={5} alignItems="flex-start" justifyContent="left" mt={5} mr={5} ml={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>

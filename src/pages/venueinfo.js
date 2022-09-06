@@ -15,14 +15,14 @@ import { CardHeader } from "@mui/material";
 import Typography from '@mui/material/Typography';
 
 let strings = new LocalizedStrings({
-    en: {pagetitle: "Venue Info",
+    en: {pagetitle: "VENUE INFO",
     name: "Ottawa Conference and Event Centre",
     address: "200 Coventry Road, Ottawa, ON",
     moreinfo: "More Information",
     floorplantitle: "Facilities Floorplan"
     },
     fr: {
-        pagetitle: "Informations sur le lieu",
+        pagetitle: "INFORMATIONS SUR LE LIEU",
         name: "Ottawa Conference and Event Centre",
         address: "200 Coventry Road, Ottawa, ON",
         moreinfo: "Plus d'information",
@@ -34,7 +34,7 @@ let strings = new LocalizedStrings({
 export default function VenueInfo(props) {
 
     return (
-        <Layout>
+        <Layout pageTitle={strings ? strings.pagetitle: null}>
           
           {/* <Grid container spacing={2} alignItems="center" justifyContent="center" m={3}> */}
 

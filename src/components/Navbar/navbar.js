@@ -45,7 +45,7 @@ const buttonSX = {
 }
 
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({pageTitle}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -121,7 +121,7 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', s: 'none', md: 'flex' },
+              display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -132,7 +132,7 @@ const ResponsiveAppBar = () => {
               },
             }}
           >
-            {strings.title}
+            {pageTitle}
           </Typography>
 
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
@@ -196,8 +196,9 @@ const ResponsiveAppBar = () => {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'flex', s: 'flex', md: 'none' },
+              display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
+              textAlign: "center",
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.1rem',
@@ -205,7 +206,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            {strings? strings.title: null}
+            {pageTitle}
           </Typography>
           <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">

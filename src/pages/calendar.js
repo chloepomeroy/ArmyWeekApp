@@ -17,11 +17,13 @@ let strings = new LocalizedStrings({
   en: {week: "week",
   day: "day", 
   list: "list",
+  pagetitle: "CALENDAR",
   events: {en}
   },
   fr: {week: "semaine", 
   day: "jour",
   list: "liste",
+  pagetitle: "CALENDRIER",
   events: {fr}
   }
 })
@@ -38,7 +40,7 @@ export default function Cal(props) {
 }, [])
 
     return (
-      <Layout>
+      <Layout pageTitle={strings ? strings.pagetitle: null}>
    
         <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}> 
           <Grid item xs={11} >          
