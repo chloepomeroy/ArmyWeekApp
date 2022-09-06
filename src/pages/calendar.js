@@ -17,13 +17,13 @@ let strings = new LocalizedStrings({
   en: {week: "week",
   day: "day", 
   list: "list",
-  pagetitle: "AGENDA",
+  pagetitle: "Agenda",
   events: {en}
   },
   fr: {week: "semaine", 
   day: "jour",
   list: "liste",
-  pagetitle: "AGENDA",
+  pagetitle: "Programme",
   events: {fr}
   }
 })
