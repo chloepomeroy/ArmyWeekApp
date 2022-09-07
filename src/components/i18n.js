@@ -95,7 +95,8 @@ const resources = {
         cal_day: "day", 
         cal_list: "list",
         cal_pagetitle: "Agenda",
-        cal_events: en,
+        langSwitch: "Français",
+        langSwitchShort: "FR",
       },
     },
     fr: {
@@ -184,7 +185,8 @@ const resources = {
         cal_day: "jour",
         cal_list: "liste",
         cal_pagetitle: "Programme",
-        cal_events: {fr},
+        langSwitch: "English",
+        langSwitchShort: "EN",
       },
     },
   };

@@ -100,20 +100,19 @@ const ResponsiveAppBar = ({pageTitle}) => {
 
   const { i18n } = useTranslation();
 
+  function switchLanguage() {
+    if (i18n.language=="fr") {
+      i18n.changeLanguage("en")
+    } else {
+      i18n.changeLanguage("fr")
+    }
+  }
+
   return (
 
     <AppBar position="static" color="success">
       <Container maxWidth="xl" color="#43A047">        
         <Toolbar disableGutters>
-        <Select
-          value={i18n.language}
-          onChange={(e) =>
-            i18n.changeLanguage(e.target.value)
-          }
-          >
-          <MenuItem value={"fr"}>Français</MenuItem>
-          <MenuItem value={"en"}>English</MenuItem>
-          </Select>
           <Typography
             variant="h6"
             noWrap
@@ -188,6 +187,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
 
             </Menu>
           </Box>
+          
 
           <Grid container alignItems="center" justifyContent="center" sx={{ display: { xs: 'flex', s: 'flex', md: 'none' } }}>
             <Grid item sx={4}>
@@ -275,6 +275,8 @@ const ResponsiveAppBar = ({pageTitle}) => {
               ))}
             </Menu> */}
           </Box>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}</Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
         </Toolbar>
       </Container>
     </AppBar>
