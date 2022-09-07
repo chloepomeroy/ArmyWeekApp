@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from "react"
-import LocalizedStrings from 'react-localization';
+import React from "react"
 
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -9,57 +8,47 @@ import listPlugin from '@fullcalendar/list';
 import Grid from '@mui/material/Grid';
 import Layout from "../components/layout"
 
+import { t} from "i18next";
+import { useTranslation } from "react-i18next";
+
 
 var en = require('../data/enevents.json').events;
 var fr = require('../data/frevents.json').events;
 
-let strings = new LocalizedStrings({
-  en: {week: "week",
-  day: "day", 
-  list: "list",
-  pagetitle: "Agenda",
-  events: {en}
-  },
-  fr: {week: "semaine", 
-  day: "jour",
-  list: "liste",
-  pagetitle: "Programme",
-  events: {fr}
-  }
-})
-
 export default function Cal(props) {
-  const [initialLocaleCode, setInitialLocaleCode] = useState('en')
+  const { i18n } = useTranslation(['events']);
 
-  useEffect(() => {
-    if((window.navigator.language).includes("fr")){
-      setInitialLocaleCode("fr")
+  let locale = i18n.language
+
+  function getEvents() {
+    if (locale=="fr") {
+      return fr
     } else {
-      setInitialLocaleCode("en")
-    }      
-}, [])
+      return en
+    }
+  }
 
     return (
-      <Layout pageTitle={strings ? strings.pagetitle: null}>
+      <Layout pageTitle={t("cal_pagetitle")}>
    
         <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}> 
-          <Grid item xs={11} >          
+          <Grid item xs={11} >    
             <FullCalendar
               plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
               initialView = "timeGridWeek"
               initialDate = "2022-09-12"
-              locale= {initialLocaleCode}
+              locale= {locale}
               headerToolbar = {{
                 start: 'timeGridWeek,timeGridDay,listWeek',
                 // center: 'title',   
                 end: 'prev,next'
               }}
-              buttonText={{week: strings.week, day: strings.day, list: strings.list }}
+              buttonText={{week: t("cal_week"), day: t("cal_day"), list: t("cal_list") }}
               slotMinTime='08:00'
               height="auto"
               expandRows={true} 
               navLinks={true}
-              events = {strings.events[initialLocaleCode]}
+              events = {getEvents()}
               handleWindowResize={true}           
               nowIndicator
               eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}
@@ -82,18 +71,18 @@ export default function Cal(props) {
               plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
               initialView = "listWeek"
               initialDate = "2022-09-12"
-              locale= {initialLocaleCode}
+              locale= {locale}
               headerToolbar = {{
                 start: 'timeGridDay,listWeek',
                 // center: 'title',   
                 end: 'prev,next'
               }}
-              buttonText={{day: strings.day, list: strings.list }}
+              buttonText={{day: t("cal_day"), list: t("cal_list") }}
               slotMinTime='08:00'
               height="auto"
               expandRows={true} 
               navLinks={true}
-              events = {strings.events[initialLocaleCode]}
+              events = {getEvents()}
               handleWindowResize={true}           
               nowIndicator
               eventTimeFormat={{ hour: "2-digit", minute: "2-digit", hour12: false }}

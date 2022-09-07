@@ -1,0 +1,205 @@
+import i18next from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+
+var en = require('../data/enevents.json').events;
+var fr = require('../data/frevents.json').events;
+
+const resources = {
+    en: {
+      translation: {
+        index: "ARMY WEEK 2022",
+        Calendar: "Agenda",
+        Venueinfo: "Venue Info",
+        Help: "Help",
+        dashboards: "Dashboards",
+        presentations: "Presentations",
+        help_more:"Still have questions?",
+        help_email: "Send an Email to",
+        help_data: {
+            title: "FAQ",
+            rows: [
+                {
+                    title: "Where can I find the presentations?",
+                    content: `From the calendar you can click on a particular event which will show you further information about that event,
+                    including the presentation, or you can view all the presentations by clicking the presentation button in the menu.`,
+                },
+                {
+                    title: "Do I need to register?",
+                    content:
+                        `Yes, you need to register for the Zoom Webinar for each part of Army Week, regardless if you are participating virtually or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to register for the Zoom Webinar.`,
+                },
+                {
+                    title: "Where can I see the event's location?",
+                    content: `From the calendar you can click on a particular event which will show you further information about that event,
+                    including the location.` ,
+                },
+                {
+                    title: "How can I contact the event's organizer?",
+                    content: `If you have questions not answered by this FAQ you can contact the organizers at CAHQ.IMIT@gmail.com.` ,
+                },
+                {
+                    title: "What Covid protocols are in place?",
+                    content: `Although encouraged, the use of masks is no longer required unless physical distancing cannot be maintained for prolonged periods of time.` ,
+                },
+                {
+                    title: "Do in-person events have limited capacity?",
+                    content: `Yes. Participation in-person is limited to those invited to participate in person as per the Army Week 2022 Operation Order.` ,
+                },
+                {
+                    title: "Are all events open to anyone?",
+                    content: `No. Participation is limited to those invited as per the Army Week 2022 Operation Order. ` ,
+                },
+            ],
+        },
+        venue_pagetitle: "Venue",
+        venue_name: "Ottawa Conference and Event Centre",
+        venue_address: "200 Coventry Road, Ottawa, ON",
+        venue_moreinfo: "More Information",
+        venue_floorplantitle: "Facilities Floorplan",
+        dashboards_view: "View", 
+        dashboards_pagetitle: "Dashboards",
+        dashboard_list: [
+            {"title": "2022 Army Week Registration",
+            "description": "Take a look at Army Week attendance metrics.",
+            "file_title": "2022 Army Week Registration",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiZDI2YWM2MWEtYjAzNC00MjJiLWI0MTAtZTczNmQzNzcwMzNjIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "armyweekregss.JPG"
+            },
+            {"title": "Canadian Army Modernization Strategy",
+            "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
+            "file_title": "CAMS Placemat Desktop",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiN2JhYTIwZGQtMDlhMS00ZjA3LTk4YzMtYTg4ZjA0ZGQ4MzY3IiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "camsss.JPG"
+            },
+            {"title": "Army 101 Dashboard",
+            "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
+            "file_title": "Army 101",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiMTQ2NWIwMDAtN2I5ZS00MjJmLWExNGYtNGI2ZGZlOGRlNjAzIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "army101ss.JPG"
+            },
+            {"title": "CA Interactive Org Chart",
+            "description": "See how the CA is structured and where the various organizations are located.",
+            "file_title": "CA Org Structure",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiM2IzMDdlYzQtODg0MC00YWYwLWJjNjAtNjI1MmE2NTBlMTJhIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9&pageName=ReportSection",
+            "img": "orgstructss.jpg"
+            },
+            {"title": "Commander and Senior Leader Dashboard",
+            "description": "Peruse the Commander and Senior Leader Bios of the CA.",
+            "file_title": "CA General Officers",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "CAGenOffss.JPG"
+            },
+        ],
+        cal_week: "week",
+        cal_day: "day", 
+        cal_list: "list",
+        cal_pagetitle: "Agenda",
+        cal_events: en,
+      },
+    },
+    fr: {
+      translation: {
+        index: "SEMAINE DE L'ARMÉE 2022",
+        Calendar: "Agenda",
+        Venueinfo: "Informations sur le lieu",
+        Help: "Aide",
+        dashboards: "Tableaux de bord",
+        presentations: "Présentations",
+        help_more:"Encore des questions?",
+        help_email: "Envoyez un message à",
+        help_data: {
+            title: "FAQ",
+            rows: [
+                {
+                    title: "Où puis-je trouver les présentations?",
+                    content: `Dans le calendrier, vous pouvez cliquer sur un événement en particulier qui vous montrera plus d'informations sur cet événement, y compris la présentation. Vous pouvez aussi consulter toutes les présentations en cliquant sur le bouton présentation dans le menu.`,
+                },
+                {
+                    title: "Dois-je m'inscrire?",
+                    content:"Oui, vous devez vous inscrire au webinaire Zoom pour chaque partie de la Semaine de l'Armée, que vous participiez virtuellement ou en personne. Vous devriez déjà avoir reçu une invitation de calendrier Outlook pour chaque partie de la Semaine de l'Armée qui comprenait un lien pour vous inscrire au webinaire Zoom.",
+                },
+                {
+                    title: "Où puis-je trouver l'endroit d'un évènement?",
+                    content: "Dans le calendrier, vous pouvez cliquer sur un événement en particulier qui vous montrera plus d'informations sur cet événement, y compris l'endroit.",
+                },
+                {
+                    title: "Comment puis-je contacter l'organisateur de l'événement?",
+                    content: `Si vous avez des questions auxquelles cette FAQ ne répond pas, vous pouvez contacter les organisateurs à CAHQ.IMIT@gmail.com.`,
+                },
+                {
+                    title: "Quels protocoles Covid sont en place?",
+                    content: `Bien qu'encouragé, l'utilisation de masques n'est plus nécessaire à moins que la distance physique ne puisse être maintenue pendant de longues périodes.` ,
+                },
+                {
+                    title: "Les événements en personne ont-ils une capacité limitée?",
+                    content: `Oui. La participation en personne est limitée aux personnes invitées à participer en personne conformément à l'ordre d'opération de la Semaine de l'Armée 2022.` ,
+                },
+                {
+                    title: "Est-ce que les événements sont ouverts à tous?",
+                    content: `Non. La participation est limitée aux personnes invitées conformément à l'ordre d'opération de la Semaine de l'Armée 2022.` ,
+                },
+            ],
+        },
+        venue_pagetitle: "Lieu",
+        venue_name: "Ottawa Conference and Event Centre",
+        venue_address: "200 Coventry Road, Ottawa, ON",
+        venue_moreinfo: "Plus d'information",
+        venue_floorplantitle: "Plan d'étage d'installation",
+        dashboards_view: "Affichez", 
+        dashboards_pagetitle: "Tableaux de bord",
+        dashboard_list: [
+            {"title": "Inscription pour la Semaine de l’Armée 2022",
+            "description": "Regardez les statistiques sur les inscriptions pour la Semaine de l’Armée.",
+            "file_title": "Inscription pour la Semaine de l’Armée 2022",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiZDI2YWM2MWEtYjAzNC00MjJiLWI0MTAtZTczNmQzNzcwMzNjIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "armyweekregss.JPG"
+            },
+            {"title": "Stratégie de modernisation de l'Armée canadienne",
+            "description": "Suivi des progrès des initiatives et des sous-initiatives sur la voie de la modernisation.",
+            "file_title": "CAMS Placemat Desktop",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiN2JhYTIwZGQtMDlhMS00ZjA3LTk4YzMtYTg4ZjA0ZGQ4MzY3IiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "camsss.JPG"
+            },
+            {"title": "Tableau de bord Armée 101",
+            "description": "Tableaux de bord qui décrivent l'Armée canadienne et sa structure.",
+            "file_title": "Army 101",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiMTQ2NWIwMDAtN2I5ZS00MjJmLWExNGYtNGI2ZGZlOGRlNjAzIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "army101ss.JPG"
+            },
+            {"title": "Organigramme interactif de l'AC",
+            "description": "Voyez comment l'AC est structurée et où se trouvent les différentes organisations.",
+            "file_title": "CA Org Structure",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiM2IzMDdlYzQtODg0MC00YWYwLWJjNjAtNjI1MmE2NTBlMTJhIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9&pageName=ReportSection",
+            "img": "orgstructss.jpg"
+            },
+            {"title": "Tableau de bord du commandant et de l'équipe des ahuts dirigeants",
+            "description": "Consultez les biographies du commandant et des hauts dirigeants de l'AC.",
+            "file_title": "CA General Officers",
+            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "img": "CAGenOffss.JPG"
+            },
+        ],
+        cal_week: "semaine", 
+        cal_day: "jour",
+        cal_list: "liste",
+        cal_pagetitle: "Programme",
+        cal_events: {fr},
+      },
+    },
+  };
+
+
+  i18next
+    .use(initReactI18next)
+    .use(LanguageDetector)
+    .init({
+      resources,
+      lng: "en",
+      interpolation: {
+        escapeValue: false,
+      },
+      fallbackLng: "en",
+      nonExplicitSupportedLngs: true,
+    });
+  export default i18next;

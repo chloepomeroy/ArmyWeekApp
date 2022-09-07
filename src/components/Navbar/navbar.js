@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import AppBar from '@mui/material/AppBar';
-import LocalizedStrings from 'react-localization';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -13,30 +12,19 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import PropTypes from 'prop-types';
 import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
 
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import "../i18n"
 
-const settings = ['Profile', 'Dashboard', 'Logout'];
 
-let strings = new LocalizedStrings({
-  en: {Calendar: "Agenda",
-  Venueinfo: "Venue Info",
-  Help: "Help",
-  dashboards: "Dashboards",
-  title: "ARMY WEEK 2022"
-  },
-  fr: {Calendar: "Agenda",
-  Venueinfo: "Informations sur le lieu",
-  Help: "Aide",
-  dashboards: "Tableaux de bord",
-  title: "SEMAINE DE L'ARMÉE 2022"
-  }
-})
+// const settings = ['Profile', 'Dashboard', 'Logout'];
 
 const buttonSX = {
   ':hover': {
@@ -48,22 +36,22 @@ const buttonSX = {
 
 const ResponsiveAppBar = ({pageTitle}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenUserMenu = (event) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
   const LinkBehavior = React.forwardRef((props, ref) => {
     const { href, ...other } = props;
@@ -110,11 +98,22 @@ const ResponsiveAppBar = ({pageTitle}) => {
     },
   });
 
+  const { i18n } = useTranslation();
+
   return (
 
     <AppBar position="static" color="success">
       <Container maxWidth="xl" color="#43A047">        
         <Toolbar disableGutters>
+        <Select
+          value={i18n.language}
+          onChange={(e) =>
+            i18n.changeLanguage(e.target.value)
+          }
+          >
+          <MenuItem value={"fr"}>Français</MenuItem>
+          <MenuItem value={"en"}>English</MenuItem>
+          </Select>
           <Typography
             variant="h6"
             noWrap
@@ -172,16 +171,16 @@ const ResponsiveAppBar = ({pageTitle}) => {
                   <Router>
                       <Stack spacing={2}>
                         <Button href="/calendar" color="success" target="_self" variant="text">
-                        {strings?strings.Calendar: null}
+                        {t("Calendar")}
                         </Button>
                         <Button href="/venueinfo" color="success" target="_self" variant="text">
-                        {strings?strings.Venueinfo: null}
+                        {t("Venueinfo")}
                         </Button>
                         <Button href="/dashboards" color="success" target="_self" variant="text">
-                        {strings?strings.dashboards: null}
+                        {t("dashboards")}
                         </Button>
                         <Button href="/faq" color="success" target="_self" variant="text">
-                        {strings?strings.Help: null}
+                        {t("Help")}
                         </Button>
                         </Stack>
                     </Router>
@@ -219,16 +218,16 @@ const ResponsiveAppBar = ({pageTitle}) => {
                 <ThemeProvider theme={theme}>
                     <Router>
                     <Button href="/calendar" color="success" target="_top" variant="contained" sx={buttonSX}>
-                        {strings? strings.Calendar: null}
+                        {t("Calendar")}
                         </Button>
                         <Button href="/venueinfo" color="success" target="_top" variant="contained" sx={buttonSX}>
-                        {strings? strings.Venueinfo: null}
+                        {t("Venueinfo")}
                         </Button>
                         <Button href="/dashboards" color="success" target="_top" variant="contained" sx={buttonSX}>
-                        {strings?strings.dashboards: null}
+                        {t("dashboards")}
                         </Button>
                         <Button href="/faq" color="success" target="_top" variant="contained" sx={buttonSX}>
-                        {strings? strings.Help: null}
+                        {t("Help")}
                         </Button>
                     </Router>
 
