@@ -15,13 +15,14 @@ import Box from '@mui/material/Box';
 let strings = new LocalizedStrings({
     en:{pagetitle:"Help",
     more:"Still have questions?",
+    email: "Send an Email to",
       data: {
         title: "FAQ",
         rows: [
             {
                 title: "Where can I find the presentation?",
                 content: `From the calendar you can click on a particular event which will show you further information about that event,
-                including the presentation.`,
+                including the presentation, or you can view all the presentations by clicking the presentation button in the menu.`,
             },
             {
                 title: "Do I need to register?",
@@ -30,10 +31,6 @@ let strings = new LocalizedStrings({
                     or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to
                     register for the Zoom Webinar.`,
             },
-            // {
-            //     title: "How do I check in to an event?",
-            //     content: `Scan the QR Code on your phone and you'll be redirected to a page that will ask you to type your name.`,
-            // },
             {
                 title: "Where can I see the event's location?",
                 content: `From the calendar you can click on a particular event which will show you further information about that event,
@@ -41,7 +38,7 @@ let strings = new LocalizedStrings({
             },
             {
                 title: "How can I contact the event's organizer?",
-                content: `If you have questions not answered by this FAQ you can contact the organizers at (email address).` ,
+                content: `If you have questions not answered by this FAQ you can contact the organizers at CAHQ.IMIT@gmail.com.` ,
             },
             {
                 title: "What Covid protocols are in place?",
@@ -60,6 +57,7 @@ let strings = new LocalizedStrings({
     },
     fr: {pagetitle:"Aide",
     more:"Encore des questions?",
+    email: "Envoyez un message à",
       data: {
         title: "FAQ",
         rows: [
@@ -153,8 +151,8 @@ export default function Help() {
                     </Box>
                 </Grid>
                 <Box m="auto" mb={7}>
-                <h5>{strings.more}</h5>
-                <div>Send an Email to<br /><h5>+CA Analytics - AC Analytique@C Army Dir Army Staff@Ottawa-Hull P-OTG.CAAnalytics@intern.mil.ca</h5>
+                <h5>{strings ? strings.more: null}</h5>
+                <div>{strings ? strings.email: null}<br /><h5>CAHQ.IMIT@gmail.com</h5>
                 </div>
                     {/* <Button variant="contained" color="success" href="/contact">
                     Contact Us
