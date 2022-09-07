@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import LocalizedStrings from 'react-localization';
 
 //Components
-import PageTitle from "../components/PageTitle/pageTitle"
 import Layout from "../components/layout"
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -12,29 +10,16 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { CardHeader } from "@mui/material";
-import Typography from '@mui/material/Typography';
-
-let strings = new LocalizedStrings({
-    en: {pagetitle: "Venue",
-    name: "Ottawa Conference and Event Centre",
-    address: "200 Coventry Road, Ottawa, ON",
-    moreinfo: "More Information",
-    floorplantitle: "Facilities Floorplan"
-    },
-    fr: {
-        pagetitle: "Lieu",
-        name: "Ottawa Conference and Event Centre",
-        address: "200 Coventry Road, Ottawa, ON",
-        moreinfo: "Plus d'information",
-        floorplantitle: "Plan d'étage d'installation"
-    }
-})
+// import Typography from '@mui/material/Typography';
+import { t} from "i18next";
+import { useTranslation } from "react-i18next";
 
 
 export default function VenueInfo(props) {
+  const { i18n } = useTranslation();
 
     return (
-        <Layout pageTitle={strings ? strings.pagetitle: null}>
+        <Layout pageTitle={t("venue_pagetitle")}>
           
           {/* <Grid container spacing={2} alignItems="center" justifyContent="center" m={3}> */}
 
@@ -43,8 +28,8 @@ export default function VenueInfo(props) {
             <Grid item xs={4}>
               <Card sx={{ maxWidth: 650 }}>
               <CardHeader
-                title={strings? strings.name : null}
-                subheader={strings? strings.address : null}
+                title={t("venue_name")}
+                subheader={t("venue_address")}
               />
               <CardContent>
                 <Grid container justifyContent="center">
@@ -60,13 +45,13 @@ export default function VenueInfo(props) {
                 </Grid>
               </CardContent>
               <CardActions>
-                <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
+                <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{t("venue_moreinfo")}</Button>
               </CardActions>
               </Card>          
             </Grid>
 
             <Grid item xs={4} style={{marginTop: '30px'}}>
-              <h3>{strings ? strings.floorplantitle : null}</h3>
+              <h3>{t("venue_floorplantitle")}</h3>
 
               <Card sx={{ maxWidth: 450 }}>
               <CardContent>
@@ -105,8 +90,8 @@ export default function VenueInfo(props) {
             <Stack justifyContent="center" spacing="10px" mb = {7} xs = {10} sx={{display: { xs: 'flex', md: 'none' }}}>              
               <Card sx={{ maxWidth: 450 }}>
               <CardHeader
-                title={strings? strings.name : null}
-                subheader={strings? strings.address : null}
+                title={t("venue_name")}
+                subheader={t("venue_address")}
               />
                 <CardContent>
                   <Grid container justifyContent="center">
@@ -122,11 +107,11 @@ export default function VenueInfo(props) {
                   </Grid>
                 </CardContent>
                 <CardActions>
-                  <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{strings.moreinfo}</Button>
+                  <Button variant="contained" color="success" href="https://ottawaconferenceandeventcentre.com/our-facilities/">{t("venue_moreinfo")}</Button>
                 </CardActions>
               </Card>              
               
-              <h3>{strings ? strings.floorplantitle : null}</h3>
+              <h3>{t("venue_floorplantitle")}</h3>
 
               <Card sx={{ maxWidth: 450 }}>
               <CardContent>
