@@ -65,6 +65,9 @@ export default function IndexPage(props) {
 
         <div className={styles.textCenter}>
           <StaticImage
+                      sx={{
+                        height: 64,
+                        }}
             src="../images/army-week-logo-black-font.jpg"
             loading="eager"
             width={350}

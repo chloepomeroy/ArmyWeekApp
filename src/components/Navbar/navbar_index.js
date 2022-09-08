@@ -19,7 +19,9 @@ import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
-
+import { StaticImage } from "gatsby-plugin-image"
+import { Navigate } from "gatsby"
+import { Home} from "@mui/icons-material";
 
 const settings = ['Profile', 'Dashboard', 'Logout'];
 
@@ -39,11 +41,15 @@ let strings = new LocalizedStrings({
 })
 
 const buttonSX = {
-  ':hover': {
+  boxShadow: 4,
+  '&:hover': {
     bgcolor: 'white', // theme.palette.primary.main
     color: 'green',
+    boxShadow: 9,
   },
 }
+
+
 
 
 const ResponsiveAppBar = ({pageTitle}) => {
@@ -113,30 +119,11 @@ const ResponsiveAppBar = ({pageTitle}) => {
   return (
 
     <AppBar position="static" color="success">
-      <Container maxWidth="xl" color="#43A047">        
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'white',
-              textDecoration: 'none',
-              ':hover': {
-                color: 'lightgreen',
-              },
-            }}
-          >
-            {pageTitle}
-          </Typography>
+      <Container maxWidth="xl" color="#43A047">
 
+        <Toolbar disableGutters>
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
+
           <Tooltip title="Open settings">
               <IconButton
               size="large"
@@ -164,10 +151,9 @@ const ResponsiveAppBar = ({pageTitle}) => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', s: 'block', md: 'none' },
+                display: { xs: 'flow', s: 'flow', md: 'flow'  },
               }}
             >
-
                 <MenuItem>
                   <Router>
                       <Stack spacing={2}>
@@ -211,9 +197,6 @@ const ResponsiveAppBar = ({pageTitle}) => {
       </ThemeProvider>
       </ButtonGroup>
 
-          </Box>
-
-          <Box>
             {/* <Tooltip title="Open settings">
             <IconButton
                 size="large"
