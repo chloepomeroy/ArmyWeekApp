@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react"
 import { useStaticQuery, graphql, navigate } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import LocalizedStrings from 'react-localization';
 
 //Components
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import PdfViewer from '../../components/PdfViewer/pdfViewer.js'
-import PageTitle from "../../components/PageTitle/pageTitle"
 
 //MUI
 import Stack from '@mui/material/Stack';
@@ -24,53 +22,28 @@ import Grid from '@mui/material/Grid';
 import { DownloadRounded } from "@mui/icons-material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
+import { t} from "i18next";
+import { useTranslation } from "react-i18next";
+
 
 //import the events JSON
 var en = require('../../data/enevents.json').events;
 var fr = require('../../data/frevents.json').events;
 
-let strings = new LocalizedStrings({
-  en: {
-    events: {en},
-    pagetitle: "Event Details",
-    presenter: "Presenter:",
-    category: "Category:",
-    date: "Date:",
-    time: "Time:",
-    location: "Location",
-    lookupmaterials: "Documents",
-    zoomlink: "Zoom Link",
-    floorplan: "Floorplan",
-    download: "Download",
-    display: "View PDF"
-  },
-  fr: {
-    events: {fr},
-    pagetitle: "Détails sur l'évènement",
-    presenter: "Présentateur:",
-    category: "Catégorie:",
-    date: "Date:",
-    time: "Heure:",
-    location: "Lieu",
-    lookupmaterials: "Documents",
-    zoomlink: "Lien pour Zoom",
-    floorplan: "Plan d'étage",
-    download: "Téléchargez",
-    display: "Afficher le PDF"
-  }
-})
-
 
 export default function SelectedEvent(props) {
-  const [initialLocaleCode, setInitialLocaleCode] = useState('en')
+  const { i18n } = useTranslation()
 
-  useEffect(() => {
-    if((window.navigator.language).includes("fr")){
-      setInitialLocaleCode("fr")
+  let locale = i18n.language
+
+  function getEvents() {
+    if (locale=="fr") {
+      return fr
     } else {
-      setInitialLocaleCode("en")
-    }      
-}, [])
+      return en
+    }
+  }
+  
 
   const data = useStaticQuery(graphql`
   query {
@@ -100,7 +73,7 @@ export default function SelectedEvent(props) {
   }`);
 
   const eventId = props.params.id
-  const events = strings.events[initialLocaleCode]
+  const events = getEvents()
   // For this line below to work the events need to stay in the correct order where their id=index
   var specificEvent = events[eventId];
 
@@ -124,7 +97,7 @@ export default function SelectedEvent(props) {
   const [showPdf, setShowPdf] = useState(false)
 
      return (
-        <Layout pageTitle={strings ? strings.pagetitle: null}>        
+        <Layout pageTitle={t("event_pagetitle")}>        
         
           {/* Desktop view */}
           <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5} sx={{display: { xs: 'none', md: 'flex' }}}>
@@ -153,10 +126,10 @@ export default function SelectedEvent(props) {
                                 name= {x.node.name}
                                 />
                               <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
-                                {strings ? strings.display : null}
+                                {t("event_display")}
                               </Button>
                               <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
-                                {strings ? strings.download : null}
+                                {t("event_download")}
                               </Button>
                             </Stack>
                           </p>
@@ -166,16 +139,16 @@ export default function SelectedEvent(props) {
                         {specificEvent ? specificEvent.title: null}
                       </Typography>
                       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
+                        {t("event_presenter")} {specificEvent ? specificEvent.Presenter : null}
                       </Typography>
                       <Typography variant="body2">
-                        {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
+                        {t("event_category")} {specificEvent ? specificEvent.Category : null}
                         <br />
-                        {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
+                        {t("event_date")} {specificEvent ? specificEvent.date : null}
                         <br />
-                        {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
+                        {t("event_time")} {specificEvent ? specificEvent.Time : null}
                         <br />
-                        {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
+                        {t("event_location")}: {specificEvent ? specificEvent.location : null}
                         <br />
                       </Typography>
                 </CardContent>
@@ -186,17 +159,14 @@ export default function SelectedEvent(props) {
                     sx={{ bgcolor: green[500] }}
                     endIcon={< VideoLibraryRoundedIcon />}
                     style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
-                    {strings ? strings.zoomlink : null}
+                    {t("event_zoomlink")}
                   </Button>
 
                 </CardActions>
                 {/* Venue Floorplan Image Please make it pretty :D */}
                 {venueFloorplan ? venueFloorplan.map(x => {
                         return (
-                          <Grid container justifyContent='center'>
-                              <Typography variant="h6" component="div">
-                                {/* {strings ? strings.location: null} */}
-                              </Typography>            
+                          <Grid container justifyContent='center'>          
                           <GatsbyImage image={getImage(x.node)} alt="Venue Floorplan"/>
                           </Grid>
                         );
@@ -212,7 +182,7 @@ export default function SelectedEvent(props) {
                   <Card sx={{ maxWidth: 500 }}>
                     <CardContent>
                       <Typography variant="h6" component="div">
-                        {specificEvent.location} {strings ? strings.floorplan: null}
+                        {specificEvent.location} {t("event_floorplan")}
                       </Typography>
                     </CardContent>
                   <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
@@ -253,10 +223,10 @@ export default function SelectedEvent(props) {
                               name= {x.node.name}
                               />
                             <Button onClick={()=>setShowPdf(!showPdf)} variant="contained" color="success" endIcon={< PictureAsPdf />}>
-                              {strings ? strings.display : null}
+                              {t("event_display")}
                             </Button>
                             <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
-                              {strings ? strings.download : null}
+                              {t("event_download")}
                             </Button>
                           </Stack>
                         </p>
@@ -266,16 +236,16 @@ export default function SelectedEvent(props) {
                   {specificEvent ? specificEvent.title: null}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {strings ? strings.presenter : null} {specificEvent ? specificEvent.Presenter : null}
+                  {t("event_presenter")} {specificEvent ? specificEvent.Presenter : null}
                 </Typography>
                 <Typography variant="body2">
-                  {strings ? strings.category : null} {specificEvent ? specificEvent.Category : null}
+                  {t("event_category")} {specificEvent ? specificEvent.Category : null}
                   <br />
-                  {strings ? strings.date : null} {specificEvent ? specificEvent.date : null}
+                  {t("event_date")} {specificEvent ? specificEvent.date : null}
                   <br />
-                  {strings ? strings.time : null} {specificEvent ? specificEvent.Time : null}
+                  {t("event_time")} {specificEvent ? specificEvent.Time : null}
                   <br />
-                  {strings ? strings.location : null}: {specificEvent ? specificEvent.location : null}
+                  {t("event_location")}: {specificEvent ? specificEvent.location : null}
                   <br />
                 </Typography>
 
@@ -287,7 +257,7 @@ export default function SelectedEvent(props) {
                   sx={{ bgcolor: green[500] }}
                   endIcon={< VideoLibraryRoundedIcon />}
                   style={specificEvent ? (specificEvent.ZoomLink ? {display: 'flex'}: {display: 'none'}): null}>
-                  {strings ? strings.zoomlink : null}
+                  {t("event_zoomlink")}
                 </Button>
               </CardActions>
 
@@ -306,7 +276,7 @@ export default function SelectedEvent(props) {
                   return (
                     <Grid container justifyContent='center'>
                       <Typography variant="h6" component="div">
-                      {specificEvent.location} {strings ? strings.floorplan: null}
+                      {specificEvent.location} {t("event_floorplan")}
                       </Typography>
                     <GatsbyImage image={getImage(x.node)} alt="Room Floorplan"/>
                     </Grid>

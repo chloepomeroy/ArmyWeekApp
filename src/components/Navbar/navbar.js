@@ -231,7 +231,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
           </Box>
 
           <Box>
-            <Tooltip title="Go back Home">
+            <Tooltip title="Home">
             <Button sx={buttonSX}
                 href="/"
                 size="large"
