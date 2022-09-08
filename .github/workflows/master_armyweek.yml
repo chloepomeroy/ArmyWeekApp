@@ -41,7 +41,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: https://armyweek.cloud.forces.gc.ca
+      url: ${{ steps.deploy-to-webapp.outputs.webbapp-url }}
 
     steps:
       - name: Download artifact from build job
