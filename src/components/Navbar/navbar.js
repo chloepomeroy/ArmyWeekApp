@@ -1,4 +1,5 @@
 import React from "react"
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +18,9 @@ import { Link as RouterLink, MemoryRouter } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
+import { Home } from "@mui/icons-material";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import { Today } from "@mui/icons-material";
 
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
@@ -27,12 +31,13 @@ import "../i18n"
 // const settings = ['Profile', 'Dashboard', 'Logout'];
 
 const buttonSX = {
-  ':hover': {
+  boxShadow: 32,
+  '&:hover': {
     bgcolor: 'white', // theme.palette.primary.main
     color: 'green',
+    boxShadow: 4,
   },
 }
-
 
 const ResponsiveAppBar = ({pageTitle}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -111,28 +116,8 @@ const ResponsiveAppBar = ({pageTitle}) => {
   return (
 
     <AppBar position="static" color="success">
-      <Container maxWidth="xl" color="#43A047">        
+      <Container maxWidth="xl" color="#43A047">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'white',
-              textDecoration: 'none',
-              ':hover': {
-                color: 'lightgreen',
-              },
-            }}
-          >
-            {pageTitle}
-          </Typography>
 
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
           <Tooltip title="Open settings">
@@ -145,8 +130,10 @@ const ResponsiveAppBar = ({pageTitle}) => {
               color="inherit"
             >
               <MenuIcon />
-            </IconButton>
+              </IconButton>
+
             </Tooltip>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -167,6 +154,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
             >
 
                 <MenuItem>
+
                   <Router>
                       <Stack spacing={2}>
                         <Button href="/calendar" color="success" target="_self" variant="text">
@@ -181,6 +169,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
                         <Button href="/faq" color="success" target="_self" variant="text">
                         {t("Help")}
                         </Button>
+
                         </Stack>
                     </Router>
                 </MenuItem>
@@ -189,9 +178,11 @@ const ResponsiveAppBar = ({pageTitle}) => {
           </Box>
           
 
-          <Grid container alignItems="center" justifyContent="center" sx={{ display: { xs: 'flex', s: 'flex', md: 'none' } }}>
+
+
+        {/*  <Grid container alignItems="center" justifyContent="center" sx={{ display: { xs: 'flex', s: 'flex', md: 'none' } }}>
             <Grid item sx={4}>
-          <Typography
+           <Typography
             variant="h5"
             noWrap
             component="a"
@@ -209,11 +200,14 @@ const ResponsiveAppBar = ({pageTitle}) => {
             }}
           >
             {pageTitle}
+
           </Typography>
-          </Grid>
-          </Grid>
+             </Grid>
+          </Grid>*/}
+
 
           <Box sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex'} }}>
+
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
                     <Router>
@@ -231,49 +225,36 @@ const ResponsiveAppBar = ({pageTitle}) => {
                         </Button>
                     </Router>
 
+{/* Home and Today's Events icons */}
       </ThemeProvider>
       </ButtonGroup>
-
           </Box>
 
           <Box>
-            {/* <Tooltip title="Open settings">
-            <IconButton
+            <Tooltip title="Go back Home">
+            <Button sx={buttonSX}
+                href="/"
                 size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar2"
+                aria-label="home"
                 aria-haspopup="true"
-                onClick={handleOpenUserMenu}
                 color="inherit"
                 textAlign="right"
               >
-                <AccountCircle />
-              </IconButton>
-
+                <Home/>
+              </Button>
             </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar2"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
+            <Tooltip title="Today's events">
+            <Button sx={buttonSX}
+                href="/"
+                size="large"
+                aria-label="home"
+                aria-haspopup="true"
+                color="inherit"
+                textAlign="right"
+              >
+                <Today/>
+              </Button>
+            </Tooltip>
           </Box>
           <Button sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}</Button>
           <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>

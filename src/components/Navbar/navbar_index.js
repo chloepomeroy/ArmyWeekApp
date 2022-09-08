@@ -17,6 +17,8 @@ import { StaticRouter } from 'react-router-dom/server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
 
+import { Home} from "@mui/icons-material";
+
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
@@ -24,15 +26,20 @@ import MenuItem from '@mui/material/MenuItem';
 import "../i18n"
 
 
+
 // const settings = ['Profile', 'Dashboard', 'Logout'];
 
 
 const buttonSX = {
-  ':hover': {
+  boxShadow: 4,
+  '&:hover': {
     bgcolor: 'white', // theme.palette.primary.main
     color: 'green',
+    boxShadow: 9,
   },
 }
+
+
 
 
 const ResponsiveAppBar = ({pageTitle}) => {
@@ -104,39 +111,12 @@ const ResponsiveAppBar = ({pageTitle}) => {
   return (
 
     <AppBar position="static" color="success">
-      <Container maxWidth="xl" color="#43A047">        
-        <Toolbar disableGutters>
-          <Select
-          value={i18n.language}
-          onChange={(e) =>
-            i18n.changeLanguage(e.target.value)
-          }
-          >
-          <MenuItem value={"fr"}>Français</MenuItem>
-          <MenuItem value={"en"}>English</MenuItem>
-          </Select>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'white',
-              textDecoration: 'none',
-              ':hover': {
-                color: 'lightgreen',
-              },
-            }}
-          >
-            {pageTitle}
-          </Typography>
 
+      <Container maxWidth="xl" color="#43A047">
+
+        <Toolbar disableGutters>
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
+
           <Tooltip title="Open settings">
               <IconButton
               size="large"
@@ -164,10 +144,9 @@ const ResponsiveAppBar = ({pageTitle}) => {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', s: 'block', md: 'none' },
+                display: { xs: 'flow', s: 'flow', md: 'flow'  },
               }}
             >
-
                 <MenuItem>
                   <Router>
                       <Stack spacing={2}>
@@ -211,9 +190,6 @@ const ResponsiveAppBar = ({pageTitle}) => {
       </ThemeProvider>
       </ButtonGroup>
 
-          </Box>
-
-          <Box>
             {/* <Tooltip title="Open settings">
             <IconButton
                 size="large"
