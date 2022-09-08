@@ -41,7 +41,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: armyweek.cloud.forces.gc.ca
+      url: https://armyweek.cloud.forces.gc.ca
 
     steps:
       - name: Download artifact from build job
