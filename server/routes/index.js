@@ -4,6 +4,50 @@ var questionsService = require("../services/questionsService");
 var ideasService = require("../services/ideasService");
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const multer = require('multer')
+const upload = multer();
+const BlockBlobClient = require('@azure/storage-blob')
+const getStream = require('into-stream')
+const config = require('../config')
+
+const { storage } = config
+
+const containerName = 'resources'
+
+const handleError = (err, res) => {
+  res.status(500);
+  res.render('error', { error: err });
+};
+
+const getBlobName = originalName => {
+  const identifier = Math.random().toString().replace(/0\./, ''); // remove "0." from start of string
+  return `${identifier}-${originalName}`;
+};
+
+// Presentation Uploads
+router.post('/add-file', upload.any(), (req, res, next) => {
+  const
+          blobName = getBlobName(req.file.originalname)
+        , blobService = new BlockBlobClient(storage, containerName, blobName)
+        , stream = getStream(req.file.buffer)
+        , streamLength = req.file.buffer.length
+    ;
+
+    blobService.uploadStream(stream, streamLength)
+    .then(
+        ()=>{
+            res.render('success', { 
+                message: 'File uploaded to Azure Blob storage.' 
+            });
+        }
+    ).catch(
+        (err)=>{
+        if(err) {
+            handleError(err);
+            return;
+        }
+    })
+})
 
 // Question API
 router.get("/questions", async function (req, res, next) {

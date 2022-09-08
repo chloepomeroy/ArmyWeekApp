@@ -12,6 +12,7 @@ const app = express();
 app.set(db);
 
 const index = require("./routes/index");
+const upload = require("./routes/upload");
 
 // uncomment after placing your favicon in /images
 app.use(favicon(__dirname + '/images/favicon.ico'));
@@ -26,6 +27,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use("/api", index);
+app.use("/upload", upload);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });

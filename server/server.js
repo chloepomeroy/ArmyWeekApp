@@ -7,6 +7,7 @@
 var app = require("./app");
 var debug = require("debug")("express-react:server");
 var http = require("http");
+const { GracefulShutdownManager } = require("@moebius/http-graceful-shutdown");
 
 /**
  * Get port from environment and store in Express.
@@ -28,6 +29,14 @@ var server = http.createServer(app);
 server.listen(port);
 server.on("error", onError);
 server.on("listening", onListening);
+
+const shutdownManager = new GracefulShutdownManager(server);
+
+process.on("SIGTERM", () => {
+  shutdownManager.terminate(() => {
+    console.log("Server is gracefully terminated");
+  });
+});
 
 /**
  * Normalize a port into a number, string, or false.
