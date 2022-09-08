@@ -154,10 +154,10 @@ const ResponsiveAppBar = ({pageTitle}) => {
             >
 
                 <MenuItem>
-
                   <Router>
                       <Stack spacing={2}>
-                        <Button href="/calendar" color="success" target="_self" variant="text">
+                        <Button
+                        href="/calendar" color="success" target="_self" variant="text">
                         {t("Calendar")}
                         </Button>
                         <Button href="/venueinfo" color="success" target="_self" variant="text">
@@ -167,7 +167,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
                         {t("dashboards")}
                         </Button>
                         <Button href="/faq" color="success" target="_self" variant="text">
-                        {t("Help")}
+                        {t("FAQ")}
                         </Button>
 
                         </Stack>
@@ -176,9 +176,6 @@ const ResponsiveAppBar = ({pageTitle}) => {
 
             </Menu>
           </Box>
-          
-
-
 
         {/*  <Grid container alignItems="center" justifyContent="center" sx={{ display: { xs: 'flex', s: 'flex', md: 'none' } }}>
             <Grid item sx={4}>
@@ -211,7 +208,8 @@ const ResponsiveAppBar = ({pageTitle}) => {
             <ButtonGroup spacing={2} direction="row" color= "success" variant="contained" aria-label="outlined primary button group">
                 <ThemeProvider theme={theme}>
                     <Router>
-                    <Button href="/calendar" color="success" target="_top" variant="contained" sx={buttonSX}>
+                    <Button
+                    href="/calendar" color="success" target="_top" variant="contained" sx={buttonSX}>
                         {t("Calendar")}
                         </Button>
                         <Button href="/venueinfo" color="success" target="_top" variant="contained" sx={buttonSX}>
@@ -230,24 +228,31 @@ const ResponsiveAppBar = ({pageTitle}) => {
       </ButtonGroup>
           </Box>
 
-          <Box>
+
+<Box
+  display="flex"
+  justifyContent="center"
+  alignItems="center">
             <Tooltip title="Home">
             <Button sx={buttonSX}
+                justifycontent='center'
                 href="/"
                 size="large"
                 aria-label="home"
                 aria-haspopup="true"
                 color="inherit"
-                textAlign="right"
               >
                 <Home/>
               </Button>
             </Tooltip>
+            </Box>
+{/*
+            <Box>
             <Tooltip title="Today's events">
             <Button sx={buttonSX}
-                href="/"
+                href="/todays-events"
                 size="large"
-                aria-label="home"
+                aria-label="Today's Agenda"
                 aria-haspopup="true"
                 color="inherit"
                 textAlign="right"
@@ -255,8 +260,10 @@ const ResponsiveAppBar = ({pageTitle}) => {
                 <Today/>
               </Button>
             </Tooltip>
-          </Box>
-          <Button sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}</Button>
+          </Box> */}
+          <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
           <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
         </Toolbar>
       </Container>
