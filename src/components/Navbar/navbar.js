@@ -118,6 +118,23 @@ const ResponsiveAppBar = ({pageTitle}) => {
     <AppBar position="static" color="success">
       <Container maxWidth="xl" color="#43A047">
         <Toolbar disableGutters>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center" sx={{display: {xs: 'none', md: 'flex'}}}>
+            <Tooltip title="Home">
+            <Button sx={buttonSX}
+                justifycontent='center'
+                href="/"
+                size="large"
+                aria-label="home"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <Home/>
+              </Button>
+            </Tooltip>
+          </Box>
 
           <Box sx={{ flexGrow: 5, display: { xs: 'flex', s: 'flex', md: 'none' } }}>
           <Tooltip title="Open settings">
@@ -232,7 +249,7 @@ const ResponsiveAppBar = ({pageTitle}) => {
 <Box
   display="flex"
   justifyContent="center"
-  alignItems="center">
+  alignItems="center" sx={{display: {xs: 'flex', md: 'none'}}}>
             <Tooltip title="Home">
             <Button sx={buttonSX}
                 justifycontent='center'
