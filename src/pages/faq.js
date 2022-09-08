@@ -1,111 +1,16 @@
-import React, {useState, useEffect} from "react"
-import LocalizedStrings from 'react-localization';
+import React from "react"
 
 //Components
 import Faq from "react-faq-component";
 import Layout from "../components/layout"
-import PageTitle from "../components/PageTitle/pageTitle"
 
 //MUI
-import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+// import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 
-let strings = new LocalizedStrings({
-    en:{pagetitle:"Help",
-    more:"Still have questions?",
-      data: {
-        title: "FAQ",
-        rows: [
-            {
-                title: "Where can I find the presentation?",
-                content: `From the calendar you can click on a particular event which will show you further information about that event,
-                including the presentation.`,
-            },
-            {
-                title: "Do I need to register?",
-                content:
-                    `Yes, you need to register for the Zoom Webinar for each part of army week, regardless if you are participating virtually
-                    or in-person. You would have received an Outlook calendar invite for each part of Army Week that included a link to
-                    register for the Zoom Webinar.`,
-            },
-            // {
-            //     title: "How do I check in to an event?",
-            //     content: `Scan the QR Code on your phone and you'll be redirected to a page that will ask you to type your name.`,
-            // },
-            {
-                title: "Where can I see the event's location?",
-                content: `From the calendar you can click on a particular event which will show you further information about that event,
-                including the location.` ,
-            },
-            {
-                title: "How can I contact the event's organizer?",
-                content: `If you have questions not answered by this FAQ you can contact the organizers at (email address).` ,
-            },
-            {
-                title: "What Covid protocols are in place?",
-                content: ` Non-Medical Masks are required indoors throughout Army Week, except by speakers and panelists, and when eating or drinking.` ,
-            },
-            {
-                title: "Do in-person events have limited capacity?",
-                content: `Yes. Participation in-person is limited to those invited to participate in person as per the Army Week 2022 Operation Order.` ,
-            },
-            {
-                title: "Are all events open to anyone?",
-                content: `No. Participation is limited to those invited as per the Army Week 2022 Operation Order. ` ,
-            },
-        ],
-    },
-    },
-    fr: {pagetitle:"Aide",
-    more:"Encore des questions?",
-      data: {
-        title: "FAQ",
-        rows: [
-            {
-                title: "Ou est-ce-que je peux trouver le présentation?",
-                content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-                  ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-                  In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-                  Fusce sed commodo purus, at tempus turpis.`,
-            },
-            {
-                title: "Est-ce que j'ai besion de m'inscrire?",
-                content:
-                    "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
-            },
-            {
-                title: "How can I contact the event organizer",
-                content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-                Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-                Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-                Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
-            },
-            {
-                title: "Are COVID Protocols in place?",
-                content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-                Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-                Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-                Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
-            },
-            {
-                title: "Do events have limited capacity?",
-                content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-                Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-                Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-                Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
-            },
-            // {
-            //     title: "How do I 'Check in' to an event?",
-            //     content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            //     Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            //     Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            //     Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. ` ,
-            // },
-        ],
-    },
-    },
-   });
+import { t} from "i18next";
+import { useTranslation } from "react-i18next";
 
 
 const styles = {
@@ -132,29 +37,25 @@ const config = {
 };
 
 export default function Help() {
-//     const [initialLocaleCode, setInitialLocaleCode] = useState('en')
-
-//     useEffect(() => {
-//       setInitialLocaleCode(window.navigator.userLanguage)
-//   }, [])
+    const { i18n } = useTranslation();
 
     return (
-        <Layout pageTitle={strings ? strings.pagetitle: null}>
-         
-            <Grid container spacing={2}>
+        <Layout pageTitle={t("Help")}>
+     
+            <Grid container spacing={2} textAlign="left">
                 <Grid item xs={12}>
                     <Box m={5}>
                         <Faq
-                            data={strings.data}
+                            data={t("help_data", { returnObjects: true })}
                             styles={styles}
                             config={config}
                         />
                     </Box>
                 </Grid>
                 <Box m="auto" mb={7}>
-                <h5>{strings.more}</h5>
-                (Phone:
-                Email: +CA Analytics - AC Analytique@C Army Dir Army Staff@Ottawa-Hull P-OTG.CAAnalytics@intern.mil.ca)
+                <h5>{t("help_more")}</h5>
+                <div>{t("help_email")}<br /><h5>CAHQ.IMIT@gmail.com</h5>
+                </div>
                     {/* <Button variant="contained" color="success" href="/contact">
                     Contact Us
                     </Button> */}

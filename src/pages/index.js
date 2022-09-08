@@ -1,10 +1,9 @@
 import * as React from "react"
-import LocalizedStrings from 'react-localization';
 
 import { Link, navigate } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import ResponsiveAppBar from "../components/Navbar/navbar_index";
@@ -18,37 +17,31 @@ import Grid from '@mui/material/Grid'
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-
+import { t} from "i18next";
+import { useTranslation } from "react-i18next";
 
 
 
 const browser = typeof window !== "undefined" && window;
 
-let strings = new LocalizedStrings({
-  en: {
-    pagetitle: "ARMY WEEK 2022"
-  },
-  fr: {
-    pagetitle: "SEMAINE DE L'ARMÉE 2022"
-  }
-})
+// const {t} = useTranslation()
 
-const links = [
-  {
-    text: "Army Week on Sharepoint",
- url: "https://acims.mil.ca/plan/AGM/Pages/welcome.aspx",
-    // description:
-    //   "Army Week on Sharepoint",
-  }
-]
+// const links = [
+//   {
+//     text: "Army Week on Sharepoint",
+//  url: "https://acims.mil.ca/plan/AGM/Pages/welcome.aspx",
+//     // description:
+//     //   "Army Week on Sharepoint",
+//   }
+// ]
 
-const samplePageLinks = [
-{ text: "Calendar", url: "calendar" },
-{ text: "Venue info", url: "venueinfo"},
-{ text: "Dashboards", url: "dashboards"},
-{ text: "FAQ", url: "faq" },
-{ text: "Presentations", url: "presentations"}
-]
+// const samplePageLinks = [
+// { text: "Calendar", url: "calendar" },
+// { text: "Venue info", url: "venueinfo"},
+// { text: "Dashboards", url: "dashboards"},
+// { text: "FAQ", url: "faq" },
+// { text: "Presentations", url: "presentations"}
+// ]
 
 
 const moreLinks = [
@@ -57,10 +50,11 @@ const moreLinks = [
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
 export default function IndexPage(props) {
+  const { i18n } = useTranslation();
   return(
     browser && (
       <Grid>
-      <ResponsiveAppBar pageTitle={strings? strings.pagetitle: null}/>
+      <ResponsiveAppBar pageTitle={t("index")}/>
         <Seo title="Home" />
 
         <div className={styles.textCenter}>
@@ -98,7 +92,7 @@ export default function IndexPage(props) {
                 <Button variant="extended" style={{flexDirection: 'column', minWidth: '136px', color: 'white'}} onClick={() => navigate("/calendar")}>
                   <CalendarMonthIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
-                    Agenda
+                  {t("Calendar")}
                   </Typography>
                 </Button>
 
@@ -106,7 +100,7 @@ export default function IndexPage(props) {
                 onClick={() => navigate("/venueinfo")}>
                   <BusinessIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
-                    Venue Info
+                  {t("Venueinfo")}
                   </Typography>
                 </Button>
               </Stack>
@@ -118,13 +112,13 @@ export default function IndexPage(props) {
                 onClick={() => navigate("/dashboards")}>
                   <AssessmentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
-                    Dashboards
+                  {t("dashboards")}
                   </Typography>
                 </Button>
                 <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
                   <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
-                    Support
+                  {t("Help")}
                   </Typography>
                 </Button>
               </Stack>
@@ -134,7 +128,7 @@ export default function IndexPage(props) {
               <Button variant= "text" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>
                   <CoPresentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
-                    Presentations
+                  {t("Presentations")}
                   </Typography>
                 </Button>
               </Stack>
