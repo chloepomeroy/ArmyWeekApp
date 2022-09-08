@@ -228,11 +228,12 @@ const ResponsiveAppBar = ({pageTitle}) => {
       </ButtonGroup>
           </Box>
 
+
 <Box
   display="flex"
   justifyContent="center"
   alignItems="center">
-            <Tooltip title="Go back Home">
+            <Tooltip title="Home">
             <Button sx={buttonSX}
                 justifycontent='center'
                 href="/"
