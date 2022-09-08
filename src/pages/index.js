@@ -6,7 +6,7 @@ import { StaticImage } from "gatsby-plugin-image"
 // import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
-import ResponsiveAppBar from "../components/Navbar/navbar_index";
+import ResponsiveAppBar from "../components/Navbar/navbar";
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import BusinessIcon from '@mui/icons-material/Business'
