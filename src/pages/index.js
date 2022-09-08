@@ -85,12 +85,20 @@ export default function IndexPage(props) {
             ))}
           </p> */}
 
-          <Grid container spacing={3} justifyContent="space-around" alignItems="center">
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
-              <Stack direction="row" spacing={2}>
+          <Grid container spacing={5} justifyContent="center"
+                      >
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+           align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
 
-                <Button variant="extended" style={{flexDirection: 'column', minWidth: '136px', color: 'white'}} onClick={() => navigate("/calendar")}>
-                  <CalendarMonthIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+              <Stack direction="row" spacing={4} justifyContent='space-around' >
+
+                <Button variant="extended" style={{flexDirection: 'column', minWidth: 'max-content', color: 'white'}} onClick={() => navigate("/calendar")}>
+                  <CalendarMonthIcon
+                      size="large"
+                      aria-label="add"
+                      sx={{display: "flex", justifyContent: "flex-end"}}
+                     style={{fontSize: 65, color: 'green' }}
+                  />
                   <Typography variant="body" style={{color: 'black'}}  >
                   {t("Calendar")}
                   </Typography>
@@ -98,7 +106,7 @@ export default function IndexPage(props) {
 
                 <Button variant="extended" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}}
                 onClick={() => navigate("/venueinfo")}>
-                  <BusinessIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <BusinessIcon style={{fontSize: 65, color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
                   {t("Venueinfo")}
                   </Typography>
@@ -106,17 +114,18 @@ export default function IndexPage(props) {
               </Stack>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
-              <Stack direction="row" spacing={2}>
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}
+            alignItems="flex-start" style={{flexBasis: 'unset', marginTop: '30px'}}>
+               <Stack direction="row" spacing={2}>
               <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}}
                 onClick={() => navigate("/dashboards")}>
-                  <AssessmentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <AssessmentIcon style={{fontSize: 65, color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
                   {t("dashboards")}
                   </Typography>
                 </Button>
-                <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
-                  <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                <Button variant="outlined" style={{flexDirection: 'column',  border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
+                  <LiveHelpIcon style={{fontSize: 65, color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
                   {t("Help")}
                   </Typography>
@@ -126,7 +135,7 @@ export default function IndexPage(props) {
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{flexBasis: 'unset', marginTop: '30px'}}>
               <Stack direction="row" spacing={2}>
               <Button variant= "text" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>
-                  <CoPresentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                  <CoPresentIcon style={{fontSize: 65, color: 'green'}} />
                   <Typography variant="body" style={{color: 'black'}}  >
                   {t("Presentations")}
                   </Typography>
