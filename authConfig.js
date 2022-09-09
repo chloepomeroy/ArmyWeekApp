@@ -1,10 +1,10 @@
 
 export const msalConfig = {
   auth: {
-    clientId: "46c77928-d87b-47be-86d7-f1db71395644",
+    clientId: "c28f6ed2-531f-4b07-b711-096b24d1191a",
     authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "https://armyweek.azurewebsites.net/",
-    postLogoutRedirectUri: "https://armyweek.azurewebsites.net/"
+    redirectUri: "https://armyweek.azurewebsites.net",
+    postLogoutRedirectUri: "https://armyweek.azurewebsites.net"
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -13,12 +13,12 @@ export const msalConfig = {
 };
 
 export const msalLocalConfig = {
-  auth: {
-    clientId: "46c77928-d87b-47be-86d7-f1db71395644",
-    authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "http://localhost:3000",
-    postLogoutRedirectUri: "http://localhost:3000"
-  },
+auth: {
+  clientId: "c28f6ed2-531f-4b07-b711-096b24d1191a",
+  authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+  redirectUri: "http://localhost:3000",
+  postLogoutRedirectUri: "http://localhost:3000"
+},
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
     storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
@@ -27,7 +27,7 @@ export const msalLocalConfig = {
   
   // Add scopes here for ID token to be used at Microsoft identity platform endpoints.
   export const loginRequest = {
-   scopes: ["User.Read"]
+   scopes: ["User.Read", "profile"]
   };
 
   let start_datetime = new Date()
