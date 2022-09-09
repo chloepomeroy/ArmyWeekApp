@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Zoom } from '@mui/material';
+import { Color } from '@mui/material';
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -39,7 +40,8 @@ function ScrollTop(props) {
         sx={{ position: 'fixed',
         bottom: 12,
         right: 15,
-        zIndex: 1000 }}
+        zIndex: 1000,
+       color: 'lightseagreen' }}
       >
         {children}
       </Box>
@@ -65,10 +67,18 @@ export default function BackToTop(props) {
         </Box>
       </Container>
       <ScrollTop {...props}>
-        <Fab size="large"
-        // color="success"
-        aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
+        <Fab size="xxx-large"
+         aria-label="scroll back to top"
+         color='success'
+                   sx={{ position: 'fixed',
+        bottom: 15,
+        right: 15,
+        zIndex: 99,
+        color: 'white'
+         }}>
+          <KeyboardArrowUpIcon
+
+          />
         </Fab>
       </ScrollTop>
     </React.Fragment>

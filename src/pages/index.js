@@ -85,6 +85,9 @@ export default function IndexPage(props) {
             ))}
           </p> */}
 
+          <Stack direction = "row" spacing={4} justifyContent="space-evenly"
+          sx= {{display: {xs: 'flex', md: 'none'}}}>
+            </Stack>
           <Grid container spacing={5} justifyContent="center" alignItems="center">
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
@@ -97,7 +100,7 @@ export default function IndexPage(props) {
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
-              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/venueinfo")}>                
+              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/venueinfo")}>
                 <BusinessIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                 <Typography variant="body" style={{color: 'black'}}  >
                   {t("Venueinfo")}
@@ -106,7 +109,7 @@ export default function IndexPage(props) {
             </Grid>
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
-              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>                  
+              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>
                 <AssessmentIcon style={{fontSize: 'xxx-large', color: 'green'}} />
                 <Typography variant="body" style={{color: 'black'}}  >
                   {t("dashboards")}
@@ -114,14 +117,7 @@ export default function IndexPage(props) {
               </Button>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
-              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
-                <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
-                <Typography variant="body" style={{color: 'black'}}  >
-                  {t("Help")}
-                </Typography>
-              </Button>
-            </Grid>
+
 
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
               <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/dashboards")}>
@@ -131,7 +127,14 @@ export default function IndexPage(props) {
                 </Typography>
               </Button>
             </Grid>
-
+            <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{flexBasis: 'unset', marginTop: '30px'}}>
+              <Button variant="outlined" style={{flexDirection: 'column', minWidth: '136px', border: '1.0px whitesmoke'}} onClick={() => navigate("/faq")}>
+                <LiveHelpIcon style={{fontSize: 'xxx-large', color: 'green'}} />
+                <Typography variant="body" style={{color: 'black'}}  >
+                  {t("Help")}
+                </Typography>
+              </Button>
+            </Grid>
           </Grid>
                   {/* <ul className={styles.intro}>
           {links.map(link => (
