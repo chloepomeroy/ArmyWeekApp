@@ -66,36 +66,36 @@ export const onAppMount = () => async ({ update, getState, dispatch }) => {
         const { seedPhrase, publicKey } = generateSeedPhrase()
         const keyExists = await hasKey(key, accountId)
         update('accountData', { key, from, message, link, accountId, seedPhrase, publicKey, keyExists, owner })
+    }
+        // const near = await nearAPI.connect({
+        //     networkId, nodeUrl, walletUrl, deps: { keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore() },
+        // })
 
-        const near = await nearAPI.connect({
-            networkId, nodeUrl, walletUrl, deps: { keyStore: new nearAPI.keyStores.BrowserLocalStorageKeyStore() },
-        })
-
-        update('app', {near: near})
+        // update('app', {near: near})
 
         // set temporary key - remains until it's changed on the user's next login
-        set('near-api-js:keystore:'+accountId+':'+near.connection.networkId, key)
+        // set('near-api-js:keystore:'+accountId+':'+near.connection.networkId, key)
 
 
-        const wallet = new nearAPI.WalletAccount(near)
+        // const wallet = new nearAPI.WalletAccount(near)
 
-        wallet.signedIn = wallet.isSignedIn()
-        if (wallet.signedIn) {
+    //     wallet.signedIn = wallet.isSignedIn()
+    //     if (wallet.signedIn) {
 
-             // ********* Initiate Dids Registry Contract ************
+    //          // ********* Initiate Dids Registry Contract ************
 
-            const account = wallet.account()
-            const loggedInAccountId = account.accountId
-            const didRegistryContract = await registry.initiateDidRegistryContract(account)
-            const factoryContract = await factory.initFactoryContract(account)
-            //Initiate App Ceramic Components
+    //         const account = wallet.account()
+    //         const loggedInAccountId = account.accountId
+    //         const didRegistryContract = await registry.initiateDidRegistryContract(account)
+    //         const factoryContract = await factory.initFactoryContract(account)
+    //         //Initiate App Ceramic Components
     
-            const appIdx = await ceramic.getAppIdx(didRegistryContract, account, near)
-            let curUserIdx = await ceramic.getUserIdx(account, appIdx, factoryContract, didRegistryContract)
-            update('accountData', { curUserIdx })
+    //         const appIdx = await ceramic.getAppIdx(didRegistryContract, account, near)
+    //         let curUserIdx = await ceramic.getUserIdx(account, appIdx, factoryContract, didRegistryContract)
+    //         update('accountData', { curUserIdx })
            
-        }
-    } else {
-        dispatch(initNear())
-    }
+    //     }
+    // } else {
+    //     dispatch(initNear())
+    // }
 }

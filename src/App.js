@@ -121,10 +121,8 @@ const App = () => {
                 let user
                 if(accounts && instance){
                     keypair = await ceramic.getVaultKeyPair(accounts[0].username)
-                    console.log('keypair', keypair)
                     if(!keypair){
                         let result = await ceramic.setVaultKeyPair(accounts[0].username)
-                        console.log('result', result)
                     }
                     setIsSignedIn(true)
 
@@ -187,8 +185,7 @@ const App = () => {
                   
                     // Update state with data
                     update('', {
-                        microsoftAccount: accounts, 
-                        keyPair: keypair, 
+                        microsoftAccount: accounts,
                         isSignedIn: true, 
                         graphData: personData, 
                         graphPhotoData: photo,
