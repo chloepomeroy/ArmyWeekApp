@@ -64,19 +64,19 @@ const resources = {
             "description": "Take a look at Army Week attendance metrics.",
             "file_title": "2022 Army Week Registration",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=5a75de14-c141-463c-9509-80d3c17d98e9&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "armyweekregss.JPG"
+            "img": "armyweekregss.jpg"
             },
             {"title": "Canadian Army Modernization Strategy",
             "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
             "file_title": "CAMS Placemat Desktop",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "camsss.JPG"
+            "img": "camsss.jpg"
             },
             {"title": "Army 101 Dashboard",
             "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
             "file_title": "Army 101",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "army101ss.JPG"
+            "img": "army101ss.jpg"
             },
             {"title": "CA Interactive Org Chart",
             "description": "See how the CA is structured and where the various organizations are located.",
@@ -88,7 +88,7 @@ const resources = {
             "description": "Peruse the Commander and Senior Leader Bios of the CA.",
             "file_title": "CA General Officers",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "CAGenOffss.JPG"
+            "img": "CAGenOffss.jpg"
             },
         ],
         cal_week: "week",
@@ -165,19 +165,19 @@ const resources = {
             "description": "Regardez les statistiques sur les inscriptions pour la Semaine de l’Armée.",
             "file_title": "Inscription pour la Semaine de l’Armée 2022",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=5a75de14-c141-463c-9509-80d3c17d98e9&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "armyweekregss.JPG"
+            "img": "armyweekregss.jpg"
             },
             {"title": "Stratégie de modernisation de l'Armée canadienne",
             "description": "Suivi des progrès des initiatives et des sous-initiatives sur la voie de la modernisation.",
             "file_title": "CAMS Placemat Desktop",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "camsss.JPG"
+            "img": "camsss.jpg"
             },
             {"title": "Tableau de bord Armée 101",
             "description": "Tableaux de bord qui décrivent l'Armée canadienne et sa structure.",
             "file_title": "Army 101",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "army101ss.JPG"
+            "img": "army101ss.jpg"
             },
             {"title": "Organigramme interactif de l'AC",
             "description": "Voyez comment l'AC est structurée et où se trouvent les différentes organisations.",
@@ -189,7 +189,7 @@ const resources = {
             "description": "Consultez les biographies du commandant et des hauts dirigeants de l'AC.",
             "file_title": "CA General Officers",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
-            "img": "CAGenOffss.JPG"
+            "img": "CAGenOffss.jpg"
             },
         ],
         cal_week: "semaine", 

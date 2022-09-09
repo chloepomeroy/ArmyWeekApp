@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf ./dist && rimraf .parcel-cache",
     "cleandist": "rimraf ./dist",
-    "build": "npm run clean && node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist --no-optimize && node copy.js",
-    "build:local": "npm run clean && ./node_modules/.bin/parcel build src/index.html --no-scope-hoist --no-optimize && node copy.js",
+    "build": "npm run clean && node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist && node copy.js",
+    "build:local": "npm run clean && ./node_modules/.bin/parcel build src/index.html --no-scope-hoist && node copy.js",
     "build:test": "npm run clean && env-cmd -f ../.env.test node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist",
     "build:main": "npm run clean && env-cmd -f ./.env.main node ./node_modules/.bin/parcel build src/index.html --no-scope-hoist",
     "build:contract": "node contract/compile.js",
@@ -137,7 +137,9 @@
     "stream-browserify": "^3.0.0",
     "undici": "^5.8.0",
     "vhost": "^3.0.2",
-    "@moebius/http-graceful-shutdown": "^1.1.0"
+    "@moebius/http-graceful-shutdown": "^1.1.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "6.5.4"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"

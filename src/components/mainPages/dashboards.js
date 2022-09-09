@@ -13,11 +13,11 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 
 // Dashboard Images
-import awRegistrations from '../images/armyweekregss.JPG'
-import cams from '../images/camsss.JPG'
-import army101 from '../images/army101ss.JPG'
+import awRegistrations from '../images/armyweekregss.jpg'
+import cams from '../images/camsss.jpg'
+import army101 from '../images/army101ss.jpg'
 import armyOrg from '../images/orgstructss.jpg'
-import bios from '../images/CAGenOffss.JPG'
+import bios from '../images/CAGenOffss.jpg'
 
 export default function Dashboards() {
 
