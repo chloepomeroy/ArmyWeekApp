@@ -136,7 +136,8 @@
     "shelljs": "~0.8.4",
     "stream-browserify": "^3.0.0",
     "undici": "^5.8.0",
-    "vhost": "^3.0.2"
+    "vhost": "^3.0.2",
+    "@moebius/http-graceful-shutdown": "^1.1.0"
   },
   "resolutions": {
     "@babel/preset-env": "7.13.8"
