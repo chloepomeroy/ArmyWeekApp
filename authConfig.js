@@ -1,7 +1,7 @@
 
 export const msalConfig = {
   auth: {
-    clientId: "c28f6ed2-531f-4b07-b711-096b24d1191a",
+    clientId: "46c77928-d87b-47be-86d7-f1db71395644",
     authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
     redirectUri: "https://armyweek.azurewebsites.net",
     postLogoutRedirectUri: "https://armyweek.azurewebsites.net"
@@ -14,7 +14,7 @@ export const msalConfig = {
 
 export const msalLocalConfig = {
 auth: {
-  clientId: "c28f6ed2-531f-4b07-b711-096b24d1191a",
+  clientId: "46c77928-d87b-47be-86d7-f1db71395644",
   authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
   redirectUri: "http://localhost:3000",
   postLogoutRedirectUri: "http://localhost:3000"
