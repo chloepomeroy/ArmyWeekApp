@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: '16.14.2'
 
-      - name: npm install, build, and test
+      - name: yarn build, and test
         run: |
-          npm install
-          npm run build --if-present
+          yarn
+          yarn build
       
       # Zip artifacts to speed things up
       - name: Zip artifact for deployment
