@@ -3,8 +3,8 @@ export const msalConfig = {
   auth: {
     clientId: "46c77928-d87b-47be-86d7-f1db71395644",
     authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "https://caarmydata.z9.web.core.windows.net/",
-    postLogoutRedirectUri: "https://caarmydata.z9.web.core.windows.net/"
+    redirectUri: "https://armyweek.azurewebsites.net/",
+    postLogoutRedirectUri: "https://armyweek.azurewebsites.net/"
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
