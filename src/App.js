@@ -37,6 +37,12 @@ import { loginRequest } from "../authConfig";
 import { Person, Agenda } from '@microsoft/mgt-react'
 import { motion } from 'framer-motion'
 
+import IndexPage from './components/mainPages/index'
+import Cal from './components/mainPages/calendar'
+import Venue from './components/mainPages/venue'
+import Dashboards from './components/mainPages/dashboards'
+import SelectedEvent from './components/mainPages/selectedEvent'
+
 // Material-UI Components
 import { makeStyles } from '@mui/styles'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -44,6 +50,7 @@ import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { Button } from '@mui/material'
+import { isNullableType } from 'graphql'
 
 const axios = require('axios').default
 
@@ -176,7 +183,7 @@ const App = () => {
                             }
                     }
 
-                    let connection = await ceramic.openDBConnection(personData.mail)
+                //    let connection = await ceramic.openDBConnection(personData.mail)
                   
                     // Update state with data
                     update('', {
@@ -185,8 +192,7 @@ const App = () => {
                         isSignedIn: true, 
                         graphData: personData, 
                         graphPhotoData: photo,
-                        calendar: await calendarData.json(),
-                        db: connection
+                        calendar: await calendarData.json()
                     })
                 }
                 
@@ -195,10 +201,14 @@ const App = () => {
             }
         }
 
-        fetchData()
-        .then(() => {
-            
-        })
+        accounts ? 
+            accounts.length > 0 ? 
+                fetchData()
+                .then(() => {
+                    
+                })
+            : null 
+        : null
         
     }, [accounts, instance])
 
@@ -226,22 +236,6 @@ const App = () => {
             <RandomPhrase />
         </div></>)
     }
-
-    // if (accountData) {
-    //     children = <Receiver {...{ state, dispatch }} />
-    // }
-
-    // if (funding) {
-    //     children = <div class="container container-custom">
-    //         <h2>DO NOT CLOSE OR REFRESH THIS PAGE</h2>
-    //         <h2>Creating Persona...</h2>
-    //     </div>
-    // }
-
-    // if (wallet) {
-    //     children = <PersonaPage {...{ state, dispatch, update }} />
-
-    // }
     
     return(
         <>
@@ -269,21 +263,19 @@ const App = () => {
         <Grid container alignItems="center" justifyContent="center">
             <Grid item align="center" className={`${!matches ? classes.container : classes.containerFull}`}>
             <Route exact path="/">
-           
-                <Home 
+                <IndexPage 
                     state={state}
                     >
                    
                     { children }
-                </Home>
-            
+                </IndexPage>
             </Route>
-            <Route exact path="/setup"> 
-                <NewKey 
+            <Route exact path="/calendar"> 
+                <Cal
                     state={state}
                     >
                     { children }
-                </NewKey>
+                </Cal>
             </Route>
             <Route exact path="/admin">
             <Admin
@@ -302,40 +294,40 @@ const App = () => {
                   
             </motion.div>
             </Route>
-            <Route exact path="/guilds">
-                <ExploreGuilds
+            <Route exact path="/venue">
+                <Venue
                     state={state}
                     >
                     { children }
-                </ExploreGuilds>
+                </Venue>
             </Route>
-            <Route exact path="/pledge">
+            <Route exact path="/support">
                 <Pledge
                     state={state}
                     >
                     { children }
                 </Pledge>
             </Route>
-            <Route exact path="/people">
-                <ExploreIndividuals
+            <Route exact path="/dashboards">
+                <Dashboards
                     state={state}
                     >
                     { children }
-                </ExploreIndividuals>
+                </Dashboards>
             </Route>
-            <Route exact path="/registration">
+            <Route exact path="/resources">
                 <Registration
                     state={state}
                     >
                     { children }
                 </Registration>
             </Route>
-            <Route exact path="/register-individual">
-                <IndivRegister
+            <Route exact path="/event-details/:id">
+                <SelectedEvent
                     state={state}
                     >
                     { children }
-                </IndivRegister>
+                </SelectedEvent>
             </Route>
             <Route exact path="/register-guild">
                 <GuildRegister 

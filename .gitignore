@@ -13,7 +13,7 @@
 #keys
 /neardev
 
-
+/server/node_modules
 
 # testing
 /coverage
@@ -21,6 +21,7 @@
 # production
 /build
 .env
+.env*
 /contract/target
 /.cache
 /dist

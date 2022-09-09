@@ -79,12 +79,32 @@ export default function HeaderMenu(props) {
             </> : null
         }
         {!signedIn && location.pathname == '/' ? <>
-            <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-80px'}}/>
+            <Typography variant="h5" style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-110px'}}>Strong, Proud, Ready</Typography>
             </> : null
         }
         {signedIn && location.pathname == '/settings' ? <>
             <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
             <Typography variant="h5">Settings</Typography></>: null
+        }
+        {signedIn && location.pathname == '/calendar' ? <>
+            <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
+            <Typography variant="h5">Calendar</Typography></>: null
+        }
+        {signedIn && location.pathname == '/venue' ? <>
+            <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
+            <Typography variant="h5">Venue Info</Typography></>: null
+        }
+        {signedIn && location.pathname == '/dashboards' ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
+          <Typography variant="h5">Dashboards</Typography></>: null
+        }
+        {signedIn && location.pathname == '/support' ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
+          <Typography variant="h5">Support</Typography></>: null
+        }
+        {signedIn && location.pathname == '/resources' ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
+          <Typography variant="h5">Resources</Typography></>: null
         }
         
         </Toolbar>

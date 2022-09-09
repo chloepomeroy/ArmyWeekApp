@@ -1,4 +1,4 @@
-import CeramicClient from '@ceramicnetwork/http-client'
+import { CeramicClient } from '@ceramicnetwork/http-client'
 import * as nearApiJs from 'near-api-js'
 import { get, set, del } from './storage'
 import { IDX } from '@ceramicstudio/idx'
@@ -49,7 +49,6 @@ export const {
   }
 } = nearApiJs
 
-
 class Ceramic {
 
   async openDBConnection(microsoftAccount){
@@ -59,6 +58,8 @@ class Ceramic {
       accountId: microsoftAccount
       }    
     )
+
+    console.log('token', token)
     
     set(AUTH_TOKEN, token.data.token)
   
@@ -331,7 +332,7 @@ class Ceramic {
     set(AUTH_TOKEN, token.data.token)
   
     let authToken = get(AUTH_TOKEN, [])
-   
+   console.log('appseed call', APPSEED_CALL)
     let retrieveSeed = await axios.post(APPSEED_CALL, {
       // ...data
     },{

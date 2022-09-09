@@ -1,23 +1,23 @@
 
 export const msalConfig = {
-    auth: {
-      clientId: "b7da93bc-25db-4dc8-b8a2-96c96ea2ad02",
-      authority: "https://login.microsoftonline.com/de0d2b78-9d6b-4c0f-a3a0-42271ce9bb8b", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-      redirectUri: "https://lemon-sand-0d3985a10.1.azurestaticapps.net",
-      postLogoutRedirectUri: "https://lemon-sand-0d3985a10.1.azurestaticapps.net"
-    },
-    cache: {
-      cacheLocation: "sessionStorage", // This configures where your cache will be stored
-      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-    }
-  };
+  auth: {
+    clientId: "46c77928-d87b-47be-86d7-f1db71395644",
+    authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+    redirectUri: "https://caarmydata.z9.web.core.windows.net/",
+    postLogoutRedirectUri: "https://caarmydata.z9.web.core.windows.net/"
+  },
+  cache: {
+    cacheLocation: "sessionStorage", // This configures where your cache will be stored
+    storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+  }
+};
 
 export const msalLocalConfig = {
   auth: {
-    clientId: "b7da93bc-25db-4dc8-b8a2-96c96ea2ad02",
-    authority: "https://login.microsoftonline.com/de0d2b78-9d6b-4c0f-a3a0-42271ce9bb8b", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "http://localhost:3007",
-    postLogoutRedirectUri: "http://localhost:3007"
+    clientId: "46c77928-d87b-47be-86d7-f1db71395644",
+    authority: "https://login.microsoftonline.com/325b4494-1587-40d5-bb31-8b660b7f1038", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+    redirectUri: "http://localhost:3000",
+    postLogoutRedirectUri: "http://localhost:3000"
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -27,7 +27,7 @@ export const msalLocalConfig = {
   
   // Add scopes here for ID token to be used at Microsoft identity platform endpoints.
   export const loginRequest = {
-   scopes: ["User.Read", "openid", "profile", "calendars.read"]
+   scopes: ["User.Read"]
   };
 
   let start_datetime = new Date()

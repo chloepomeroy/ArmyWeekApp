@@ -28,7 +28,13 @@ import SaveIcon from '@mui/icons-material/Save';
 import PrintIcon from '@mui/icons-material/Print';
 import ShareIcon from '@mui/icons-material/Share';
 import HomeIcon from '@mui/icons-material/Home';
+import leaf from '../../../img/leaf-whitebg-tp.png'
 import brainBulb from '../../../img/brainbulbicon.png'
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Stack from '@mui/material/Stack';
 
 const actions = [
   { icon: <FileCopyIcon />, name: 'Copy' },
@@ -39,9 +45,11 @@ const actions = [
 
 const StyledFab = styled(Fab)({
   position: 'absolute',
+  width: '55px',
+  height: '55px',
   zIndex: 1,
   top: -10,
-  left: 0,
+  left: '50%',
   right: 0,
   margin: '0 auto',
   backgroundColor: '#798d6f'
@@ -52,6 +60,7 @@ export default function BottomAppBar() {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuClicked, setMenuClicked] = useState(false)
   const [menuClickState, setMenuClickState] = useState(false)
+  const [view, setView] = useState('home');
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -82,6 +91,10 @@ export default function BottomAppBar() {
     setMenuClicked(property)
   }
 
+  const handleChange = (event, nextView) => {
+    setView(nextView);
+  };
+
   // SignOutButton Component returns a button that invokes a popup login when clicked
   function SignOutButton() {
     // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
@@ -94,23 +107,50 @@ export default function BottomAppBar() {
     <React.Fragment>
       <CssBaseline />
       <AppBar position="fixed" sx={{ top: 'auto', bottom: 0 , backgroundColor: 'white'}}>
-        <Toolbar style={{justifyContent: 'space-between'}}>
-          <IconButton color="inherit" aria-label="open drawer">
-            <HomeIcon style={{color: '#58714C'}} />
-          </IconButton>
-          <IconButton color="inherit" aria-label="open drawer">
-            <MenuIcon style={{marginRight: '80px', color: '#58714C'}}/>
-          </IconButton>
-          <StyledFab>
-              <img src={brainBulb} style={{maxHeight: '40px'}} onClick={handleMenuClick} color="primary" alt="Main Menu" />
-          </StyledFab>
-          <IconButton color="inherit">
-            <SearchIcon style={{color: '#58714C'}}/>
-          </IconButton>
-          <IconButton color="inherit">
-            <MoreIcon style={{color: '#58714C'}} />
-          </IconButton>
-        </Toolbar>
+        <Stack direction="row" spacing={4}>
+          <ToggleButtonGroup
+            color="primary"
+            value={view}
+            onChange={handleChange}
+            aria-label="device"
+            sx={{borderRadius: 0}}
+            fullWidth
+            exclusive
+          >
+            <ToggleButton value="home" aria-label="laptop" style={{flexDirection: 'column', border:'none', borderRadius:'0px'}}>
+              <HomeIcon style={{color: '#58714C'}}/>
+              <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
+                Home
+              </Typography>
+            </ToggleButton>
+            <ToggleButton value="ideas" aria-label="laptop" style={{flexDirection: 'column', border:'none'}}>
+              <EmojiObjectsIcon style={{color: '#58714C'}}/>
+              <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
+                Ideas
+              </Typography>
+            </ToggleButton>
+            <ToggleButton value="nothing" aria-label="laptop" style={{flexDirection: 'column', border:'none'}}>
+              <SearchIcon style={{color: 'white'}}/>
+            </ToggleButton>
+      
+            <StyledFab style={{borderRadius: '50%', marginLeft: '-27px'}}>
+                <img src={leaf} style={{maxHeight: '40px'}} onClick={handleMenuClick} color="primary" alt="Main Menu" />
+            </StyledFab>
+
+            <ToggleButton value="search" aria-label="laptop" style={{flexDirection: 'column', border:'none'}}>
+              <SearchIcon style={{color: '#58714C'}}/>
+              <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
+                Search
+              </Typography>
+            </ToggleButton>
+            <ToggleButton value="stats" aria-label="laptop" style={{flexDirection: 'column', border:'none', borderRadius:'0px'}}>
+              <QueryStatsIcon style={{color: '#58714C'}} />
+              <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
+                Stats
+              </Typography>
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </Stack>
       </AppBar>
 
       {menuClicked ? <MainMenu

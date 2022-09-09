@@ -31,7 +31,7 @@ export default function Settings (props) {
     const {
        state
     } = props
-console.log('state', state)
+
     return (
         <Grid container alignItems="center" justifyContent="space-between" style={{width: '100%'}}>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} >

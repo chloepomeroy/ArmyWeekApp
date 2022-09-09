@@ -61,11 +61,15 @@ app.post('/sendy', cors(), verifyToken, async (req, res) => {
 app.post('/db', cors(), verifyToken, async (req, res) => {
   jwt.verify(req.token, process.env.SECRET_KEY, async (err, authData) => {
     if(err) {
-      res.sendStatus(403);
+      res.sendStatus(403)
     } else {
-    
-      let connection = await mongoose.connect("mongodb://"+process.env.COSMOSDB_USER+":"+process.env.COSMOSDB_PASSWORD+"@"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dip@")
-      console.log('connection', connection)
+      const mongoUri = "mongodb://"+process.env.COSMOSDB_USER+":"+process.env.COSMOSDB_PASSWORD+"@"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dip@"
+      // await mongoose.connect("mongodb://"+process.env.COSMOSDB_USER+":"+process.env.COSMOSDB_PASSWORD+"@"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dip@")
+      
+      res.send({
+        connection: mongoose.connect(mongoUri),
+        authData
+      });
       // let connection = mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@dip@", {
       // auth: {
       //   username: process.env.COSMOSDB_USER,
@@ -76,10 +80,7 @@ app.post('/db', cors(), verifyToken, async (req, res) => {
       // retryWrites: false
       // }).then(() => console.log('Connection to CosmosDB successful'))
       // .catch((err) => console.error(err));
-      // res.json({
-      //   connection: connection,
-      //   authData
-      // });
+       
     }
   })
 });

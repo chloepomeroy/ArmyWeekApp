@@ -27,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
       width: '90%'
     },
     centered: {
-      width: '200px',
-      height: '100px',
+      width: '95%',
+      height: 'auto',
       textAlign: 'center',
       position: 'fixed',
       top: '50%',
       left: '50%',
       marginTop: '-100px',
-      marginLeft: '-100px'
+      marginLeft: '-180px'
     },
     
 }));
@@ -60,10 +60,10 @@ const myEffectExit = keyframes`
   }
 `;
 
-const dipDarkLogo = require('../../img/dip-dark-logo.png')
+const armyDarkLogo = require('../../img/ca-header-dark.png')
 
 const logoStyle = {
-    maxWidth: '200px'
+    maxWidth: '90%'
 }
 
 export default function Splash (props) {
@@ -113,7 +113,7 @@ export default function Splash (props) {
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
                 
                   <div className={classes.centered}>
-                    <ImageLoader image={dipDarkLogo} style={logoStyle} css={exit ? animatedItemExiting : animatedItem}/>
+                    <ImageLoader image={armyDarkLogo} style={logoStyle} css={exit ? animatedItemExiting : animatedItem}/>
                   </div>
                 </Grid>
                
