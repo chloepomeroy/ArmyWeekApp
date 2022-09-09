@@ -103,15 +103,33 @@ export default function HeaderMenu(props) {
         }
         {signedIn && location.pathname == '/settings' ? <>
             <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
-            <Typography variant="h5">Settings</Typography></>: null
+            <Typography variant="h5">Settings</Typography>
+            <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
+            </>: null
         }
         {signedIn && location.pathname == '/calendar' ? <>
             <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
-            <Typography variant="h5">Calendar</Typography></>: null
+            <Typography variant="h5">Calendar</Typography>
+            <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
+            </>: null
         }
         {signedIn && location.pathname == '/venue' ? <>
             <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
-            <Typography variant="h5">Venue Info</Typography></>: null
+            <Typography variant="h5">Venue Info</Typography>
+            <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
+            </>: null
         }
         {signedIn && location.pathname == '/dashboards' ? <>
           <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
@@ -124,7 +142,7 @@ export default function HeaderMenu(props) {
           sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
            </Button>
           <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
-          <LiveHelpIcon style={{color: 'white', height: '50px', width: 'auto', position: 'absolute', top: 4, right: '2%'}} />
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
           </>: null
         }
         {signedIn && location.pathname == '/resources' ? <>
@@ -134,7 +152,7 @@ export default function HeaderMenu(props) {
           sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
            </Button>
           <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
-          <LiveHelpIcon style={{color: 'white', height: '50px', width: 'auto', position: 'absolute', top: 4, right: '2%'}} />
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
           </>: null
         }
         
