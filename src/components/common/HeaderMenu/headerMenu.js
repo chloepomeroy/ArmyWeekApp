@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom'
+import { useTranslation } from "react-i18next"
 import PropTypes from 'prop-types';
+
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,6 +13,8 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Typography } from '@mui/material';
 import caLogo from '../../../img/ca-header-dark.png'
+import LiveHelpIcon from '@mui/icons-material/LiveHelp'
+import Button from '@mui/material/Button'
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -62,11 +66,19 @@ export default function HeaderMenu(props) {
     let history = useHistory()
     let location = useLocation()
 
+    const { t, i18n } = useTranslation()
+
     const {
         signedIn
     } = props
 
-    console.log('signedIn', signedIn)
+    function switchLanguage() {
+      if (i18n.language=="fr") {
+        i18n.changeLanguage("en")
+      } else {
+        i18n.changeLanguage("fr")
+      }
+    }
 
   return (
     <React.Fragment>
@@ -76,10 +88,17 @@ export default function HeaderMenu(props) {
         {signedIn && location.pathname == '/' ? <>
             <Link to="/settings" style={{color: 'white'}}><SettingsIcon color="white" /></Link>
             <img src={caLogo} style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-80px'}}/>
+            <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '25px', width: 'auto', position: 'absolute', top: 13, right: '2%'}} />
             </> : null
         }
         {!signedIn && location.pathname == '/' ? <>
-            <Typography variant="h5" style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-110px'}}>Strong, Proud, Ready</Typography>
+            <Typography variant="h5" style={{height: '50px', width: 'auto', position: 'absolute', top: 4, left: '50%', marginLeft: '-110px'}}>
+              Strong, Proud, Ready
+            </Typography>
             </> : null
         }
         {signedIn && location.pathname == '/settings' ? <>
@@ -100,11 +119,23 @@ export default function HeaderMenu(props) {
         }
         {signedIn && location.pathname == '/support' ? <>
           <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
-          <Typography variant="h5">Support</Typography></>: null
+          <Typography variant="h5">Support</Typography>
+          <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '50px', width: 'auto', position: 'absolute', top: 4, right: '2%'}} />
+          </>: null
         }
         {signedIn && location.pathname == '/resources' ? <>
           <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={history.goBack} />
-          <Typography variant="h5">Resources</Typography></>: null
+          <Typography variant="h5">Resources</Typography>
+          <Button
+          sx={{color: "#FFFFFF", display: {xs: 'none', md: 'flex'}}} variant="text" onClick={switchLanguage}>{t("langSwitch")}
+           </Button>
+          <Button sx={{color: "#FFFFFF", display: {xs: 'flex', md: 'none'}}} variant="text" onClick={switchLanguage}>{t("langSwitchShort")}</Button>
+          <LiveHelpIcon style={{color: 'white', height: '50px', width: 'auto', position: 'absolute', top: 4, right: '2%'}} />
+          </>: null
         }
         
         </Toolbar>

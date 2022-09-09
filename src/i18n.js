@@ -1,4 +1,4 @@
-import i18n from "i18next";
+import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
@@ -9,11 +9,11 @@ const resources = {
     en: {
       translation: {
         index: "ARMY WEEK 2022",
-        agenda: "Agenda",
-        venueInfo: "Venue Info",
-        help: "Help",
+        Calendar: "Agenda",
+        Venueinfo: "Venue Info",
+        Help: "Help",
         dashboards: "Dashboards",
-        resources: "Resources",
+        presentations: "Presentations",
         help_more:"Still have questions?",
         help_email: "Send an Email to",
         help_data: {
@@ -63,31 +63,31 @@ const resources = {
             {"title": "2022 Army Week Registration",
             "description": "Take a look at Army Week attendance metrics.",
             "file_title": "2022 Army Week Registration",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiZDI2YWM2MWEtYjAzNC00MjJiLWI0MTAtZTczNmQzNzcwMzNjIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=5a75de14-c141-463c-9509-80d3c17d98e9&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "armyweekregss.JPG"
             },
             {"title": "Canadian Army Modernization Strategy",
             "description": "Tracking progress of initiatives and sub-initiatives on the road to modernization.",
             "file_title": "CAMS Placemat Desktop",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiN2JhYTIwZGQtMDlhMS00ZjA3LTk4YzMtYTg4ZjA0ZGQ4MzY3IiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "camsss.JPG"
             },
             {"title": "Army 101 Dashboard",
             "description": "Dashboards and placemats that describe the Canadian Army and its structure.",
             "file_title": "Army 101",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiMTQ2NWIwMDAtN2I5ZS00MjJmLWExNGYtNGI2ZGZlOGRlNjAzIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "army101ss.JPG"
             },
             {"title": "CA Interactive Org Chart",
             "description": "See how the CA is structured and where the various organizations are located.",
             "file_title": "CA Org Structure",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiM2IzMDdlYzQtODg0MC00YWYwLWJjNjAtNjI1MmE2NTBlMTJhIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9&pageName=ReportSection",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=dad185ad-5fd1-4c2f-b56d-bbc512e52025&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "orgstructss.jpg"
             },
             {"title": "Commander and Senior Leader Dashboard",
             "description": "Peruse the Commander and Senior Leader Bios of the CA.",
             "file_title": "CA General Officers",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "CAGenOffss.JPG"
             },
         ],
@@ -164,31 +164,31 @@ const resources = {
             {"title": "Inscription pour la Semaine de l’Armée 2022",
             "description": "Regardez les statistiques sur les inscriptions pour la Semaine de l’Armée.",
             "file_title": "Inscription pour la Semaine de l’Armée 2022",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiZDI2YWM2MWEtYjAzNC00MjJiLWI0MTAtZTczNmQzNzcwMzNjIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=5a75de14-c141-463c-9509-80d3c17d98e9&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "armyweekregss.JPG"
             },
             {"title": "Stratégie de modernisation de l'Armée canadienne",
             "description": "Suivi des progrès des initiatives et des sous-initiatives sur la voie de la modernisation.",
             "file_title": "CAMS Placemat Desktop",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiN2JhYTIwZGQtMDlhMS00ZjA3LTk4YzMtYTg4ZjA0ZGQ4MzY3IiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "camsss.JPG"
             },
             {"title": "Tableau de bord Armée 101",
             "description": "Tableaux de bord qui décrivent l'Armée canadienne et sa structure.",
             "file_title": "Army 101",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiMTQ2NWIwMDAtN2I5ZS00MjJmLWExNGYtNGI2ZGZlOGRlNjAzIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "army101ss.JPG"
             },
             {"title": "Organigramme interactif de l'AC",
             "description": "Voyez comment l'AC est structurée et où se trouvent les différentes organisations.",
             "file_title": "CA Org Structure",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiM2IzMDdlYzQtODg0MC00YWYwLWJjNjAtNjI1MmE2NTBlMTJhIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9&pageName=ReportSection",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=dad185ad-5fd1-4c2f-b56d-bbc512e52025&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "orgstructss.jpg"
             },
             {"title": "Tableau de bord du commandant et de l'équipe des ahuts dirigeants",
             "description": "Consultez les biographies du commandant et des hauts dirigeants de l'AC.",
             "file_title": "CA General Officers",
-            "embed_url": "https://app.powerbi.com/view?r=eyJrIjoiODBmYTM1MDQtZDA5Ny00NTlhLWI5NGItZmNlMGQyNjIxNGFmIiwidCI6IjMyNWI0NDk0LTE1ODctNDBkNS1iYjMxLThiNjYwYjdmMTAzOCJ9",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "CAGenOffss.JPG"
             },
         ],
@@ -214,7 +214,7 @@ const resources = {
   };
 
 
-  i18n
+  i18next
     .use(initReactI18next)
     .use(LanguageDetector)
     .init({
@@ -226,5 +226,4 @@ const resources = {
       fallbackLng: "en",
       nonExplicitSupportedLngs: true,
     });
-
-  export default i18n;
+  export default i18next;

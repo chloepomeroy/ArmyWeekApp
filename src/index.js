@@ -7,7 +7,7 @@ import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig, msalLocalConfig } from '../authConfig';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import './i18n'
+import './i18n-a'
 
 // create PublicClientApplication instance
 let msalInstance

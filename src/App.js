@@ -41,7 +41,7 @@ import IndexPage from './components/mainPages/index'
 import Cal from './components/mainPages/calendar'
 import Venue from './components/mainPages/venue'
 import Dashboards from './components/mainPages/dashboards'
-import SelectedEvent from './components/mainPages/selectedEvent'
+
 
 // Material-UI Components
 import { makeStyles } from '@mui/styles'
@@ -322,13 +322,7 @@ const App = () => {
                     { children }
                 </Registration>
             </Route>
-            <Route exact path="/event-details/:id">
-                <SelectedEvent
-                    state={state}
-                    >
-                    { children }
-                </SelectedEvent>
-            </Route>
+            
             <Route exact path="/register-guild">
                 <GuildRegister 
                     state={state}
