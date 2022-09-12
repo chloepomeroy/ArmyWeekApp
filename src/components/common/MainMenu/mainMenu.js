@@ -7,7 +7,7 @@ import ModernizationMenu from '../MenuList/ModernizationMenu/modernizationMenu'
 import PolicyRegsMenu from '../MenuList/PolicyRegsMenu/policyRegsMenu'
 import AdministrationMenu from '../MenuList/AdministrationMenu/administrationMenu'
 import DiplomacyMenu from '../MenuList/DiplomacyMenu/diplomacyMenu'
-import { useTranslation } from "react-i18next"
+import { t } from 'i18next'
 
 // Styling
 import Dialog from '@mui/material/Dialog'
@@ -38,7 +38,7 @@ export default function MainMenu (props) {
     handleClose()
   }
 
-  const { t, i18n } = useTranslation()
+  // const { t, i18n } = useTranslation()
 
   return (
     <div>

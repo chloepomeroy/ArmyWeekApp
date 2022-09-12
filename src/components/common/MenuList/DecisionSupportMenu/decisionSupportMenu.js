@@ -14,13 +14,11 @@ import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { blue, green } from '@mui/material/colors'
-import { useTranslation } from "react-i18next"
+import { t } from 'i18next'
 
 
 export default function DecisionSupportMenu() {
     let navigate = useNavigate()
-
-    const { t, i18n } = useTranslation()
 
 
   return (
