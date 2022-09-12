@@ -14,13 +14,19 @@ import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { blue, green } from '@mui/material/colors'
+import { useTranslation } from "react-i18next"
+
 
 export default function DecisionSupportMenu() {
     let navigate = useNavigate()
+
+    const { t, i18n } = useTranslation()
+
+
   return (
    <>
-            
-            <ListItem 
+
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -34,12 +40,12 @@ export default function DecisionSupportMenu() {
                         <RadarIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Army Keystone Dashboards" 
-                    secondary="Army 101, Leaders, Personnel, Equipment..."
+                <ListItemText
+                    primary= {t("army_keystone_dash")}
+                    secondary={t("army_keystone_desc")}
                 />
             </ListItem>
-            <ListItem 
+            <ListItem
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
                     <ChevronRightIcon />
@@ -51,13 +57,13 @@ export default function DecisionSupportMenu() {
                         <RadarIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Digital COP" 
-                    secondary="Coming Soon...(ETA: 31 Oct 22)"
+                <ListItemText
+                    primary={t("digital_cop")}
+                    secondary={t("digital_cop_desc")}
                 />
             </ListItem>
 
-            <ListItem 
+            <ListItem
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
                     <ChevronRightIcon />
@@ -69,13 +75,13 @@ export default function DecisionSupportMenu() {
                         <NotificationsActiveIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Army Notifications (CCIR/Safety)" 
-                    secondary="Coming Soon...(ETA: 31 Dec 22)"
+                <ListItemText
+                    primary= {t("army_notifications_dash")}
+                    secondary={t("army_notification_desc")}
                 />
             </ListItem>
-   
-      
+
+
   </>
   );
 }

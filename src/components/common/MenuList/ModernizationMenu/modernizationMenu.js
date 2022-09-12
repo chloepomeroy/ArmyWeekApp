@@ -13,13 +13,14 @@ import IconButton from '@mui/material/IconButton'
 import { blue, green } from '@mui/material/colors'
 
 import brainBulb from '../../../../img/brainbulbicon.png'
+import { t } from 'i18next'
 
 export default function ModernizationMenu() {
 
 
   return (
    <>
-            <ListItem 
+            <ListItem
             autoFocus
             secondaryAction={
                 <IconButton edge="end" aria-label="go">
@@ -30,13 +31,13 @@ export default function ModernizationMenu() {
                 <ListItemAvatar>
                     <Avatar src={brainBulb} sx={{ bgcolor: green[100], color: green[600] }} />
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Digital Innovation Platform (DIP)" 
-                    secondary="Coming Soon...(ETA: Oct 22)"
+                <ListItemText
+                    primary={t("dip")}
+                    secondary={t("dip_desc")}
                 />
             </ListItem>
-   
-        
+
+
   </>
   );
 }

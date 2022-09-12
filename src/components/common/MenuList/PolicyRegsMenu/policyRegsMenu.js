@@ -14,13 +14,14 @@ import RadarIcon from '@mui/icons-material/Radar'
 import ArticleIcon from '@mui/icons-material/Article';
 import CloudIcon from '@mui/icons-material/Cloud';
 import { blue, green } from '@mui/material/colors'
+import { t } from 'i18next'
 
 export default function PolicyRegsMenu() {
 
 
   return (
    <>
-            <ListItem 
+            <ListItem
             autoFocus
             secondaryAction={
                 <IconButton edge="end" aria-label="go">
@@ -33,12 +34,12 @@ export default function PolicyRegsMenu() {
                     <CloudIcon />
                 </Avatar>
             </ListItemAvatar>
-            <ListItemText 
-                primary="Digital Policy Placemat" 
-                secondary="Understand the Digital Landscape (ETA Sep 22)"
+            <ListItemText
+                primary={t("digital_pol_placemat")}
+                secondary={t("digital_pol_desc")}
             />
             </ListItem>
-            <ListItem 
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -52,12 +53,12 @@ export default function PolicyRegsMenu() {
                         <ArticleIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="CAF Orders and Directives" 
-                    secondary="CANFORGENs, DAODs, QR&Os"
+                <ListItemText
+                    primary={t("caf_od_dash")}
+                    secondary={t("caf_od_desc")}
                 />
             </ListItem>
-   
+
   </>
   );
 }

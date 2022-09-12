@@ -7,6 +7,7 @@ import ModernizationMenu from '../MenuList/ModernizationMenu/modernizationMenu'
 import PolicyRegsMenu from '../MenuList/PolicyRegsMenu/policyRegsMenu'
 import AdministrationMenu from '../MenuList/AdministrationMenu/administrationMenu'
 import DiplomacyMenu from '../MenuList/DiplomacyMenu/diplomacyMenu'
+import { useTranslation } from "react-i18next"
 
 // Styling
 import Dialog from '@mui/material/Dialog'
@@ -23,7 +24,7 @@ const Transition = forwardRef((props, ref) => {
 
 export default function MainMenu (props) {
 
-  const { 
+  const {
     handleMenuClickState,
     } = props
 
@@ -37,19 +38,19 @@ export default function MainMenu (props) {
     handleClose()
   }
 
-  
+  const { t, i18n } = useTranslation()
 
   return (
     <div>
-    <Dialog 
-      open={open} 
+    <Dialog
+      open={open}
       TransitionComponent={Transition}
       fullScreen
-      keepMounted 
+      keepMounted
       onClose={handleClose}
     >
-     
-        <CloseIcon 
+
+        <CloseIcon
           style={{
             position: 'absolute',
             top: '5px',
@@ -63,36 +64,36 @@ export default function MainMenu (props) {
         >
         </List>
         <List
-          subheader={<ListSubheader>DECISION SUPPORT</ListSubheader>}
+          subheader={<ListSubheader>{t("decision_support_proj")}</ListSubheader>}
         >
           <DecisionSupportMenu />
         </List>
         <List
-          subheader={<ListSubheader>GOVERNANCE</ListSubheader>}
+          subheader={<ListSubheader>{t("governence_proj")}</ListSubheader>}
         >
           <GovernanceMenu />
         </List>
         <List
-          subheader={<ListSubheader>MODERNIZATION</ListSubheader>}
+          subheader={<ListSubheader>{t("modernization_proj")}</ListSubheader>}
         >
           <ModernizationMenu />
         </List>
         <List
-          subheader={<ListSubheader>DIPLOMACY</ListSubheader>}
+          subheader={<ListSubheader>{t("diplomacy_proj")}</ListSubheader>}
         >
           <DiplomacyMenu />
         </List>
         <List
-          subheader={<ListSubheader>ADMINISTRATION</ListSubheader>}
+          subheader={<ListSubheader>{t("administration")}</ListSubheader>}
         >
           <AdministrationMenu />
         </List>
         <List
-          subheader={<ListSubheader>POLICY & REGS</ListSubheader>}
+          subheader={<ListSubheader>{t("policy_regs_proj")}</ListSubheader>}
         >
           <PolicyRegsMenu />
         </List>
-      
+
       <DialogActions>
         <Button onClick={handleClose}>Close</Button>
       </DialogActions>

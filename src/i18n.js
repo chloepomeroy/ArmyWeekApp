@@ -1,6 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { m } from "framer-motion";
 
 var en = require('./components/data/enevents.json').events;
 var fr = require('./components/data/frevents.json').events;
@@ -9,6 +10,7 @@ const resources = {
     en: {
       translation: {
         index: "ARMY WEEK 2022",
+        welcome: "Welcome",
         calendar: "Agenda",
         venueInfo: "Venue Info",
         info: "Info",
@@ -65,7 +67,7 @@ const resources = {
         venue_address: "200 Coventry Road, Ottawa, ON",
         venue_moreinfo: "More Information",
         venue_floorplantitle: "Facilities Floorplan",
-        dashboards_view: "View", 
+        dashboards_view: "View",
         dashboards_pagetitle: "Dashboards",
         dashboard_list: [
             {"title": "2022 Army Week Registration",
@@ -100,7 +102,7 @@ const resources = {
             },
         ],
         cal_week: "week",
-        cal_day: "day", 
+        cal_day: "day",
         cal_list: "list",
         cal_pagetitle: "Agenda",
         langSwitch: "Français",
@@ -119,12 +121,38 @@ const resources = {
         event_details: "Event Details",
         strong_proud_ready: "Strong, Proud, Ready",
         sign_in: "Sign In",
-        contact_us: "Contact Us"
+        contact_us: "Contact Us",
+        decision_support_proj: "DECISION SUPPORT",
+        army_keystone_dash: "Army Keystone Dashboards",
+        army_keystone_desc: "Army 101, Leaders, Personnel, Equipment...",
+        digital_cop: "Digital COP",
+        digital_cop_desc: "Coming Soon...(ETA: 31 Oct 22)",
+        army_notifications_dash : "Army Notifications (CCIR/Safety)",
+        army_notification_desc: "Coming Soon...(ETA: 31 Dec 22)",
+        governence_proj: "GOVERNANCE",
+        army_governence_mgmt_dash: "Army Governance Management System",
+        army_governence_mgmt_desc: "V2 Coming Soon... (ETA: 2023)",
+        ca_data_governence: "CA Data Governance",
+        ca_data_gov_desc: "Implementation in progress",
+        modernization_proj: "MODERNIZATION",
+        dip: "Digital Innovation Platform (DIP)",
+        dip_desc: "Coming Soon...(ETA: Oct 22)",
+        diplomacy_proj: "DIPLOMACY",
+        diplomacy_desc: "Coming Soon...",
+        administration: "ADMINISTRATION",
+        proj_dna: "Project DNA",
+        proj_dna_desc: "Optimizing Res F Administration. Coming Soon...",
+        policy_regs_proj: "POLICY & REGS",
+        digital_pol_placemat: "Digital Policy Placemat",
+        digital_pol_desc: "Understand the Digital Landscape (ETA Sep 22)",
+        caf_od_dash: "CAF Orders and Directives",
+        caf_od_desc: "CANFORGENs, DAODs, QR&Os"
       },
     },
     fr: {
       translation: {
         index: "SEMAINE DE L'ARMÉE 2022",
+        welcome: "Bienvenue",
         calendar: "ordre du jour",
         venueInfo: "lieu",
         info: "info",
@@ -178,7 +206,7 @@ const resources = {
         venue_address: "200 Coventry Road, Ottawa, ON",
         venue_moreinfo: "Plus d'information",
         venue_floorplantitle: "Plan d'étage d'installation",
-        dashboards_view: "Affichez", 
+        dashboards_view: "Affichez",
         dashboards_pagetitle: "Tableaux de bord",
         dashboard_list: [
             {"title": "Inscription pour la Semaine de l’Armée 2022",
@@ -212,7 +240,7 @@ const resources = {
             "img": "CAGenOffss.jpg"
             },
         ],
-        cal_week: "semaine", 
+        cal_week: "semaine",
         cal_day: "jour",
         cal_list: "liste",
         cal_pagetitle: "Programme",
@@ -232,7 +260,32 @@ const resources = {
         event_details: "Détails sur l'évènement",
         strong_proud_ready: "Forts, Fiers, Prêts",
         sign_in: "connexion",
-        contact_us: "nous contacter"
+        contact_us: "nous contacter",
+        decision_support_proj: "SOUTIEN À LA PRISE DE DÉCISION",
+        army_keystone_dash: "Tableaux de bord clés de l'Armée",
+        army_keystone_desc: "L'Armée 101, Leadership, Personnel, Équipement…",
+        digital_cop: "ICSO Numérique",
+        digital_cop_desc: "À venir… (ETA : 31 oct 22)",
+        army_notifications_dash : "Notifications de l'Armée (BECI/Sécurité)",
+        army_notification_desc: "À venir… (ETA : 31 déc 22)",
+        governence_proj: "GOUVERNANCE",
+        army_governence_mgmt_dash: "Système de gestion de la gouvernance de l'Armée",
+        army_governence_mgmt_desc: "v2 prochainement… (ETA : 2023)",
+        ca_data_governence: "Gouvernance des données pour l'AC",
+        ca_data_gov_desc: "En cours de mise en œuvre",
+        modernization_proj: "MODERNISATION",
+        dip: "Plateforme d'innovation numérique (PIN)",
+        dip_desc: "À venir… (ETA : oct 22)",
+        diplomacy_proj: "DIPLOMATIE",
+        diplomacy_desc: "À venir…",
+        administration: "ADMINISTRATION",
+        proj_dna: "Projet ADN",
+        proj_dna_desc: "Optimiser l'administration de la F Rés. À venir…",
+        policy_regs_proj: "POLITIQUE ET RÉGLEMENTATIONS",
+        digital_pol_placemat: "Brochure des politiques numérique",
+        digital_pol_desc: "Comprendre le paysage numérique (ETA sep 22)",
+        caf_od_dash: "Ordonnances et directives des FAC",
+        caf_od_desc: "CANFORGEN, DOAD, ORFC"
       },
     },
   };
