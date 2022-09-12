@@ -357,7 +357,7 @@
         "RoomFloorplan": "106.jpg",
         "VenueFloorplan": "venue106.jpg", 
         "id": 18,
-        "Materials": [{"filename": "file.txt", "url": "asdf.pdf"}],
+        "Materials": [],
         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
