@@ -17,6 +17,8 @@ import cams from '../../img/camsss.jpg'
 import army101 from '../../img/army101ss.jpg'
 import armyOrg from '../../img/orgstructss.jpg'
 import bios from '../../img/CAGenOffss.jpg'
+import cearp from '../../img/cearp.jpg'
+import g1 from '../../img/g1.jpg'
 
 export default function Dashboards() {
 
@@ -124,6 +126,48 @@ export default function Dashboards() {
                     <CardActionArea>
                         <CardActions>
                             <a href={t("dashboard_list", { returnObjects: true })[4].embed_url}>
+                                <Typography variant="overline">
+                                    {t("dashboards_view")}
+                                </Typography>
+                            </a>
+                        </CardActions>
+                    </CardActionArea>
+                </Card>
+
+                <Card sx={{ maxWidth: '98%' }}>
+                    <CardContent align="left">
+                        <img src={g1} alt="1st floor" style={{maxWidth: '98%'}} />
+                        <Typography variant="h5">
+                            {t("dashboard_list", { returnObjects: true })[5].title}
+                        </Typography>
+                        <Typography variant="body1">
+                            {t("dashboard_list", { returnObjects: true })[5].description}
+                        </Typography>
+                    </CardContent>
+                    <CardActionArea>
+                        <CardActions>
+                            <a href={t("dashboard_list", { returnObjects: true })[5].embed_url}>
+                                <Typography variant="overline">
+                                    {t("dashboards_view")}
+                                </Typography>
+                            </a>
+                        </CardActions>
+                    </CardActionArea>
+                </Card>
+
+                <Card sx={{ maxWidth: '98%' }}>
+                    <CardContent align="left">
+                        <img src={cearp} alt="1st floor" style={{maxWidth: '98%'}} />
+                        <Typography variant="h5">
+                            {t("dashboard_list", { returnObjects: true })[6].title}
+                        </Typography>
+                        <Typography variant="body1">
+                            {t("dashboard_list", { returnObjects: true })[6].description}
+                        </Typography>
+                    </CardContent>
+                    <CardActionArea>
+                        <CardActions>
+                            <a href={t("dashboard_list", { returnObjects: true })[6].embed_url}>
                                 <Typography variant="overline">
                                     {t("dashboards_view")}
                                 </Typography>

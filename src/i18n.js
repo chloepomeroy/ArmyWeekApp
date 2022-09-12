@@ -98,6 +98,14 @@ const resources = {
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "CAGenOffss.jpg"
             },
+            {"title": "Army G1 Dashboard",
+            "description":"Various dashboards from the CA G1.",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=82e69a85-d27c-4be5-92e8-c6f34c4605e6&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+            },
+            {"title": "CAERP Dashboard",
+            "description": "Canadian Army Equipment Readiness Programme (CAERP) Dashboard.",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=a9273f62-de27-4cc6-b38f-b2b31e1fa906&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
+            },
         ],
         cal_week: "week",
         cal_day: "day", 
@@ -210,6 +218,14 @@ const resources = {
             "file_title": "CA General Officers",
             "embed_url": "https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
             "img": "CAGenOffss.jpg"
+            },
+            {"title": "Tableau de bord du G1",
+            "description":"Divers tableaux de bord de l’équipe du G1 de l’AC.",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=82e69a85-d27c-4be5-92e8-c6f34c4605e6&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038",
+            },
+            {"title": "Tableau de bord du PDEAC",
+            "description": "Tableau de bord du Programme sur la disponibilité de l’équipement de l’Armée canadienne.",
+            "embed_url": "https://app.powerbi.com/reportEmbed?reportId=a9273f62-de27-4cc6-b38f-b2b31e1fa906&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"
             },
         ],
         cal_week: "semaine", 
