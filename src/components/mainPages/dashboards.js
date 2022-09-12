@@ -31,17 +31,17 @@ export default function Dashboards() {
                     <CardContent align="left">
                         <img src={bios} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
-                            Commander and Senior Leaders
+                            {t("dashboard_list", { returnObjects: true })[4].title}
                         </Typography>
                         <Typography variant="body1">
-                            Peruse biographies of the Army's Commander and Senior Leaders.
+                            {t("dashboard_list", { returnObjects: true })[4].description}
                         </Typography>
                     </CardContent>
                     <CardActionArea>
                         <CardActions>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=98a139c3-e995-41a5-9acf-bcfdf554e6f2&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038">
+                            <a href={t("dashboard_list", { returnObjects: true })[4].embed_url}>
                                 <Typography variant="overline">
-                                    view
+                                    {t("dashboards_view")}
                                 </Typography>
                             </a>
                         </CardActions>
@@ -52,17 +52,17 @@ export default function Dashboards() {
                     <CardContent align="left">
                         <img src={cams} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
-                            Canadian Army Modernization Strategy
+                            {t("dashboard_list", { returnObjects: true })[1].title}
                         </Typography>
                         <Typography variant="body1">
-                            Tracking progress of initiatives and sub-initiatives on the road to modernization.
+                            {t("dashboard_list", { returnObjects: true })[1].description}
                         </Typography>
                     </CardContent>
                     <CardActionArea>
                         <CardActions>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038">
+                            <a href={t("dashboard_list", { returnObjects: true })[1].embed_url}>
                                 <Typography variant="overline">
-                                    view
+                                    {t("dashboards_view")}
                                 </Typography>
                             </a>
                         </CardActions>
@@ -73,17 +73,17 @@ export default function Dashboards() {
                     <CardContent align="left">
                         <img src={army101} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
-                            Army 101
+                            {t("dashboard_list", { returnObjects: true })[2].title}
                         </Typography>
                         <Typography variant="body1">
-                            Information and placemats that describe the Canadian Army and its structure.
+                            {t("dashboard_list", { returnObjects: true })[2].description}
                         </Typography>
                     </CardContent>
                     <CardActionArea>
                         <CardActions>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=12d0edf4-365c-4965-9892-c29be534591c&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038">
+                            <a href={t("dashboard_list", { returnObjects: true })[2].embed_url}>
                                 <Typography variant="overline">
-                                    view
+                                    {t("dashboards_view")}
                                 </Typography>
                             </a>
                         </CardActions>
@@ -94,17 +94,17 @@ export default function Dashboards() {
                     <CardContent align="left">
                         <img src={awRegistrations} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
-                            Army Week 2022 Registrations
+                            {t("dashboard_list", { returnObjects: true })[0].title}
                         </Typography>
                         <Typography variant="body1">
-                            Review Army Week attendance metrics.
+                            {t("dashboard_list", { returnObjects: true })[0].description}
                         </Typography>
                     </CardContent>
                     <CardActionArea>
                         <CardActions>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=5a75de14-c141-463c-9509-80d3c17d98e9&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038">
+                            <a href={t("dashboard_list", { returnObjects: true })[0].embed_url}>
                                 <Typography variant="overline">
-                                    view
+                                    {t("dashboards_view")}
                                 </Typography>
                             </a>
                         </CardActions>
@@ -115,17 +115,17 @@ export default function Dashboards() {
                     <CardContent align="left">
                         <img src={armyOrg} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
-                            Canadian Army Interactive Org Chart
+                            {t("dashboard_list", { returnObjects: true })[3].title}
                         </Typography>
                         <Typography variant="body1">
-                            See how the Army is structured and where various organizations are located.
+                        {t("dashboard_list", { returnObjects: true })[3].description}
                         </Typography>
                     </CardContent>
                     <CardActionArea>
                         <CardActions>
-                            <a href="https://app.powerbi.com/reportEmbed?reportId=dad185ad-5fd1-4c2f-b56d-bbc512e52025&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038">
+                            <a href={t("dashboard_list", { returnObjects: true })[4].embed_url}>
                                 <Typography variant="overline">
-                                    view
+                                    {t("dashboards_view")}
                                 </Typography>
                             </a>
                         </CardActions>
