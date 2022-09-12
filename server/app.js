@@ -1,4 +1,7 @@
+
+require(__dirname  + '/lib/helper.js');
 const express = require("express");
+const fs = require('fs')
 const path = require("path");
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
@@ -11,7 +14,8 @@ const app = express();
 // Make the database accessible off the app object
 app.set(db);
 
-const index = require("./routes/index");
+const index = require("./routes/index-old");
+const upload = require("./routes/upload");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -26,6 +30,8 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use("/api", index);
+app.use("/upload", upload);
+
 app.get('/*', (req, res) => {
   // res.setHeader(
   //   'Content-Security-Policy-Report-Only',

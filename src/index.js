@@ -7,7 +7,7 @@ import { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
 import { msalConfig, msalLocalConfig } from '../authConfig';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import './i18n-a'
+import './i18n'
 
 // create PublicClientApplication instance
 let msalInstance
@@ -19,13 +19,13 @@ if(process.env.ENV == 'localhost'){
 
 ReactDOM.render(
 	
-		<AppProvider>
-			<BrowserRouter>
-				<MsalProvider instance={msalInstance}>
-					<App />
-				</MsalProvider>
-			</BrowserRouter>
-		</AppProvider>
+	<AppProvider>
+		<BrowserRouter>
+			<MsalProvider instance={msalInstance}>
+				<App />
+			</MsalProvider>
+		</BrowserRouter>
+	</AppProvider>
 	,
 	document.getElementById('root')
 );
@@ -35,3 +35,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
 serviceWorkerRegistration.unregister();
+//navigator.serviceWorker.register(new URL('http://localhost:3000/push/onesignal/OneSignalSDKWorker.js'));

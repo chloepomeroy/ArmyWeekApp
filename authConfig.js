@@ -30,16 +30,12 @@ auth: {
    scopes: ["User.Read", "profile"]
   };
 
+  // Times for calendar (not implemented)
   let start_datetime = new Date()
-  console.log('start_datetime', start_datetime)
   let start = start_datetime.toISOString()
-  console.log('start', start)
   let end_datetime = start_datetime.setDate(start_datetime.getDate() + 30)
-  console.log('end_datetime', end_datetime)
   let anotherDate = new Date(end_datetime)
-  console.log('another date', anotherDate)
   let end = anotherDate.toISOString()
-  console.log('end', end)
 
   // Add the endpoints here for Microsoft Graph API services you'd like to use.
   export const graphConfig = {

@@ -1,6 +1,5 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { Link } from 'react-router-dom'
 
 //Components
 import Grid from '@mui/material/Grid'
@@ -13,20 +12,20 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 
 // Dashboard Images
-import awRegistrations from '../images/armyweekregss.jpg'
-import cams from '../images/camsss.jpg'
-import army101 from '../images/army101ss.jpg'
-import armyOrg from '../images/orgstructss.jpg'
-import bios from '../images/CAGenOffss.jpg'
+import awRegistrations from '../../img/armyweekregss.jpg'
+import cams from '../../img/camsss.jpg'
+import army101 from '../../img/army101ss.jpg'
+import armyOrg from '../../img/orgstructss.jpg'
+import bios from '../../img/CAGenOffss.jpg'
 
 export default function Dashboards() {
 
     const { t, i18n } = useTranslation();
 
     return (
-        <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white' }}>
+        <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '50px', paddingTop: '30px'  }}>
         <Grid container alignItems="center" justifyContent="center">
-            <Stack direction="column"  justifyContent="center" alignItems="center" spacing={3} style={{maxWidth: '90%'}}>
+            <Stack direction="column"  justifyContent="center" alignItems="center" spacing={3} style={{maxWidth: '90%', marginBottom: '76px'}}>
                 
                 <Card sx={{ maxWidth: '98%' }}>
                     <CardContent align="left">

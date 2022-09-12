@@ -292,7 +292,7 @@ class Ceramic {
   }
 
   async getVaultKeyPair(microsoftAccount){
-    console.log('microsoftaccount', microsoftAccount)
+   
     let token = await axios.post(TOKEN_CALL, 
       {
       accountId: microsoftAccount
@@ -302,7 +302,7 @@ class Ceramic {
     set(AUTH_TOKEN, token.data.token)
   
     let authToken = get(AUTH_TOKEN, [])
-    console.log('authtoken', authToken)
+ 
     let result = await axios.post(SECRETGET_CALL, 
       {
         accountId: microsoftAccount
@@ -313,7 +313,7 @@ class Ceramic {
         }
       }
     )
-    console.log('get vault key result', result)
+   
     if(result.data.keyPair && result.data.keyPair != ""){
       return JSON.parse(result.data.keyPair.value)
     } else {

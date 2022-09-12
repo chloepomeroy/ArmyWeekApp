@@ -1,14 +1,15 @@
 import React from "react"
+import { useNavigate } from 'react-router-dom'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import listPlugin from '@fullcalendar/list'
 import { useTranslation } from "react-i18next"
-import Box from '@mui/material/Box'
 
 //Styling
 import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 
 const en = require('../data/enevents.json').events
 const fr = require('../data/frevents.json').events
@@ -17,6 +18,8 @@ export default function Cal(props) {
 
   const { i18n } = useTranslation(['events'])
   const { t } = useTranslation()
+
+  let navigate = useNavigate()
 
   let locale = i18n.language
 
@@ -27,12 +30,12 @@ export default function Cal(props) {
       return en
     }
   }
-
+  
   return (
     <>
-    <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white' }}>
+    <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '70px' }}>
       <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'none', md: 'flex' } }}> 
-        <Grid item xs={11} >    
+        <Grid item xs={11} style={{marginBottom: '76px'}} >    
           <FullCalendar
             plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
             initialView = "timeGridWeek"
@@ -59,8 +62,7 @@ export default function Cal(props) {
             contentHeight="auto"
             slotDuration="00:10:00"
             eventOverlap = {false}
-            eventClick = {(event) => {var eventId = event.event.id
-              window.open(`/eventDetails/${eventId}`, '_self')}}
+            eventClick = {(event) => navigate(`/event/${event.event.id}`)}
           />
         </Grid>
       </Grid>
@@ -92,8 +94,7 @@ export default function Cal(props) {
             contentHeight="auto"
             slotDuration="00:10:00"
             eventOverlap = {false}
-            eventClick = {(event) => {var eventId = event.event.id
-              window.open(`/eventDetails/${eventId}`, '_self')}}
+            eventClick = {(event) => navigate(`/event/${event.event.id}`)}
           />
         </Grid>
       </Grid>

@@ -1,19 +1,25 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import Button from '@mui/material/Button'
-import Avatar from '@mui/material/Avatar'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import ListItemText from '@mui/material/ListItemText'
-import DialogTitle from '@mui/material/DialogTitle'
-import Dialog from '@mui/material/Dialog'
-import PersonIcon from '@mui/icons-material/Person'
-import AddIcon from '@mui/icons-material/Add'
-import Typography from '@mui/material/Typography'
-import { blue } from '@mui/material/colors'
+import React, { useState, forwardRef } from 'react'
 
-const emails = ['username@gmail.com', 'user02@gmail.com']
+import MicrosoftLogoutButton from '../MicrosoftLogOutButton/microsoftLogoutButton'
+import DecisionSupportMenu from '../MenuList/DecisionSupportMenu/decisionSupportMenu'
+import GovernanceMenu from '../MenuList/GovernanceMenu/governanceMenu'
+import ModernizationMenu from '../MenuList/ModernizationMenu/modernizationMenu'
+import PolicyRegsMenu from '../MenuList/PolicyRegsMenu/policyRegsMenu'
+import AdministrationMenu from '../MenuList/AdministrationMenu/administrationMenu'
+import DiplomacyMenu from '../MenuList/DiplomacyMenu/diplomacyMenu'
+
+// Styling
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import { DialogActions, ListSubheader } from '@mui/material'
+import Slide from '@mui/material/Slide'
+import Button from '@mui/material/Button'
+import CloseIcon from '@mui/icons-material/Close';
+import List from '@mui/material/List'
+
+const Transition = forwardRef((props, ref) => {
+  return <Slide direction="up" ref={ref} {...props} />
+})
 
 export default function MainMenu (props) {
 
@@ -31,30 +37,66 @@ export default function MainMenu (props) {
     handleClose()
   }
 
-  return (
-    <Dialog open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
-      <List sx={{ pt: 0 }}>
-        {emails.map((email) => (
-          <ListItem button onClick={() => handleListItemClick(email)} key={email}>
-            <ListItemAvatar>
-              <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={email} />
-          </ListItem>
-        ))}
+  
 
-        <ListItem autoFocus button onClick={() => handleListItemClick('addAccount')}>
-          <ListItemAvatar>
-            <Avatar>
-              <AddIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Add account" />
-        </ListItem>
-      </List>
+  return (
+    <div>
+    <Dialog 
+      open={open} 
+      TransitionComponent={Transition}
+      fullScreen
+      keepMounted 
+      onClose={handleClose}
+    >
+     
+        <CloseIcon 
+          style={{
+            position: 'absolute',
+            top: '5px',
+            right: '5px',
+            zIndex: 5000
+          }}
+          onClick={handleClose}
+        />
+        <List
+          subheader=""
+        >
+        </List>
+        <List
+          subheader={<ListSubheader>DECISION SUPPORT</ListSubheader>}
+        >
+          <DecisionSupportMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>GOVERNANCE</ListSubheader>}
+        >
+          <GovernanceMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>MODERNIZATION</ListSubheader>}
+        >
+          <ModernizationMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>DIPLOMACY</ListSubheader>}
+        >
+          <DiplomacyMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>ADMINISTRATION</ListSubheader>}
+        >
+          <AdministrationMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>POLICY & REGS</ListSubheader>}
+        >
+          <PolicyRegsMenu />
+        </List>
+      
+      <DialogActions>
+        <Button onClick={handleClose}>Close</Button>
+      </DialogActions>
     </Dialog>
+    </div>
   )
 }

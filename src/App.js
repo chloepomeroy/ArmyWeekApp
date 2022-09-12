@@ -1,56 +1,34 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { appStore, onAppMount } from './state/app'
-import { Providers, ProviderState } from '@microsoft/mgt-element'
 import { get, set, del } from './utils/storage'
-import { Route } from "react-router-dom"
-import Header from './components/common/Header/header'
-import Footer from './components/common/Footer/footer'
-import RandomPhrase from './components/common/RandomPhrase/randomPhrase'
-import NewKey from './components/mainPages/newKey'
-import Choice from './components/mainPages/choice'
-import IndivRegister from './components/mainPages/indivRegister'
-import GuildRegister from './components/mainPages/guildRegister'
-import IndivProfile from './components/Profiles/indivProfile'
-import GuildProfile from './components/Profiles/guildProfile'
-import Registration from './components/mainPages/registration'
-import CreateIndivProfile from './components/mainPages/createIndividualProfile'
-import CreateGuildProfile from './components/mainPages/createGuildProfile'
-import ExploreGuilds from './components/mainPages/guilds'
-import ExploreIndividuals from './components/mainPages/individuals'
-import DisplayGuildProfile from './components/mainPages/displayGuildProfile'
-import DisplayIndivProfile from './components/mainPages/displayIndivProfile'
-import Admin from './components/mainPages/admin'
-import Pledge from './components/mainPages/pledge'
-import Announcements from './components/mainPages/announcements'
-import Dashboard from './components/mainPages/dashboard'
-import BottomAppBar from './components/common/BottomAppBar/bottomAppBar'
-import { Home } from './components/mainPages/home'
+import { Routes, Route, useParams } from "react-router-dom"
 import { useMsal, AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
-import Splash from './components/mainPages/splash'
 import { ceramic } from './utils/ceramic'
-import HeaderMenu from './components/common/HeaderMenu/headerMenu'
-import UpArrow from './components/common/UpArrow/upArrow'
-import Settings from './components/mainPages/settings'
-import { ProfileData } from './components/ProfileData/profileData';
 import { callMsGraph, callMsGraphPhoto, callMsGraphCalendar } from '../graph';
 import { loginRequest } from "../authConfig";
-import { Person, Agenda } from '@microsoft/mgt-react'
 import { motion } from 'framer-motion'
 
+import Splash from './components/mainPages/splash'
 import IndexPage from './components/mainPages/index'
 import Cal from './components/mainPages/calendar'
 import Venue from './components/mainPages/venue'
 import Dashboards from './components/mainPages/dashboards'
-
+import SelectedEvent from './components/mainPages/selectedEvent'
+import Support from './components/mainPages/support'
+import Resources from './components/mainPages/resources'
+import ResourceManagement from './components/mainPages/resourceManagement'
+import Settings from './components/mainPages/settings'
+import RandomPhrase from './components/common/RandomPhrase/randomPhrase'
+import BottomAppBar from './components/common/BottomAppBar/bottomAppBar'
+import HeaderMenu from './components/common/HeaderMenu/headerMenu'
+import UpArrow from './components/common/UpArrow/upArrow'
 
 // Material-UI Components
-import { makeStyles } from '@mui/styles'
 import CircularProgress from '@mui/material/CircularProgress'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { Button } from '@mui/material'
-import { isNullableType } from 'graphql'
+import Box from '@mui/material/Box'
 
 const axios = require('axios').default
 
@@ -59,51 +37,11 @@ export const btnClass = 'btn btn-sm btn-outline-primary mb-3 '
 export const flexClass = 'd-flex justify-content-evenly align-items-center '
 export const qs = (s) => document.querySelector(s)
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        position: 'relative',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#58714C'
-      },
-    centered: {
-      width: '200px',
-      height: '100px',
-      textAlign: 'center',
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      marginTop: '-100px',
-      marginLeft: '-100px'
-    },
-    centeredPhrase: {
-        maxWidth: '450px',
-        height: '100px',
-        textAlign: 'center',
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        marginTop: '-80px',
-        marginLeft: '-100px'
-      },
-    container: {
-        maxWidth: '60%'
-    },
-    containerFull: {
-        maxWidth: '100%',
-        width: '100%'
-    }
-    }));
-
 const App = () => {
    
     const { state, dispatch, update } = useContext(appStore)
     const [isSignedIn, setIsSignedIn] = useState(false)
-    const [graphData, setGraphData] = useState(null);
-    const [graphPhotoData, setGraphPhotoData] = useState(null)
 
-    const classes = useStyles()
     const matches = useMediaQuery('(max-width:500px)')
 
     const onMount = () => {
@@ -166,30 +104,33 @@ const App = () => {
                             }
                     }
 
-                    try {
-                        let response = await instance.acquireTokenSilent(request)
-                        console.log('calendar response', response)
-                        if(response){
-                            calendarData = await callMsGraphCalendar(response.accessToken)
-                        }
-                        } catch (err) {
-                            console.log('err', err)
-                            let response = await instance.acquireTokenRedirect(request)
-                            console.log('calendar err response', response)
-                            if(response){
-                                calendarData = await callMsGraphCalendar(response.accessToken)
-                            }
-                    }
+                    // try {
+                    //     let response = await instance.acquireTokenSilent(request)
+                    //     console.log('calendar response', response)
+                    //     if(response){
+                    //         calendarData = await callMsGraphCalendar(response.accessToken)
+                    //     }
+                    //     } catch (err) {
+                    //         console.log('err', err)
+                    //         let response = await instance.acquireTokenRedirect(request)
+                    //         console.log('calendar err response', response)
+                    //         if(response){
+                    //             calendarData = await callMsGraphCalendar(response.accessToken)
+                    //         }
+                    // }
 
                 //    let connection = await ceramic.openDBConnection(personData.mail)
                   
                     // Update state with data
                     update('', {
                         microsoftAccount: accounts,
+                        rank: personData.jobTitle,
+                        surName: personData.surname,
+                        firstName: personData.givenName,
                         isSignedIn: true, 
                         graphData: personData, 
                         graphPhotoData: photo,
-                        calendar: await calendarData.json()
+                       // calendar: await calendarData.json()
                     })
                 }
                 
@@ -226,160 +167,90 @@ const App = () => {
 
     if (!accountData || !wallet) {
         children = (<>
-        <div className={classes.centered}><CircularProgress/><br></br>
+        <Box sx={{width: '200px',
+        height: '100px',
+        textAlign: 'center',
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        marginTop: '-100px',
+        marginLeft: '-100px'}}>
+            <CircularProgress/><br></br>
             <Typography variant="h6">Setting Things Up...</Typography>
-        </div>
-        <div className={classes.centeredPhrase}>
+        </Box>
+        <Box sx={{ maxWidth: '450px',
+        height: '100px',
+        textAlign: 'center',
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        marginTop: '-80px',
+        marginLeft: '-100px'}}>
             <RandomPhrase />
-        </div></>)
+        </Box></>)
     }
     
     return(
         <>
-        
         <UnauthenticatedTemplate>
         <HeaderMenu signedIn={isSignedIn} />
-        <div className={classes.root}>
+        <UpArrow />
+        <Box sx={{ flexGrow: 1,
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh',
+            backgroundColor: '#58714C'
+        }}>
         <Grid container alignItems="center" justifyContent="center" >
-            <Grid item align="center" className={`${!matches ? classes.container : classes.containerFull}`}>
-                <Route exact path="/">
-                    <Splash
-                        state={state}
-                        >
-                        { children }
-                    </Splash>
-                </Route>
+            <Grid item align="center" sx={{width: '100%'}}>
+                <Routes>
+                    <Route exact path="/" element={<Splash state={state}/>}/>
+                </Routes>
             </Grid>
         </Grid>
-        </div>
+        </Box>
         </UnauthenticatedTemplate>
 
         <AuthenticatedTemplate>
         <HeaderMenu signedIn={isSignedIn} />
-        <div className={classes.root}> 
+        <UpArrow />
+        <Box sx={{ 
+            flexGrow: 1,
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: '#58714C',
+            height: '100vh'
+        }}
+        >
         <Grid container alignItems="center" justifyContent="center">
-            <Grid item align="center" className={`${!matches ? classes.container : classes.containerFull}`}>
-            <Route exact path="/">
-                <IndexPage 
-                    state={state}
-                    >
-                   
-                    { children }
-                </IndexPage>
-            </Route>
-            <Route exact path="/calendar"> 
-                <Cal
-                    state={state}
-                    >
-                    { children }
-                </Cal>
-            </Route>
-            <Route exact path="/admin">
-            <Admin
-                state={state}
-                >
-                { children }
-            </Admin>
-            </Route>
-            <Route exact path="/settings">
-            <motion.div 
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.2, ease: 'easeOut' }}
-            >
-                <Settings state={state}/>
-                  
-            </motion.div>
-            </Route>
-            <Route exact path="/venue">
-                <Venue
-                    state={state}
-                    >
-                    { children }
-                </Venue>
-            </Route>
-            <Route exact path="/support">
-                <Pledge
-                    state={state}
-                    >
-                    { children }
-                </Pledge>
-            </Route>
-            <Route exact path="/dashboards">
-                <Dashboards
-                    state={state}
-                    >
-                    { children }
-                </Dashboards>
-            </Route>
-            <Route exact path="/resources">
-                <Registration
-                    state={state}
-                    >
-                    { children }
-                </Registration>
-            </Route>
-            
-            <Route exact path="/register-guild">
-                <GuildRegister 
-                    state={state}
-                    >
-                    { children }
-                </GuildRegister>
-            </Route>
-            <Route exact path="/create-guild-profile">
-                <CreateGuildProfile
-                    state={state}
-                    >
-                    { children }
-                </CreateGuildProfile>
-            </Route>
-            <Route exact path="/announcements">
-                <Announcements
-                    state={state}
-                    >
-                    { children }
-                </Announcements>
-            </Route>
-            <Route exact path="/create-indiv-profile">
-                <CreateIndivProfile
-                    state={state}
-                    >
-                    { children }
-                </CreateIndivProfile>
-            </Route>
-            <Route exact path="/indiv-profile">
-                <IndivProfile 
-                    state={state}
-                    >
-                    { children }
-                </IndivProfile>
-            </Route>
-            <Route exact path="/guild-profile">
-                <GuildProfile 
-                    state={state}
-                    >
-                    { children }
-                </GuildProfile>
-            </Route>
-            <Route exact path="/dashboard">
-            <Dashboard
-                state={state}
-                >
-                { children }
-            </Dashboard>
-            </Route>
-            <Route path="/guild-profiles/:guildDid">
-                <DisplayGuildProfile />
-            </Route>
-            <Route path="/indiv-profiles/:indivDid">
-                <DisplayIndivProfile />
-            </Route>
+            <Grid item align="center" sx={{width: '100%'}}>
+            <Routes>
+                <Route path="/" element={<IndexPage state={state}/>}/>
+                <Route path="calendar" element={<Cal state={state}/>}/> 
+                <Route path="admin" element={<ResourceManagement state={state}/>}/>
+                <Route path="settings" 
+                    element={
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                        >
+                            <Settings state={state}/>      
+                        </motion.div>
+                    }
+                />
+                <Route path="venue" element={<Venue state={state}/>}/>
+                <Route path="support" element={<Support state={state}/>}/>
+                <Route path="dashboards" element={<Dashboards state={state}/>}/>
+                <Route path="resources" element={<Resources state={state}/>}/>            
+                <Route path="event/:eventId" element={<SelectedEvent state={state}/>}/>
+            </Routes>
            </Grid>
         </Grid>
-        </div> 
+        </Box> 
         <BottomAppBar />
-        <UpArrow />
         </AuthenticatedTemplate>
 
         </>

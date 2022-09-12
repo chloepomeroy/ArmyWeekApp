@@ -4,17 +4,17 @@ import { get, set, del } from '../../utils/storage'
 import {ceramic} from '../../utils/ceramic'
 
 //material ui imports
-import { makeStyles } from '@material-ui/core/styles'
-import Dialog from '@material-ui/core/Dialog'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import Card from '@material-ui/core/Card'
-import Typography from '@material-ui/core/Typography'
-import Avatar from '@material-ui/core/Avatar'
-import ReplyIcon from '@material-ui/icons/Reply';
-import Button from '@material-ui/core/Button'
+import { makeStyles } from '@mui/styles'
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
+import Card from '@mui/material/Card'
+import Typography from '@mui/material/Typography'
+import Avatar from '@mui/material/Avatar'
+import ReplyIcon from '@mui/icons-material/Reply';
+import Button from '@mui/material/Button'
 import {OPPORTUNITY_NOTIFICATION, PROPOSAL_NOTIFICATION, NEW_NOTIFICATIONS} from '../../state/near' 
-import CommentIcon from '@material-ui/icons/Comment';
+import CommentIcon from '@mui/icons-material/Comment';
 
 const useStyles = makeStyles((theme) => ({
     root: {

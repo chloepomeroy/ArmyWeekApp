@@ -17,8 +17,6 @@ export default function MicrosoftLogoutButton(props) {
 
     const classes = useStyles()
     const { instance } = useMsal()
-
-    console.log('instance', instance)
    
     function signOutClickHandler(instance) {
       const logoutRequest = {

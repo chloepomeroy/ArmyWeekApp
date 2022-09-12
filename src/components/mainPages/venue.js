@@ -12,18 +12,18 @@ import CardHeader from '@mui/material/CardHeader'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
-import floor1 from '../images/floor1.jpg'
-import floor2 from '../images/floor2.jpg'
-import floor3 from '../images/floor3.jpg'
+import floor1 from '../../img/floor1.jpg'
+import floor2 from '../../img/floor2.jpg'
+import floor3 from '../../img/floor3.jpg'
 
 export default function Venue(props) {
 
   const { t, i18n } = useTranslation();
 
     return (
-      <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white' }}>
+      <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '40px', paddingTop: '30px'  }}>
       <Grid container justifyContent="center" alignItems="center" sx={{ flexGrow: 5, display: 'inline' }}>
-            <Stack justifyContent="center" spacing="10px" mb = {7} xs = {10} sx={{display: 'inline'}}>              
+            <Stack justifyContent="center" spacing="10px" mb = {7} xs = {10} sx={{display: 'inline', marginBottom: '76px'}}>              
               <Card sx={{ maxWidth: '98%' }}>
               <CardHeader
                 title={t("venue_name")}

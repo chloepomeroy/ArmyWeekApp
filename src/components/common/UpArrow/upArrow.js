@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade'
+import Toolbar from '@mui/material/Toolbar'
 
 function ScrollTop(props) {
   const { children, window } = props;
@@ -25,6 +26,7 @@ function ScrollTop(props) {
 
     if (anchor) {
       anchor.scrollIntoView({
+        behavior: 'smooth',
         block: 'center',
       });
     }
@@ -35,7 +37,7 @@ function ScrollTop(props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: 'fixed', bottom: 66, right: 16 }}
+        sx={{ position: 'fixed', bottom: 76, right: 16, zIndex: 3000 }}
       >
         {children}
       </Box>
@@ -56,7 +58,7 @@ export default function UpArrow(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-
+      <Toolbar id="back-to-top-anchor" style={{minHeight: '1px'}} />
       <ScrollTop {...props}>
         <Fab size="small" aria-label="scroll back to top">
           <KeyboardArrowUpIcon />

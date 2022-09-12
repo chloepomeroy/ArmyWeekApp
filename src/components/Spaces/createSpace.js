@@ -21,7 +21,7 @@ import htmlToDraft from 'html-to-draftjs'
 import { get, set, del } from '../../utils/storage'
 
 // Material UI components
-import { makeStyles } from '@mui/material/styles'
+import { makeStyles } from '@mui/styles'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import InputAdornment from '@mui/material/InputAdornment'

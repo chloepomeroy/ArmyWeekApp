@@ -6,7 +6,7 @@ import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 // Styling
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';

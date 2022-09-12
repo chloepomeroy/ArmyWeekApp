@@ -9,20 +9,28 @@ const resources = {
     en: {
       translation: {
         index: "ARMY WEEK 2022",
-        Calendar: "Agenda",
-        Venueinfo: "Venue Info",
-        Help: "Help",
+        calendar: "Agenda",
+        venueInfo: "Venue Info",
+        info: "Info",
+        agenda: "Agenda",
+        help: "Help",
         dashboards: "Dashboards",
-        presentations: "Presentations",
-        help_more:"Still have questions?",
+        resources: "Resources",
+        support: "Support",
+        settings: "Settings",
+        feedback: "Feedback",
+        help_more:"More questions?",
         help_email: "Send an Email to",
+        responsible: "OPI",
+        cams: "CAMS",
+        presentation_and_resources: "Presentation and Resources",
         help_data: {
             title: "FAQ",
             rows: [
                 {
                     title: "Where can I find the presentations?",
-                    content: `From the calendar you can click on a particular event which will show you further information about that event,
-                    including the presentation, or you can view all the presentations by clicking the presentation button in the menu.`,
+                    content: `From the calendar you can click on an event which will show you further information about that event,
+                    including the presentation, or you can view all the presentations by clicking the resources button in the menu.`,
                 },
                 {
                     title: "Do I need to register?",
@@ -108,18 +116,30 @@ const resources = {
         event_floorplan: "Floorplan",
         event_download: "Download",
         event_display: "View PDF",
+        event_details: "Event Details",
+        strong_proud_ready: "Strong, Proud, Ready",
+        sign_in: "Sign In",
+        contact_us: "Contact Us"
       },
     },
     fr: {
       translation: {
         index: "SEMAINE DE L'ARMÉE 2022",
-        Calendar: "Agenda",
-        Venueinfo: "Informations sur le lieu",
-        Help: "Aide",
-        dashboards: "Tableaux de bord",
-        presentations: "Présentations",
+        calendar: "ordre du jour",
+        venueInfo: "lieu",
+        info: "info",
+        agenda: "ordre du jour",
+        help: "aide",
+        dashboards: "tableaux de bord",
+        resources: "ressources",
+        support: "aide",
+        feedback: "réaction",
+        settings: "réglages",
         help_more:"Encore des questions?",
         help_email: "Envoyez un message à",
+        responsible: "OPI",
+        cams: "CAMS",
+        presentation_and_resources: "Présentation et Ressources",
         help_data: {
             title: "FAQ",
             rows: [
@@ -209,6 +229,10 @@ const resources = {
         event_floorplan: "Plan d'étage",
         event_download: "Téléchargez",
         event_display: "Afficher le PDF",
+        event_details: "Détails sur l'évènement",
+        strong_proud_ready: "Forts, Fiers, Prêts",
+        sign_in: "connexion",
+        contact_us: "nous contacter"
       },
     },
   };

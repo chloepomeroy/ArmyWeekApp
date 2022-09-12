@@ -6,7 +6,8 @@ import EditGuildProfileForm from '../../EditProfile/editGuild'
 import GoToPersonas from '../../Cards/GoToPersonas/goToPersonas'
 
 // Material UI
-import { makeStyles, useTheme } from '@mui/styles'
+import { makeStyles } from '@mui/styles'
+import { useThemes } from '@mui/material/styles'
 import Drawer from '@mui/material/Drawer'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'

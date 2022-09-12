@@ -1,66 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link } from 'react-router-dom'
-import { styled } from '@mui/material/styles'
+import { useNavigate, useLocation } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import CssBaseline from '@mui/material/CssBaseline'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import Paper from '@mui/material/Paper'
-import Fab from '@mui/material/Fab'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import ListItemText from '@mui/material/ListItemText'
-import ListSubheader from '@mui/material/ListSubheader'
-import Avatar from '@mui/material/Avatar'
-import MenuIcon from '@mui/icons-material/Menu'
-import AddIcon from '@mui/icons-material/Add'
-import SearchIcon from '@mui/icons-material/Search'
-import MoreIcon from '@mui/icons-material/MoreVert'
 import MainMenu from '../MainMenu/mainMenu'
-import Backdrop from '@mui/material/Backdrop'
-import SpeedDial from '@mui/material/SpeedDial'
-import SpeedDialIcon from '@mui/material/SpeedDialIcon'
-import SpeedDialAction from '@mui/material/SpeedDialAction'
-import FileCopyIcon from '@mui/icons-material/FileCopyOutlined'
-import SaveIcon from '@mui/icons-material/Save'
-import PrintIcon from '@mui/icons-material/Print'
-import ShareIcon from '@mui/icons-material/Share'
-import HomeIcon from '@mui/icons-material/Home'
 import leaf from '../../../img/leaf-whitebg-tp.png'
-import brainBulb from '../../../img/brainbulbicon.png'
-import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects'
+import { useTranslation } from "react-i18next"
+
+// Styling
+import CssBaseline from '@mui/material/CssBaseline'
+import Typography from '@mui/material/Typography'
+import Fab from '@mui/material/Fab'
+import SearchIcon from '@mui/icons-material/Search'
+import HomeIcon from '@mui/icons-material/Home'
 import QueryStatsIcon from '@mui/icons-material/QueryStats'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import Stack from '@mui/material/Stack'
-
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
-import BusinessIcon from '@mui/icons-material/Business'
-import AssessmentIcon from '@mui/icons-material/Assessment';
-
-import CoPresentIcon from '@mui/icons-material/CoPresent';
-
-const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <PrintIcon />, name: 'Print' },
-  { icon: <ShareIcon />, name: 'Share' },
-];
-
-const StyledFab = styled(Fab)({
-  position: 'absolute',
-  width: '55px',
-  height: '55px',
-  zIndex: 1,
-  top: -10,
-  left: '50%',
-  right: 0,
-  margin: '0 auto',
-  backgroundColor: '#798d6f'
-});
+import CoPresentIcon from '@mui/icons-material/CoPresent'
 
 export default function BottomAppBar() {
 
@@ -68,18 +24,16 @@ export default function BottomAppBar() {
   const [menuClicked, setMenuClicked] = useState(false)
   const [menuClickState, setMenuClickState] = useState(false)
   const [view, setView] = useState('home');
-
   const [open, setOpen] = useState(false);
+
+  let navigate = useNavigate()
+  let location = useLocation()
+
+  const { t, i18n } = useTranslation()
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  function signOutClickHandler(instance) {
-    const logoutRequest = {
-        account: instance.getActiveAccount(),
-        postLogoutRedirectUri: "/"
-    }
-    instance.logoutRedirect(logoutRequest);
-  }
 
   function handleExpanded() {
     setAnchorEl(null)
@@ -101,14 +55,6 @@ export default function BottomAppBar() {
   const handleChange = (event, nextView) => {
     setView(nextView);
   };
-
-  // SignOutButton Component returns a button that invokes a popup login when clicked
-  function SignOutButton() {
-    // useMsal hook will return the PublicClientApplication instance you provided to MsalProvider
-    const { instance } = useMsal();
-    console.log('instance', instance)
-    return <Button onClick={() => signOutClickHandler(instance)} variant="contained" style={{width:'90%', color: '#FFFFFF', fontSize: '16px'}}>Sign Out</Button>
-    };
   
   return (
     <React.Fragment>
@@ -124,45 +70,50 @@ export default function BottomAppBar() {
             fullWidth
             exclusive
           >
-            <ToggleButton value="home" aria-label="agenda" style={{flexDirection: 'column', border:'none', borderRadius:'0px'}}>
-              <Link to="/">
+            <ToggleButton value="home" onClick={() => navigate("/")} aria-label="agenda" style={{flexDirection: 'column', border:'none', borderRadius:'0px', width: '25%'}}>
                 <HomeIcon style={{color: '#58714C'}} />
                 <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
-                  Home
+                  {t("home")}
                 </Typography>
-              </Link>
             </ToggleButton>
-            <ToggleButton value="ideas" aria-label="agenda" style={{flexDirection: 'column', border:'none'}}>
-              <Link to="/calendar">
+            <ToggleButton value="agenda" onClick={() => navigate("/calendar")} aria-label="agenda" style={{flexDirection: 'column', border:'none', width: '25%', marginRight:'10px'}}>
                 <CalendarMonthIcon style={{color: '#58714C'}} />
                 <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
-                  Agenda
+                  {t("agenda")}
                 </Typography>
-              </Link>
             </ToggleButton>
-            <ToggleButton value="nothing" aria-label="none" style={{flexDirection: 'column', border:'none'}}>
+            <ToggleButton value="nothing" aria-label="none" style={{flexDirection: 'column', border:'none', width: '0%'}}>
               <SearchIcon style={{color: 'white'}}/>
             </ToggleButton>
       
-            <StyledFab style={{borderRadius: '50%', marginLeft: '-27px'}}>
+            <Fab sx={{
+              position: 'absolute',
+              width: '55px',
+              height: '55px',
+              zIndex: 1,
+              top: -10,
+              left: '50%',
+              right: 0,
+              margin: '0 auto',
+              backgroundColor: '#798d6f',
+              borderRadius: '50% !important', 
+              marginLeft: '-27px !important'
+            }}
+            >
                 <img src={leaf} style={{maxHeight: '40px'}} onClick={handleMenuClick} color="primary" alt="Main Menu" />
-            </StyledFab>
+            </Fab>
 
-            <ToggleButton value="search" aria-label="dashboards" style={{flexDirection: 'column', border:'none'}}>
-              <Link to="/dashboards">
+            <ToggleButton value="dashboards" onClick={() => navigate("/dashboards")} aria-label="dashboards" style={{flexDirection: 'column', border:'none', width: '25%', marginLeft: '10px'}}>
                 <QueryStatsIcon style={{color: '#58714C'}} />
                 <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
-                  Info
+                  {t("info")}
                 </Typography>
-              </Link>
             </ToggleButton>
-            <ToggleButton value="stats" aria-label="laptop" style={{flexDirection: 'column', border:'none', borderRadius:'0px'}}>
-              <Link to="/resources">
+            <ToggleButton value="resources" onClick={() => navigate("/resources")} aria-label="resources" style={{flexDirection: 'column', border:'none', borderRadius:'0px', width: '25%'}}>
                 <CoPresentIcon style={{color: '#58714C'}} />
                 <Typography variant="body1" style={{color: '#58714C', fontSize: '14px'}}>
-                  Resources
+                  {t("resources")}
                 </Typography>
-              </Link>
             </ToggleButton>
           </ToggleButtonGroup>
         </Stack>

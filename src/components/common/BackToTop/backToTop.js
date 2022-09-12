@@ -18,18 +18,18 @@ function ScrollTop(props) {
     threshold: 100,
   });
 
-
   const handleClick = (event) => {
     const anchor = (event.target.ownerDocument || document).querySelector(
       '#back-to-top-anchor',
     );
 
     if (anchor) {
-      anchor.scrollIntoView({ behavior: 'smooth',
-       block: 'center' });
+      anchor.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'center' 
+      });
     }
-  };
-
+  }
 
   return (
     <Zoom in={trigger}>
@@ -50,20 +50,8 @@ function ScrollTop(props) {
 export default function BackToTop(props) {
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <AppBar>
-      </AppBar>
-      <Toolbar id="back-to-top-anchor" style={{minHeight: '10px'}} />
-      <Container>
-        <Box sx={{ my: 2 }}>
-          {[...new Array(12)]
-            .map(
-              () => ``,
-            )
-            .join('\n')}
-        </Box>
-      </Container>
+    <>
+      <Toolbar id="back-to-top-anchor"/>
       <ScrollTop {...props}>
         <Fab size="large"
         // color="success"
@@ -71,6 +59,6 @@ export default function BackToTop(props) {
           <KeyboardArrowUpIcon />
         </Fab>
       </ScrollTop>
-    </React.Fragment>
+    </>
   );
 }
