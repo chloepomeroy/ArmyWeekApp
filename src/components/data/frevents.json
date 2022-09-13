@@ -52,7 +52,7 @@
        "RoomFloorplan": "106.jpg",
        "VenueFloorplan": "venue106.jpg",  
        "id": 2,
-       "Materials": [{"filename": "DÉMA Intro Slides", "url": "https://caarmydata.blob.core.windows.net/resources/01%20-%20AC%2022-04%20DÉMA%20Intro%20Slides.pdf"}],
+       "Materials": [{"filename": "DÉMA Intro Slides", "url": "https://caarmydata.blob.core.windows.net/resources/01%20-%20AC%2022-04%20DAS%20Intro%20Slides.pdf"}],
        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
        "color": "#76b079"
       },
@@ -126,7 +126,7 @@
        "RoomFloorplan": "106.jpg",
        "VenueFloorplan": "venue106.jpg", 
        "id": 6,
-       "Materials": [{"filename": "CAMS DÉMAhboard", "url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"}],
+       "Materials": [{"filename": "CAMS Dashboard", "url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"}],
        "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
        "color": "#76b079"
       },
@@ -163,7 +163,7 @@
         "RoomFloorplan": "106.jpg",
         "VenueFloorplan": "venue106.jpg", 
         "id": 8,
-        "Materials": [{"filename": "CAMS DÉMAhboard", "url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"}],
+        "Materials": [{"filename": "CAMS Dashboard", "url": "https://app.powerbi.com/reportEmbed?reportId=0cdaec13-9fa7-425f-bd70-6b21a74a7f94&autoAuth=true&ctid=325b4494-1587-40d5-bb31-8b660b7f1038"}],
         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
