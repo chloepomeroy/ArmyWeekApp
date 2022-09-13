@@ -18,6 +18,7 @@ import CardActions from '@mui/material/CardActions'
 import CardContent from '@mui/material/CardContent'
 import Grid from '@mui/material/Grid'
 import { DownloadRounded } from "@mui/icons-material"
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 //import the events JSON
 var en = require('../data/enevents.json').events
@@ -80,17 +81,15 @@ export default function SelectedEvent(props) {
      return (
       <>
       {!matches ?
-        <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '40px', paddingTop: '30px' }}>        
-        <Grid container spacing={0} alignItems="flex-start" justifyContent="center" sx={{maxWidth: '95%'}}>
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="left" style={{marginBottom: '76px'}}>
-            <Card autoFocus>
-              <CardContent>
+      <Grid container spacing={5} alignItems="flex-start" justifyContent="center" mt={5} mb={5}>
 
-              <Typography variant="h5">
-                {specificEvent.title ? specificEvent.title : null}
-              </Typography>
-
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+      <Grid item xs={4}>
+        <Card sx={{ minWidth: 300 }}>
+          <CardContent>
+            <Typography variant="h5">
+              {specificEvent.title ? specificEvent.title : null}
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
                 {t("event_presenter")} {specificEvent.Presenter ? specificEvent.Presenter : null}
               </Typography>
              
@@ -107,10 +106,8 @@ export default function SelectedEvent(props) {
                 <br></br>
                 {t("event_location")}: {specificEvent.location ? specificEvent.location : null}
               </Typography>
-
-              </CardContent>
-
-              <CardActions sx={{flexDirection: 'column'}}>
+          </CardContent>
+          <CardActions sx={{flexDirection: 'column'}}>
               
               {specificEvent.ZoomLink ?
                 <Button variant="contained"
@@ -123,9 +120,7 @@ export default function SelectedEvent(props) {
               : null }
               <br></br>
 
-              <Typography variant="h5">
-                {t("presentation_and_resources")}
-              </Typography>
+
 
               {specificEvent.Materials ? specificEvent.Materials.length > 0 ? specificEvent.Materials.map(x => {
 
@@ -143,6 +138,9 @@ export default function SelectedEvent(props) {
                       sx={{padding: '10px'}}
                       spacing={5}
                     >
+                      <Typography variant="h5">
+                        {t("presentation_and_resources")}
+                      </Typography>
                       <Typography variant="body1">
                         {x.filename}
                       </Typography>
@@ -162,14 +160,23 @@ export default function SelectedEvent(props) {
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
+
+          <Grid item xs={4} style={{marginBottom: '60px'}}>              
+      
+              <Card sx={{ maxWidth: 450 }}>
+              <CardContent>
+              <h3>{t("venue_floorplantitle")}</h3>
               {venueFloorPlanImage ? venueFloorPlanImage : null}
-          </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
-              {roomFloorPlanImage ? roomFloorPlanImage : null}
-          </Grid>
-        </Grid>
-    </Box>
+              </CardContent>
+              </Card>
+      
+              <Card sx={{ maxWidth: 450 }}>
+                <CardContent>
+                {roomFloorPlanImage ? roomFloorPlanImage : null}  
+                </CardContent>
+              </Card>
+            </Grid>              
+    </Grid>
 
         :
 
@@ -258,11 +265,12 @@ export default function SelectedEvent(props) {
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
               {venueFloorPlanImage ? venueFloorPlanImage : null}
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginBottom: '60px'}}>
               {roomFloorPlanImage ? roomFloorPlanImage : null}
           </Grid>
         </Grid>
-    </Box>}
+    </Box>
+    }
     </>
   )
 }
