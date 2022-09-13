@@ -571,25 +571,6 @@
         "color": "#76b079"
        },
        {
-         "Day": "3",
-         "date": "Thur Sept 15",
-         "Time": "09:20",
-         "start": "2022-09-15T09:20:00",
-         "end": "2022-09-15T09:40:00",
-         "Category": "SALS",
-         "title": "Commander's Address",
-         "Presenter": "LGen Paul, CCA",
-         "Responsible": "CCA",
-         "CAMS": "",
-         "location": "Room 106",
-         "RoomFloorplan": "106 - 2.jpg",
-         "VenueFloorplan": "venue106.jpg", 
-         "id": 30,
-         "Materials": [],
-         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
-         "color": "#bdb48a"
-        },
-       {
         "Day": "3",
         "date": "Thur Sept 15",
         "Time": "09:40",

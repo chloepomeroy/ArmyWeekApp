@@ -67,7 +67,7 @@ const resources = {
         venue_address: "200 Coventry Road, Ottawa, ON",
         venue_moreinfo: "More Information",
         venue_floorplantitle: "Facilities Floorplan",
-        dashboards_view: "View", 
+        dashboards_view: "View",
         dashboards_pagetitle: "Dashboards",
         army_council_resources_list: [
             {
@@ -243,7 +243,7 @@ const resources = {
             },
         ],
         cal_week: "week",
-        cal_day: "day", 
+        cal_day: "day",
         cal_list: "list",
         cal_pagetitle: "Agenda",
         langSwitch: "Français",
@@ -348,7 +348,7 @@ const resources = {
         venue_address: "200 Coventry Road, Ottawa, ON",
         venue_moreinfo: "Plus d'information",
         venue_floorplantitle: "Plan d'étage d'installation",
-        dashboards_view: "Affichez", 
+        dashboards_view: "Affichez",
         dashboards_pagetitle: "Tableaux de bord",
         army_council_resources_list: [
             {
@@ -522,7 +522,7 @@ const resources = {
             "img": "cearp.jpg"
             }
         ],
-        cal_week: "semaine", 
+        cal_week: "semaine",
         cal_day: "jour",
         cal_list: "liste",
         cal_pagetitle: "Programme",
