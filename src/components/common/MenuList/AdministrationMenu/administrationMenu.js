@@ -13,9 +13,11 @@ import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { blue, green } from '@mui/material/colors'
-import { t } from 'i18next'
+import { useTranslation } from "react-i18next"
 
 export default function AdministrationMenu() {
+
+const { t, i18n} = useTranslation()
 
   return (
    <>
