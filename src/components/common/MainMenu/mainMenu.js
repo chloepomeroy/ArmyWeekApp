@@ -16,7 +16,7 @@ import Slide from '@mui/material/Slide'
 import Button from '@mui/material/Button'
 import CloseIcon from '@mui/icons-material/Close';
 import List from '@mui/material/List'
-import { t } from 'i18next'
+import { useTranslation } from "react-i18next"
 
 const Transition = forwardRef((props, ref) => {
   return <Slide direction="up" ref={ref} {...props} />
@@ -27,6 +27,8 @@ export default function MainMenu (props) {
   const {
     handleMenuClickState,
     } = props
+   
+  const { t, i18n } = useTranslation()
 
   const [open, setOpen] = useState(true)
 
