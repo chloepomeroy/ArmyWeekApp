@@ -13,9 +13,11 @@ import IconButton from '@mui/material/IconButton'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import { blue, green } from '@mui/material/colors'
 import StorageIcon from '@mui/icons-material/Storage'
-import { t } from 'i18next'
+import { useTranslation } from "react-i18next"
 
 export default function GovernanceMenu() {
+
+const { t, i18n } = useTranslation()
 
   return (
     <>
