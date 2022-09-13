@@ -29,7 +29,7 @@ export default function Dashboards() {
         <Grid container alignItems="center" justifyContent="center">
             <Stack direction="column"  justifyContent="center" alignItems="center" spacing={3} style={{maxWidth: '90%', marginBottom: '76px'}}>
                 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={bios} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -50,7 +50,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={cams} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -71,7 +71,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={army101} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -92,7 +92,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={awRegistrations} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -113,7 +113,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={armyOrg} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -134,7 +134,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={g1} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">
@@ -155,7 +155,7 @@ export default function Dashboards() {
                     </CardActionArea>
                 </Card>
 
-                <Card sx={{ maxWidth: '98%' }}>
+                <Card sx={{ maxWidth: 'auto' }}>
                     <CardContent align="left">
                         <img src={cearp} alt="1st floor" style={{maxWidth: '98%'}} />
                         <Typography variant="h5">

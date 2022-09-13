@@ -9,6 +9,7 @@ const resources = {
     en: {
       translation: {
         index: "ARMY WEEK 2022",
+        home: "Home",
         calendar: "Agenda",
         venueInfo: "Venue Info",
         info: "Info",
@@ -134,6 +135,7 @@ const resources = {
       translation: {
         index: "SEMAINE DE L'ARMÉE 2022",
         calendar: "ordre du jour",
+        home: "acceuil",
         venueInfo: "lieu",
         info: "info",
         agenda: "ordre du jour",
