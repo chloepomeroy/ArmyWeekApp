@@ -39,7 +39,7 @@ export default function IndexPage(props) {
   return(
     
     <Box sx={{ width: '100%', height: '100vh', bgcolor: '#58714C', marginTop: '40px' }}>
-          <Grid container spacing={3} justifyContent="space-around" alignItems="center" sx={{display: {xs:"flex", md:"none"}}}>
+          <Grid container spacing={3} justifyContent="space-around" alignItems="center">
             
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
               <Typography variant="h4" style={{color: 'white'}}>
