@@ -14,7 +14,7 @@ let msalInstance
 if(process.env.ENV == 'localhost'){
 	msalInstance = new PublicClientApplication(msalLocalConfig);
 } else {
-	msalInstance = new PublicClientApplication(msalLocalConfig);
+	msalInstance = new PublicClientApplication(msalConfig);
 }
 
 ReactDOM.render(

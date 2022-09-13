@@ -14,7 +14,6 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import FeedbackIcon from '@mui/icons-material/Feedback'
 import Box from '@mui/material/Box'
-import useMediaQuery from '@mui/material/useMediaQuery'
 
 //const browser = typeof window !== "undefined" && window;
 
@@ -38,12 +37,6 @@ export default function IndexPage(props) {
   )
   
   return(
-    <>
-      {!matches ?
-
-      
-      :
-    
     <Box sx={{ width: '100%', height: '100vh', bgcolor: '#58714C', marginTop: '40px' }}>
           <Grid container spacing={3} justifyContent="space-around" alignItems="center">
             
@@ -105,7 +98,6 @@ export default function IndexPage(props) {
               </Stack>
             </Grid>
           </Grid>
-    </Box>}
-    </>
+    </Box>
   )
 }
