@@ -12,9 +12,11 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import { blue, green } from '@mui/material/colors'
-import { t } from 'i18next'
+import { useTranslation } from "react-i18next"
 
 export default function DiplomacyMenu() {
+
+  const { t, i18n } = useTranslation()
 
   return (
    <>
