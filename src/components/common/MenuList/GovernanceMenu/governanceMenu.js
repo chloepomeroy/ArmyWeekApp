@@ -13,14 +13,15 @@ import IconButton from '@mui/material/IconButton'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import { blue, green } from '@mui/material/colors'
 import StorageIcon from '@mui/icons-material/Storage'
+import { t } from 'i18next'
 
 export default function GovernanceMenu() {
 
   return (
     <>
-      
-        
-            <ListItem 
+
+
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -33,34 +34,34 @@ export default function GovernanceMenu() {
                         <CalendarMonthIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Army Governance Management System" 
-                    secondary="V2 Coming Soon... (ETA: 2023)"
+                <ListItemText
+                    primary= {t("army_governence_mgmt_dash")}
+                    secondary={t("army_governence_mgmt_desc")}
                 />
             </ListItem>
 
-            <ListItem 
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go" href="https://caarmydata.blob.core.windows.net/resources/20211207-U-CA_Data_Governance.pdf">
                     <ChevronRightIcon />
                     </IconButton>
                 }
-               
-                
+
+
             >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>
-                        <StorageIcon />                    
+                        <StorageIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="CA Data Governance" 
-                    secondary="Implementation in progress"
+                <ListItemText
+                    primary={t("ca_data_governence")}
+                    secondary={t("ca_data_gov_desc")}
                 />
             </ListItem>
-   
-       
+
+
   </>
   );
 }
