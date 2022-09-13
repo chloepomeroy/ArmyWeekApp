@@ -263,10 +263,10 @@ export default function SelectedEvent(props) {
             </Card>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
-              {venueFloorPlanImage ? venueFloorPlanImage : null}
+              {venueFloorPlanImage && eventId != '25' ? venueFloorPlanImage : null}
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginBottom: '60px'}}>
-              {roomFloorPlanImage ? roomFloorPlanImage : null}
+              {roomFloorPlanImage && eventId != '25' ? roomFloorPlanImage : null}
           </Grid>
         </Grid>
     </Box>

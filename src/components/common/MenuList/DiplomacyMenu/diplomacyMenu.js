@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 // Styling
 import Box from '@mui/material/Box'
@@ -10,16 +10,20 @@ import ListItemAvatar from '@mui/material/ListItemAvatar'
 import ListSubheader from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import IconButton from '@mui/material/IconButton'
-import RadarIcon from '@mui/icons-material/Radar'
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import { blue, green } from '@mui/material/colors'
+import StorageIcon from '@mui/icons-material/Storage'
+import { useTranslation } from "react-i18next"
 
-export default function DiplomacyMenu() {
+export default function GovernanceMenu() {
+
+const { t, i18n } = useTranslation()
 
   return (
-   <>
-       
-        
-            <ListItem 
+    <>
+
+
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -29,16 +33,37 @@ export default function DiplomacyMenu() {
             >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>
-                        <RadarIcon />
+                        <CalendarMonthIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Coming Soon..." 
-                    secondary="Coming Soon..."
+                <ListItemText
+                    primary= {t("army_governence_mgmt_dash")}
+                    secondary={t("army_governence_mgmt_desc")}
                 />
             </ListItem>
-   
-       
+
+            <ListItem
+                autoFocus
+                secondaryAction={
+                    <IconButton edge="end" aria-label="go" href="https://caarmydata.blob.core.windows.net/resources/20211207-U-CA_Data_Governance.pdf">
+                    <ChevronRightIcon />
+                    </IconButton>
+                }
+
+
+            >
+                <ListItemAvatar>
+                    <Avatar sx={{ bgcolor: green[100], color: green[600] }}>
+                        <StorageIcon />
+                    </Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                    primary={t("ca_data_governence")}
+                    secondary={t("ca_data_gov_desc")}
+                />
+            </ListItem>
+
+
   </>
   );
 }
