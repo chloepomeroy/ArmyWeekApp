@@ -13,7 +13,11 @@ import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import ArticleIcon from '@mui/icons-material/Article';
 import CloudIcon from '@mui/icons-material/Cloud';
+<<<<<<< Updated upstream
 import { blue, green } from '@mui/material/colors'
+=======
+import { blue, green } from '@mui/material/colors';
+>>>>>>> Stashed changes
 import { t } from 'i18next'
 
 export default function PolicyRegsMenu() {
@@ -35,8 +39,13 @@ export default function PolicyRegsMenu() {
                 </Avatar>
             </ListItemAvatar>
             <ListItemText
+<<<<<<< Updated upstream
                 primary={t("digital_pol_placemat")}
                 secondary={t("digital_pol_desc")}
+=======
+                primary="Digital Policy Placemat"
+                secondary="Understand the Digital Landscape (ETA Sep 22)"
+>>>>>>> Stashed changes
             />
             </ListItem>
             <ListItem
@@ -46,7 +55,12 @@ export default function PolicyRegsMenu() {
                     <ChevronRightIcon />
                     </IconButton>
                 }
+<<<<<<< Updated upstream
                 href="https://www.canada.ca/en/department-national-defence/corporate/policies-standards/canforgens.html"
+=======
+
+
+>>>>>>> Stashed changes
             >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>
@@ -54,8 +68,13 @@ export default function PolicyRegsMenu() {
                     </Avatar>
                 </ListItemAvatar>
                 <ListItemText
+<<<<<<< Updated upstream
                     primary={t("caf_od_dash")}
                     secondary={t("caf_od_desc")}
+=======
+                    primary="CAF Orders and Directives"
+                    secondary="CANFORGENs, DAODs, QR&Os"
+>>>>>>> Stashed changes
                 />
             </ListItem>
 

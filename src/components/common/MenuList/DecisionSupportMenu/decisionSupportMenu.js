@@ -31,7 +31,12 @@ export default function DecisionSupportMenu() {
                     <ChevronRightIcon />
                     </IconButton>
                 }
+<<<<<<< Updated upstream
                 href='https://app.powerbi.com/groups/me/apps/73bd2497-f08c-4f15-a6c3-5c8be0a299b6/reports/b01ec089-7a4a-4ac1-954d-a96dbd7afaf4/ReportSection3c0a5c6ec0d58b073a87?ctid=325b4494-1587-40d5-bb31-8b660b7f1038'
+=======
+
+
+>>>>>>> Stashed changes
                  >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>
