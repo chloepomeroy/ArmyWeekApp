@@ -27,6 +27,8 @@ import images from '../../img/*'
 
 export default function SelectedEvent(props) {
 
+  const matches = useMediaQuery('(max-width:500px)')
+
   const [showPdf, setShowPdf] = useState(false)
 
   const { t, i18n } = useTranslation()
@@ -76,7 +78,9 @@ export default function SelectedEvent(props) {
   }
 
      return (
-      <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '40px', paddingTop: '30px' }}>        
+      <>
+      {!matches ?
+        <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '40px', paddingTop: '30px' }}>        
         <Grid container spacing={0} alignItems="flex-start" justifyContent="center" sx={{maxWidth: '95%'}}>
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="left" style={{marginBottom: '76px'}}>
             <Card autoFocus>
@@ -166,5 +170,99 @@ export default function SelectedEvent(props) {
           </Grid>
         </Grid>
     </Box>
+
+        :
+
+      <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white', marginTop: '40px', paddingTop: '30px' }}>        
+        <Grid container spacing={0} alignItems="flex-start" justifyContent="center" sx={{maxWidth: '95%'}}>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="left" style={{marginBottom: '76px'}}>
+            <Card autoFocus>
+              <CardContent>
+
+              <Typography variant="h5">
+                {specificEvent.title ? specificEvent.title : null}
+              </Typography>
+
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {t("event_presenter")} {specificEvent.Presenter ? specificEvent.Presenter : null}
+              </Typography>
+             
+              <Typography variant="body2">
+                {t("responsible")}: {specificEvent.Responsible ? specificEvent.Responsible : null}
+                <br></br>
+                {t("cams")}: {specificEvent.CAMS ? specificEvent.CAMS : null}
+                <br></br>
+                {t("event_category")}: {specificEvent.Category ? specificEvent.Category : null}
+                <br></br>
+                {t("event_date")}: {specificEvent.date ? specificEvent.date : null}
+                <br></br>
+                {t("event_time")}: {specificEvent.Time ? specificEvent.Time : null}
+                <br></br>
+                {t("event_location")}: {specificEvent.location ? specificEvent.location : null}
+              </Typography>
+
+              </CardContent>
+
+              <CardActions sx={{flexDirection: 'column'}}>
+              
+              {specificEvent.ZoomLink ?
+                <Button variant="contained"
+                  href={specificEvent.ZoomLink}
+                  sx={{ bgcolor: green[500], display: 'flex'}}
+                  endIcon={< VideoLibraryRoundedIcon />}
+                >
+                  {t("event_zoomlink")}
+                </Button>
+              : null }
+              <br></br>
+
+              <Typography variant="h5">
+                {t("presentation_and_resources")}
+              </Typography>
+
+              {specificEvent.Materials ? specificEvent.Materials.length > 0 ? specificEvent.Materials.map(x => {
+
+                const Download = () => {
+                  const link = document.createElement("a")
+                  
+                  link.href = x.url
+                  link.click()
+                }
+
+                return (
+                    <Stack
+                      direction="row"
+                      justifyContent="flex-start"
+                      sx={{padding: '10px'}}
+                      spacing={5}
+                    >
+                      <Typography variant="body1">
+                        {x.filename}
+                      </Typography>
+                      <br></br>
+
+                      <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
+                        {t("event_download")}
+                      </Button>
+
+                    </Stack>
+                )
+              })
+              : null
+              : null
+              }
+
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
+              {venueFloorPlanImage ? venueFloorPlanImage : null}
+          </Grid>
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
+              {roomFloorPlanImage ? roomFloorPlanImage : null}
+          </Grid>
+        </Grid>
+    </Box>}
+    </>
   )
 }
