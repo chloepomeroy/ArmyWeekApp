@@ -58,10 +58,10 @@ const App = () => {
                 let keypair = false
                 let user
                 if(accounts && instance){
-                    keypair = await ceramic.getVaultKeyPair(accounts[0].username)
-                    if(!keypair){
-                        let result = await ceramic.setVaultKeyPair(accounts[0].username)
-                    }
+            //         keypair = await ceramic.getVaultKeyPair(accounts[0].username)
+            //         if(!keypair){
+            //             let result = await ceramic.setVaultKeyPair(accounts[0].username)
+            //         }
                     setIsSignedIn(true)
 
                     // Get ECN profile data
@@ -76,14 +76,14 @@ const App = () => {
                     // Silently acquires an access token which is then attached to a request for Microsoft Graph data
                     try {
                         let response = await instance.acquireTokenSilent(request)
-                        console.log('person response', response)
+                  //      console.log('person response', response)
                         if(response){
                             personData = await callMsGraph(response.accessToken)
                         }
                     } catch (err) {
                         console.log('err', err)
                         let response = await instance.acquireTokenRedirect(request)
-                        console.log('person error response', response)
+                  //      console.log('person error response', response)
                         if(response){
                             personData = await callMsGraph(response.accessToken)
                         }
@@ -91,14 +91,14 @@ const App = () => {
                 
                     try {
                         let response = await instance.acquireTokenSilent(request)
-                        console.log('photo response', response)
+                  //      console.log('photo response', response)
                         if(response){
                             photo = await callMsGraphPhoto(response.accessToken)
                         }
                         } catch (err) {
                             console.log('err', err)
                             let response = await instance.acquireTokenRedirect(request)
-                            console.log('photo err response', response)
+                  //          console.log('photo err response', response)
                             if(response){
                                 photo = await callMsGraphPhoto(response.accessToken)
                             }
@@ -160,12 +160,12 @@ const App = () => {
     }    
     
     const {
-        accountData, funding, wallet, microsoftAccount
+        accountData
     } = state
     
     let children = null
 
-    if (!accountData || !wallet) {
+    if (!accountData) {
         children = (<>
         <Box sx={{width: '200px',
         height: '100px',

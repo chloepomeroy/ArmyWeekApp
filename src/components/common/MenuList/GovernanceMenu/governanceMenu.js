@@ -42,11 +42,12 @@ export default function GovernanceMenu() {
             <ListItem 
                 autoFocus
                 secondaryAction={
-                    <IconButton edge="end" aria-label="go">
+                    <IconButton edge="end" aria-label="go" href="https://caarmydata.blob.core.windows.net/resources/20211207-U-CA_Data_Governance.pdf">
                     <ChevronRightIcon />
                     </IconButton>
                 }
-                href="https://caarmydata.blob.core.windows.net/resources/20211207-U-CA_Data_Governance.pdf"
+               
+                
             >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>

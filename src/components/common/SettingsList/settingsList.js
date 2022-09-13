@@ -18,9 +18,6 @@ export default function SettingsList(props) {
     username
   } = props
 
-  console.log('graphphoto', graphPhoto)
-  console.log('username', username)
-
   return (
     <Box sx={{ width: '100%', height: '100vh', bgcolor: 'white' }}>
         <List>

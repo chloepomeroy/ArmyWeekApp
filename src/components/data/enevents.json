@@ -184,7 +184,7 @@
         "RoomFloorplan": "106.jpg",
         "VenueFloorplan": "venue106.jpg", 
         "id": 9,
-        "Materials": [{"filename": "Reconstitution", "url": ""}],
+        "Materials": [{"filename": "Reconstitution", "url": "https://caarmydata.blob.core.windows.net/resources/CA%20Reconstitution%20Brief%20V5.pdf"}],
         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_PohvpDmXQd2Uhl4-jcefeQ",
         "color": "#76b079"
        },
@@ -291,8 +291,8 @@
         "Time": "17:30 - 18:45",
         "start": "2022-09-13T17:30:00",
         "end": "2022-09-13T18:45:00",
-        "Category": "AC Reception",
-        "title": "AC Reception",
+        "Category": "AC Working Dinner",
+        "title": "AC Working Dinner",
         "Presenter": "",
         "Responsible": "COS A Ops",
         "CAMS": "",
@@ -357,7 +357,7 @@
         "RoomFloorplan": "106.jpg",
         "VenueFloorplan": "venue106.jpg", 
         "id": 18,
-        "Materials": [{"filename": "file.txt", "url": "asdf.pdf"}],
+        "Materials": [{"filename": "Defence Policy Update", "url": "https://caarmydata.blob.core.windows.net/resources/20220902-UU-3120-CA_HQ_DLFD-AC_Sep_22-DPU.BIL.pdf"}],
         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_RQz0G2raRVOYtl6B4kT_0w",
         "color": "#76b079"
        },
@@ -796,7 +796,7 @@
          "VenueFloorplan": "venue106H.jpg", 
          "id": 41,
          "Materials": [],
-         "ZoomLink":  "",
+         "ZoomLink":  "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGI5NTZlNGMtZWYxZC00MDFkLWJkNDAtYTJkYzE3MTRmMzI4%40thread.v2/0?context=%7b%22Tid%22%3a%22325b4494-1587-40d5-bb31-8b660b7f1038%22%2c%22Oid%22%3a%223381f730-4d5c-4332-810f-63e77e351e8a%22%7d",
          "color": "#76b079"
         },
        {

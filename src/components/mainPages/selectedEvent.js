@@ -161,7 +161,7 @@ export default function SelectedEvent(props) {
           <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginTop: '30px'}}>
               {venueFloorPlanImage ? venueFloorPlanImage : null}
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center">
+          <Grid item xs={12} sm={12} md={12} lg={12} xl={12} align="center" style={{marginBottom: '76px'}}>
               {roomFloorPlanImage ? roomFloorPlanImage : null}
           </Grid>
         </Grid>

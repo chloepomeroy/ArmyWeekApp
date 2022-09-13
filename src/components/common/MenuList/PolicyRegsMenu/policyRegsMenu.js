@@ -41,11 +41,12 @@ export default function PolicyRegsMenu() {
             <ListItem 
                 autoFocus
                 secondaryAction={
-                    <IconButton edge="end" aria-label="go">
+                    <IconButton edge="end" aria-label="go"  href="https://www.canada.ca/en/department-national-defence/corporate/policies-standards/canforgens.html">
                     <ChevronRightIcon />
                     </IconButton>
                 }
-                href="https://www.canada.ca/en/department-national-defence/corporate/policies-standards/canforgens.html"
+                
+               
             >
                 <ListItemAvatar>
                     <Avatar sx={{ bgcolor: green[100], color: green[600] }}>

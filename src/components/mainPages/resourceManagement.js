@@ -42,6 +42,21 @@ export default function ResourceManagement(props) {
     createLink(result.data, fileName)
   }
 
+  const handleImageUpload = (e) => {
+    const dataForm = new FormData();
+    console.log('e', e)
+    dataForm.append('file', e.target.files[0]);  
+    console.log('dataform', dataForm)
+    axios
+      .post('/upload/add-image', dataForm)
+      .then(res => {
+        // Handle the response...
+        console.log('res', res)
+      })
+      .catch(err => console.log(err));
+  }
+
+
   function createLink(url, file) {
     let anchor = document.createElement('a');
     let link = document.createTextNode(file);
@@ -72,6 +87,11 @@ export default function ResourceManagement(props) {
               <Button variant="contained" component="label">
                 Upload Resource
                 <input hidden accept="image/*, file/pdf" multiple type="file" onChange={handleUpload} />
+              </Button>
+
+              <Button variant="contained" component="label">
+                Upload Image
+                <input hidden accept="image/*, file/pdf" multiple type="file" onChange={handleImageUpload} />
               </Button>
 
               

@@ -4,6 +4,7 @@ import AppBar from '@mui/material/AppBar'
 import MainMenu from '../MainMenu/mainMenu'
 import leaf from '../../../img/leaf-whitebg-tp.png'
 import { useTranslation } from "react-i18next"
+import { appStore, onAppMount } from '../../../state/app'
 
 // Styling
 import CssBaseline from '@mui/material/CssBaseline'
@@ -23,8 +24,9 @@ export default function BottomAppBar() {
   const [anchorEl, setAnchorEl] = useState(null)
   const [menuClicked, setMenuClicked] = useState(false)
   const [menuClickState, setMenuClickState] = useState(false)
-  const [view, setView] = useState('home');
   const [open, setOpen] = useState(false);
+
+  const { state, update } = useContext(appStore)
 
   let navigate = useNavigate()
   let location = useLocation()
@@ -33,6 +35,33 @@ export default function BottomAppBar() {
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const {
+    view
+  } = state
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        update('', {view: 'home'})
+        break;
+      case '/calendar':
+        update('', {view: 'agenda'})
+        break;
+      case '/dashboards':
+        update('', {view: 'dashboards'})
+        break;
+      case '/resources':
+        update('', {view: 'resources'})
+        break;
+      case '/event':
+        update('', {view: 'agenda'})
+        break;
+      default:
+        update('', {view: 'home'})
+        break;
+    }
+  }, [location.pathname])
 
 
   function handleExpanded() {
@@ -53,7 +82,7 @@ export default function BottomAppBar() {
   }
 
   const handleChange = (event, nextView) => {
-    setView(nextView);
+    update('', {view: nextView})
   };
   
   return (

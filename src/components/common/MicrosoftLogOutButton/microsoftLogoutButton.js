@@ -1,21 +1,12 @@
 import React from 'react'
-import { makeStyles } from '@mui/styles'
 import { useMsal } from "@azure/msal-react";
 
 // Material UI components
 import Button from '@mui/material/Button'
 import LockTwoToneIcon from '@mui/icons-material/LockOpenTwoTone'
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    width: '90%',
-    fontSize: '16px'
-  }
-  }));
-
 export default function MicrosoftLogoutButton(props) {
 
-    const classes = useStyles()
     const { instance } = useMsal()
    
     function signOutClickHandler(instance) {
@@ -30,7 +21,10 @@ export default function MicrosoftLogoutButton(props) {
         <Button
         variant="contained"
         color="primary"
-        className={classes.button}
+        sx={{
+          width: '90%',
+          fontSize: '16px'
+        }}
         startIcon={<LockTwoToneIcon />}
         onClick={() => signOutClickHandler(instance)} 
         >Sign Out</Button>

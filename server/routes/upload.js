@@ -14,6 +14,7 @@ const FileReader = require('filereader')
 const { storage, account, sas } = config
 
 const containerName = 'resources'
+const imageContainerName = 'images'
 
 const handleError = (err, res) => {
   res.status(500);
@@ -40,6 +41,32 @@ router.post('/add-file', upload.any(), (req, res, next) => {
       console.log('blobname', blobName)
       const stream = getStream(reqfile.buffer)
       const containerClient = blobService.getContainerClient(containerName)
+      const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+      await blockBlobClient.uploadStream(
+        stream,
+        uploadOptions.bufferSize,
+        uploadOptions.maxConcurrency,
+        { blobHTTPHeaders: { blobContentType: reqfile.mimetype } },
+      );
+      res.status(200).json({ fileStatus });
+      res.render("success", { message: "File uploaded to Azure Blob storage." });
+    })
+  } catch (err) {
+    throw err;
+  }
+})
+
+// Presentation Uploads
+router.post('/add-image', upload.any(), (req, res, next) => {
+  let fileStatus = [];
+  try{
+    req.files.forEach(async(reqfile, i) => {
+      console.log('reqfile', reqfile)
+      const blobName = reqfile.originalname
+      console.log('blobname', blobName)
+      const stream = getStream(reqfile.buffer)
+      const containerClient = blobService.getContainerClient(imageContainerName)
       const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
       await blockBlobClient.uploadStream(
