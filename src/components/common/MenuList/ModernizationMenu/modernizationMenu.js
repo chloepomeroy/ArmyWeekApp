@@ -11,12 +11,13 @@ import ListSubheader from '@mui/material'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import IconButton from '@mui/material/IconButton'
 import { blue, green } from '@mui/material/colors'
-import { t } from 'i18next'
+import { useTranslation } from "react-i18next"
 
 import brainBulb from '../../../../img/brainbulbicon.png'
 
 export default function ModernizationMenu() {
 
+const { t, i18n } = useTranslation()
 
   return (
    <>
