@@ -12,14 +12,17 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import { blue, green } from '@mui/material/colors'
+import { useTranslation } from "react-i18next"
 
 export default function DiplomacyMenu() {
 
+  const { t, i18n } = useTranslation()
+
   return (
    <>
-       
-        
-            <ListItem 
+
+
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -32,13 +35,13 @@ export default function DiplomacyMenu() {
                         <RadarIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Coming Soon..." 
-                    secondary="Coming Soon..."
+                <ListItemText
+                    primary={t("diplomacy_desc")}
+                    secondary={t("diplomacy_desc")}
                 />
             </ListItem>
-   
-       
+
+
   </>
   );
 }

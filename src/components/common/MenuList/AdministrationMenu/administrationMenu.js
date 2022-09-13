@@ -13,14 +13,17 @@ import IconButton from '@mui/material/IconButton'
 import RadarIcon from '@mui/icons-material/Radar'
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { blue, green } from '@mui/material/colors'
+import { useTranslation } from "react-i18next"
 
 export default function AdministrationMenu() {
 
+const { t, i18n} = useTranslation()
+
   return (
    <>
-       
-        
-            <ListItem 
+
+
+            <ListItem
                 autoFocus
                 secondaryAction={
                     <IconButton edge="end" aria-label="go">
@@ -33,13 +36,13 @@ export default function AdministrationMenu() {
                         <ManageAccountsIcon />
                     </Avatar>
                 </ListItemAvatar>
-                <ListItemText 
-                    primary="Project DNA" 
-                    secondary="Optimizing Res F Administration. Coming Soon..."
+                <ListItemText
+		            primary={t("proj_dna")}
+                    secondary={t("proj_dna_desc")}
                 />
             </ListItem>
-   
-       
+
+
   </>
   );
 }
