@@ -243,12 +243,13 @@ export default function SelectedEvent(props) {
                       sx={{padding: '10px'}}
                       spacing={5}
                     >
+                    
                       <Typography variant="body1">
                         {x.filename}
                       </Typography>
                       <br></br>
 
-                      <Button onClick={Download} variant="contained" color="success" endIcon={< DownloadRounded />}>
+                      <Button onClick={Download} style={{minWidth: '126px'}} variant="contained" color="success" endIcon={< DownloadRounded />}>
                         {t("event_download")}
                       </Button>
 

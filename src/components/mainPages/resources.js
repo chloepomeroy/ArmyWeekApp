@@ -25,8 +25,9 @@ export default function Resources() {
     const ArmyCouncilCardItem = props => {
         return (
             <Card sx={{ maxWidth: '98%' }} key={props.db.id}>
+                <a href={props.db.url}>
                 <CardContent sx={{textAlign: 'left'}}>
-                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%'}} />
+                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%', border: '1px solid #000000'}} />
                     <Typography variant="h5">
                         {props.db.title}
                     </Typography>
@@ -34,6 +35,7 @@ export default function Resources() {
                         {props.db.description}
                     </Typography>
                 </CardContent>
+                </a>
                 <CardActionArea>
                     <CardActions>
                         <Button size="small" href={props.db.url}>{t("resources_view")}</Button>
@@ -57,8 +59,9 @@ export default function Resources() {
     const SALSCardItem = props => {
         return (
             <Card sx={{ maxWidth: '98%' }} key={props.db.id}>
+                <a href={props.db.url}>
                 <CardContent sx={{textAlign: 'left'}}>
-                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%'}} />
+                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%', border: '1px solid #000000'}} />
                     <Typography variant="h5">
                         {props.db.title}
                     </Typography>
@@ -66,6 +69,7 @@ export default function Resources() {
                         {props.db.description}
                     </Typography>
                 </CardContent>
+                </a>
                 <CardActionArea>
                     <CardActions>
                         <Button size="small" href={props.db.url}>{t("resources_view")}</Button>
@@ -89,8 +93,9 @@ export default function Resources() {
     const OrdersCardItem = props => {
         return (
             <Card sx={{ maxWidth: '98%' }} key={props.db.id}>
+            <a href={props.db.url}>
                 <CardContent sx={{textAlign: 'left'}}>
-                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%'}} />
+                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%',  border: '1px solid #000000'}} />
                     <Typography variant="h5">
                         {props.db.title}
                     </Typography>
@@ -98,6 +103,7 @@ export default function Resources() {
                         {props.db.description}
                     </Typography>
                 </CardContent>
+                </a>
                 <CardActionArea>
                     <CardActions>
                         <Button size="small" href={props.db.url}>{t("resources_view")}</Button>
@@ -121,8 +127,9 @@ export default function Resources() {
     const PlacematsCardItem = props => {
         return (
             <Card sx={{ maxWidth: '98%' }} key={props.db.id}>
+                <a href={props.db.url}>
                 <CardContent sx={{textAlign: 'left'}}>
-                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%'}} />
+                    <img src={props.imgSrc} alt={props.db.file_title} style={{maxWidth: '98%',  border: '1px solid #000000'}} />
                     <Typography variant="h5">
                         {props.db.title}
                     </Typography>
@@ -130,6 +137,7 @@ export default function Resources() {
                         {props.db.description}
                     </Typography>
                 </CardContent>
+                </a>
                 <CardActionArea>
                     <CardActions>
                         <Button size="small" href={props.db.url}>{t("resources_view")}</Button>

@@ -68,6 +68,7 @@ const resources = {
         venue_moreinfo: "More Information",
         venue_floorplantitle: "Facilities Floorplan",
         dashboards_view: "View",
+        resources_view: "View",
         dashboards_pagetitle: "Dashboards",
         army_council_resources_list: [
             {
@@ -397,7 +398,8 @@ const resources = {
         venue_address: "200 Coventry Road, Ottawa, ON",
         venue_moreinfo: "Plus d'information",
         venue_floorplantitle: "Plan d'étage d'installation",
-        dashboards_view: "Affichez",
+        dashboards_view: "voir",
+        resources_view: "voir",
         dashboards_pagetitle: "Tableaux de bord",
         army_council_resources_list: [
             {
