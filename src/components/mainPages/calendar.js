@@ -68,7 +68,7 @@ export default function Cal(props) {
       </Grid>
 
       <Grid container spacing={2} alignItems="center" justifyContent="center" sx={{ flexGrow: 5, display: { xs: 'flex', md: 'none' } }}>
-        <Grid item xs={11}>
+        <Grid item xs={11} style={{marginBottom: '76px'}}>
           <FullCalendar
             plugins = {[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
             initialView = "listWeek"
