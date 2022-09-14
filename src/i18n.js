@@ -459,11 +459,53 @@ const resources = {
         ],
         sals_resources_list: [
             {"id": 1,
-            "title": "SALS Participant and DA Bios",
-            "description": "Learn about our participants and DAs",
-            "file_title": "SALS Participant and DA Bios",
-            "url": "https://caarmydata.blob.core.windows.net/resources/SALS%20-%20DA%20and%20FVEY%20SM%20Participant%20-%20Bios.pdf",
-            "img": "sals-bios.png"
+            "title": "(Panel 1) Digital Transformation - Lessons from the Plan International Canada Experience",
+            "description": "Mr. Altaz Hemani, Vice President IT from Plan International Canada.",
+            "file_title": "Digital Transformation - Lessons from the Plan International Canada Experience",
+            "url": "https://caarmydata.blob.core.windows.net/resources/Digital%20Transformation%20-%20Lessons%20from%20the%20Plan%20International%20Canada%20Experience.pdf",
+            "img": "plan-international.png"
+            },
+            {"id": 2,
+            "title": "(Panel 1) Seizing the Vital Ground of our Modernization - Digital Transformation",
+            "description": "BGen Robert Ritchie, Chief of Staff to the VCDS",
+            "file_title": "Seizing the Vital Ground of our Modernization - Digital Transformation",
+            "url": "https://caarmydata.blob.core.windows.net/resources/Digital%20Transformation%20-%20Lessons%20from%20the%20Plan%20International%20Canada%20Experience.pdf",
+            "img": "vital-ground-modernization.png"
+            },
+            {"id": 3,
+            "title": "(Panel 2) How Armies Change: Examples and Warnings from Selected Case Studies",
+            "description": "Dr Rebecca Jensen, Assistant Professor at Canadian Forces College",
+            "file_title": "How Armies Change: Examples and Warnings from Selected Case Studies",
+            "url": "https://caarmydata.blob.core.windows.net/resources/20220913-1000_1-U-G35-Slides-Dr_Jensen-EN.pdf",
+            "img": "how-armies-change.png"
+            },
+            {"id": 4,
+            "title": "(Panel 2) Bio: Dr. Rebecca Jensen",
+            "description": "Assistant Professor at Canadian Forces College",
+            "file_title": "Bio: Dr. Rebecca Jensen",
+            "url": "https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-Dr_Jensen_Bio-EN.pdf",
+            "img": "dr-jensen-bio.png"
+            },
+            {"id": 5,
+            "title": "(Panel 2) Marine Corps Modernization: Modernizing in Support of the Joint Force",
+            "description": "Brigadier General Mark H. Clingan, Assistant Deputy Commandant to Combat Development and Integration and Deputy Commanding General of Marine Corps Combat Development Command",
+            "file_title": " Marine Corps Modernization: Modernizing in Support of the Joint Force",
+            "url": "https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-Dr_Jensen_Bio-EN.pdf",
+            "img": "marine-corps-modernization.png"
+            },
+            {"id": 6,
+            "title": "(Panel 2) Bio:  Brigadier General Mark H. Clingan",
+            "description": "Assistant Deputy Commandant to Combat Development and Integration and Deputy Commanding General of Marine Corps Combat Development Command",
+            "file_title": "Bio:  Brigadier General Mark H. Clingan",
+            "url": "https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-BGen_Clingan_Bio-EN.pdf",
+            "img": "brig-gen-clingan.png"
+            },
+            {"id": 7,
+            "title": "(Panel 2) Bio:  Brigadier Glenn Ryan, CSC and Bar",
+            "description": "Director General Training and Doctrine, Australian Army",
+            "file_title": "Bio:  Brigadier Glenn Ryan, CSC and Bar",
+            "url": "https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-BRIG_Ryan_Bio-EN.pdf",
+            "img": "brig-gen-ryan.png"
             },
         ],
         dashboard_list: [
