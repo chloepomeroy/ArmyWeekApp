@@ -605,7 +605,10 @@
          "RoomFloorplan": "106 - 2.jpg",
          "VenueFloorplan": "venue106.jpg", 
          "id": 32,
-         "Materials": [],
+         "Materials": [
+          {"filename": "Digital Transformation - Lessons from the Plan International Canada Experience", "url":"https://caarmydata.blob.core.windows.net/resources/Digital%20Transformation%20-%20Lessons%20from%20the%20Plan%20International%20Canada%20Experience.pdf"},
+          {"filename": "Seizing the Vital Ground of our Modernization - Digital Transformation", "url":"https://caarmydata.blob.core.windows.net/resources/Seizing%20the%20Vital%20Ground%20of%20our%20Modernization%20-%20Digital%20Transformation.pdf"}
+        ],
          "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
          "color": "#76b079"
         },
@@ -644,7 +647,13 @@
         "RoomFloorplan": "106 - 2.jpg",
         "VenueFloorplan": "venue106.jpg", 
         "id": 34,
-        "Materials": [],
+        "Materials": [
+          {"filename": "How Armies Change: Examples and Warnings from Selected Case Studies", "url":"https://caarmydata.blob.core.windows.net/resources/20220913-1000_1-U-G35-Slides-Dr_Jensen-EN.pdf"},
+          {"filename": "Bio: Dr. Rebecca Jensen", "url":"https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-Dr_Jensen_Bio-EN.pdf"},
+          {"filename": "Marine Corps Modernization: Modernizing in Support of the Joint Force", "url":"https://caarmydata.blob.core.windows.net/resources/CDD%20Modernization%20Brief%20to%20Foreign%20Military%20Attaches%20Day.pdf"},
+          {"filename": "Bio:  Brigadier General Mark H. Clingan", "url":"https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-BGen_Clingan_Bio-EN.pdf"},
+          {"filename": "Bio:  Brigadier Glenn Ryan, CSC and Bar", "url":"https://caarmydata.blob.core.windows.net/resources/20220912-1000_1-U-G35-BRIG_Ryan_Bio-EN.pdf"}
+        ],
         "ZoomLink":  "https://us02web.zoom.us/webinar/register/WN_eB9JkxS5ScWhjUaXpDN7Sw",
         "color": "#76b079"
        },
@@ -709,9 +718,9 @@
        {
         "Day": "3",
         "date": "Thur Sept 15",
-        "Time": "17:00 - 23:00",
+        "Time": "17:00 - 19:00",
         "start": "2022-09-15T17:00:00",
-        "end": "2022-09-15T23:00:00",
+        "end": "2022-09-15T19:00:00",
         "Category": "SALS Dinner",
         "title": "SALS Dinner",
         "Presenter": "",
