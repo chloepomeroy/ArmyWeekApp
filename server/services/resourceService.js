@@ -1,5 +1,23 @@
 const { json } = require("body-parser");
 const resource = require('../models/resource');
+const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+const getStream = require('into-stream')
+const config = require('../config')
+
+const { storage, account, sas } = config
+
+const containerName = 'resources'
+const imageContainerName = 'images'
+
+
+const blobService = BlobServiceClient.fromConnectionString(storage);
+const uploadOptions = { bufferSize: 4 * 1024 * 1024, maxConcurrency: 20 };
+
+function generateId() {
+    let buf = Math.random([0, 999999999])
+    let b64 = btoa(buf);
+    return b64.toString()
+}
 
 const resourcesService = {
  
@@ -14,16 +32,57 @@ const resourcesService = {
     }
   },
 
-  async create(aresource) {
-     /** Write data to CosmosDB - with discriminator **/
-     try{
-      let newresource = new resource(aresource)
-      await newresource.save()
-      return true
-     } catch (err) {
-      console.log('problem writing to db', err)
-      return false
-     }
+  async create(file, filename, thumb) {
+     console.log('file', file)
+     console.log('filename', filename)
+     // first save files to storage then add to database
+
+        try{
+            const blobName = filename.filename
+            console.log('blobname', blobName)
+            // const stream = getStream(file.buffer)
+            const containerClient = blobService.getContainerClient(containerName)
+            const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+            await blockBlobClient.uploadStream(
+                file,
+                uploadOptions.bufferSize,
+                uploadOptions.maxConcurrency,
+                { blobHTTPHeaders: { blobContentType: filename.mimetype } },
+            )
+
+            // get url of file and add to data object
+            let url = containerClient.getBlockBlobClient(blobName)
+            let data = {
+                fileId: generateId(),
+                fileName: filename.filename,
+                title: filename.filename,
+                description: 'a file',
+                submitter: 'me',
+                url: url.url,
+                imgName: 'nope',
+                category: '',
+                likes: [],
+                dislikes: [],
+                neutrals: []
+            }
+            //  let data = {...filename, ['url']: url.url}
+            console.log('data', data)
+            /** Write data to CosmosDB - with discriminator **/
+            
+            try{
+                let newresource = new resource(data)
+                let saved = await newresource.save()
+                console.log('saved', saved)
+                return true
+            } catch (err) {
+                console.log('problem writing to db', err)
+                return false
+            }
+                
+        } catch (err) {
+            console.log('error storing resource', err)
+        }    
   },
 
   async update(filter, aresource) {

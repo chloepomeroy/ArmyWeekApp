@@ -10,6 +10,8 @@ const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storag
 const getStream = require('into-stream')
 const config = require('../config')
 const FileReader = require('filereader')
+const resourceService = require('../services/resourceService')
+const imagesService = require('../services/imageService')
 
 const { storage, account, sas } = config
 
@@ -31,7 +33,29 @@ const getBlobName = originalName => {
 const blobService = BlobServiceClient.fromConnectionString(storage);
 const uploadOptions = { bufferSize: 4 * 1024 * 1024, maxConcurrency: 20 };
 
-// Presentation Uploads
+// Resource Uploads
+
+
+router.post("/file", async (req, res) => {
+  console.log('req body', req)
+  req.pipe(req.busboy)
+  req.busboy.on('file', async (fieldname, file, filename) => {
+    console.log("Uploading: " + filename);
+    const createdResource = await resourceService.create(file, filename)
+    res.send(createdResource);
+  })
+});
+
+router.post("/image", async (req, res) => {
+  console.log('req body', req)
+  req.pipe(req.busboy)
+  req.busboy.on('file', async (fieldname, file, filename) => {
+    console.log("Uploading: " + filename);
+    const createdResource = await imagesService.create(file, filename)
+    res.send(createdResource);
+  })
+});
+
 router.post('/add-file', upload.any(), (req, res, next) => {
   let fileStatus = [];
   try{
