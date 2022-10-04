@@ -337,7 +337,8 @@ const resources = {
         digital_pol_placemat: "Digital Policy Placemat",
         digital_pol_desc: "Understand the Digital Landscape (ETA Sep 22)",
         caf_od_dash: "CAF Orders and Directives",
-        caf_od_desc: "CANFORGENs, DAODs, QR&Os"
+        caf_od_desc: "CANFORGENs, DAODs, QR&Os",
+        digital_data_literacy: "Digital and Data Literacy"
       },
     },
     fr: {
@@ -667,7 +668,8 @@ const resources = {
         digital_pol_placemat: "Brochure des politiques numérique",
         digital_pol_desc: "Comprendre le paysage numérique (ETA sep 22)",
         caf_od_dash: "Ordonnances et directives des FAC",
-        caf_od_desc: "CANFORGEN, DOAD, ORFC"
+        caf_od_desc: "CANFORGEN, DOAD, ORFC",
+        digital_data_literacy: "littératie numérique et data"
       },
     },
   };

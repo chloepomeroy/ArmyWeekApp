@@ -3347,6 +3347,11 @@ bson@^4.6.5:
   dependencies:
     buffer "^5.6.0"
 
+btoa@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/btoa/-/btoa-1.2.1.tgz#01a9909f8b2c93f6bf680ba26131eb30f7fa3d73"
+  integrity sha512-SB4/MIGlsiVkMcHmT+pSmIPoNDoHg+7cMzmt3Uxt628MTz2487DKSqK/fuhFBrkuqrYv5UCEnACpF4dTFNKc/g==
+
 buffer-equal-constant-time@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
@@ -6659,7 +6664,7 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-pdfjs-dist@^2.16.105, pdfjs-dist@^2.7.570:
+pdfjs-dist@^2.16.105:
   version "2.16.105"
   resolved "https://registry.yarnpkg.com/pdfjs-dist/-/pdfjs-dist-2.16.105.tgz#937b9c4a918f03f3979c88209d84c1ce90122c2a"
   integrity sha512-J4dn41spsAwUxCpEoVf6GVoz908IAA3mYiLmNxg8J9kfRXc2jxpbUepcP0ocp0alVNLFthTAM8DZ1RaHh8sU0A==
@@ -7351,13 +7356,6 @@ react-pdf-js@^5.1.0:
   integrity sha512-l/norbM4BocUJcD0o46b5U4XWTZI1FN1+wfhosPKGy0cJ3T7Ck7GGfr3KXsH5ljc8lyifZPMAm6Rvsbe8OzBbQ==
   dependencies:
     "@bundled-es-modules/pdfjs-dist" "2.1.266-rc"
-
-react-pdf-thumbnail@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-pdf-thumbnail/-/react-pdf-thumbnail-0.1.0.tgz#6b8ddf861252acb2b137dfd42007f545fde52ef9"
-  integrity sha512-VzkGUmgAheqxQsMTcUjOFrATtEdG2C9YRkMb0GFkf9JyfTDdBjkyu1/gVLk9CYVKWkgyNID34/G0TTX60XJuyA==
-  dependencies:
-    pdfjs-dist "^2.7.570"
 
 react-refresh@^0.9.0:
   version "0.9.0"

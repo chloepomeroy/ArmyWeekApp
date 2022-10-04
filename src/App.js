@@ -58,10 +58,10 @@ const App = () => {
                 let keypair = false
                 let user
                 if(accounts && instance){
-            //         keypair = await ceramic.getVaultKeyPair(accounts[0].username)
-            //         if(!keypair){
-            //             let result = await ceramic.setVaultKeyPair(accounts[0].username)
-            //         }
+                    //  keypair = await ceramic.getVaultKeyPair(accounts[0].username)
+                    //  if(!keypair){
+                    //      let result = await ceramic.setVaultKeyPair(accounts[0].username)
+                    //  }
                     setIsSignedIn(true)
 
                     // Get ECN profile data

@@ -16,6 +16,7 @@ app.set(db);
 
 const index = require("./routes/index-old");
 const upload = require("./routes/upload");
+const image = require("./routes/image");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -32,6 +33,7 @@ app.set("view engine", "jade");
 
 app.use("/api", index);
 app.use("/upload", upload);
+app.use("/image", image);
 
 app.get('/*', (req, res) => {
   // res.setHeader(

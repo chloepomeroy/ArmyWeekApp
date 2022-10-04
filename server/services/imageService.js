@@ -1,7 +1,7 @@
-const { json } = require("body-parser");
-const resource = require('../models/resource');
-const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
-const getStream = require('into-stream')
+const { json } = require("body-parser")
+const image = require('../models/image')
+const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob")
+const btoa = require('btoa')
 const config = require('../config')
 
 const { storage, account, sas } = config
@@ -22,57 +22,91 @@ const imagesService = {
   async read(query) {
     /** Reading data from CosmosDB - with discriminator **/
     try{
-      let resources = await resource.find(query)
-      return resources
+      let images = await image.find(query)
+      return images
     } catch (err) {
       console.log('problem reading from db', err)
       return false
     }
   },
 
-  async create(file, filename) {
-     console.log('file', file)
-     console.log('filename', filename)
-     // first save files to storage then add to database
-
-        try{
-            const blobName = filename.filename
+  async saveToStorage(imageFile, imageFilename, link) {        
+    // upload image to storage if no link provided
+    try{
+        if(!link){
+            const blobName = imageFilename.filename
             const containerClient = blobService.getContainerClient(imageContainerName)
             const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
             await blockBlobClient.uploadStream(
-                file,
+                imageFile,
                 uploadOptions.bufferSize,
                 uploadOptions.maxConcurrency,
-                { blobHTTPHeaders: { blobContentType: filename.mimetype } },
+                { blobHTTPHeaders: { blobContentType: imageFilename.mimetype } },
             )
 
-            // return url of thumbnail
-            let url = containerClient.getBlockBlobClient(blobName)
-            return url.url
+            // get url of imageFile and add to data object
+            link = containerClient.getBlockBlobClient(blobName).url
+        }
+        return link
+    } catch (err) {
+        console.log('error uploading image', err)
+        return false
+    }
+},
+
+  async createImageRecord(imageFilename, imageTitle, description, submitter, category, link) {        
+        // add image to database
+        try{
+            let data = {
+                imageId: generateId(),
+                imageFileName: imageFilename,
+                title: imageTitle,
+                description: description,
+                submitter: submitter,
+                url: link,
+                category: category,
+                likes: [],
+                dislikes: [],
+                neutrals: []
+            }
+            
+            /** Write image data to CosmosDB **/
+            try{
+                let newImage = new image(data)
+                let saved = await newImage.save()
+                console.log('saved', saved)
+                return true
+            } catch (err) {
+                console.log('problem writing to db', err)
+                return false
+            }
+
         } catch (err) {
             console.log('error uploading image', err)
         }
   },
 
-  async update(filter, aresource) {
+
+
+  async update(filter, updatedImageData) {
     /** update existing data to CosmosDB - with discriminator **/
     try{
-      await resource.updateOne(JSON.parse(filter), aresource)
+      await image.updateOne(JSON.parse(filter), updatedImageData)
       return true
      } catch (err) {
-      console.log('problem updating record', err)
+      console.log('problem updating image record', err)
       return false
      }
   },
 
   async delete(filter){
-     /** delete identified data from CosmosDB - with discriminator **/
+     /** delete identified image data from CosmosDB - with discriminator **/
      try{
-      await resource.deleteOne(JSON.parse(filter))
+      await image.deleteOne(JSON.parse(filter))
       return true
      } catch (err) {
-      console.log('problem deleting record', err)
+      console.log('problem deleting image record', err)
       return false
      }
   },
@@ -80,16 +114,16 @@ const imagesService = {
   async deleteAll(filter){
     /** delete all identified data from CosmosDB - with discriminator **/
     try{
-     await resource.deleteMany(JSON.parse(filter))
+     await image.deleteMany(JSON.parse(filter))
      return true
     } catch (err) {
-     console.log('problem deleting all records', err)
+     console.log('problem deleting all image records', err)
      return false
     }
   },
 
   async signal(id, signalType, accountId){
-      let resourceProperties = await resource.findById(id)
+      let resourceProperties = await image.findById(id)
       console.log("resourceProperties", resourceProperties)
       let hasLiked = false
       let hasDisLiked = false
@@ -173,7 +207,7 @@ const imagesService = {
       }
       
       try{
-        await resource.updateOne(
+        await image.updateOne(
           {_id: id}, 
           {
             likes: resourceProperties.likes,
@@ -182,7 +216,7 @@ const imagesService = {
           })
         return true
       } catch (err) {
-        console.log('problem recording signal', err)
+        console.log('problem recording image signal', err)
         return false
       }
   }

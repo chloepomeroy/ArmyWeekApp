@@ -10,7 +10,8 @@ const config = {
   user: process.env.COSMOSDB_USER,
   storage: process.env.AZURE_STORAGE_CONNECTION_STRING1,
   account: "caarmydata",
-  sas: process.env.SAS
+  sas: process.env.SAS,
+  baseImageUrl: "https://caarmydata.blob.core.windows.net/images/"
   };
   
 module.exports = config;

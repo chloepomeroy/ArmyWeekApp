@@ -7,6 +7,7 @@ import ModernizationMenu from '../MenuList/ModernizationMenu/modernizationMenu'
 import PolicyRegsMenu from '../MenuList/PolicyRegsMenu/policyRegsMenu'
 import AdministrationMenu from '../MenuList/AdministrationMenu/administrationMenu'
 import DiplomacyMenu from '../MenuList/DiplomacyMenu/diplomacyMenu'
+import DigLiteracyMenu from '../MenuList/DigitalLiteracyMenu/digLiteracyMenu'
 
 // Styling
 import Dialog from '@mui/material/Dialog'
@@ -79,6 +80,11 @@ export default function MainMenu (props) {
           subheader={<ListSubheader>{t("modernization_proj")}</ListSubheader>}
         >
           <ModernizationMenu />
+        </List>
+        <List
+          subheader={<ListSubheader>{t("digital_data_literacy")}</ListSubheader>}
+        >
+          <DigLiteracyMenu />
         </List>
         <List
           subheader={<ListSubheader>{t("diplomacy_proj")}</ListSubheader>}
