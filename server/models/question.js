@@ -1,5 +1,5 @@
-const db = require('../data/databaseContext')
-const commonModel = require('./commonModel')
+import db from '../data/databaseContext.js'
+import commonModel from './commonModel.js'
 
 const question = commonModel.discriminator('QuestionType', new db.Schema({
     question: String,
@@ -13,4 +13,4 @@ const question = commonModel.discriminator('QuestionType', new db.Schema({
     neutrals: [String]
 }), commonModel.baseConfig);
 
-module.exports = question;
+export { question }

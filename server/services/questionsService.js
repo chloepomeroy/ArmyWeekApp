@@ -1,5 +1,6 @@
-const { json } = require("body-parser");
-const question = require('../models/question');
+import pkg from 'body-parser';
+const { json } = pkg;
+import { question } from '../models/question.js'
 
 const questionsService = {
  
@@ -159,4 +160,4 @@ const questionsService = {
   }
 };
 
-module.exports = questionsService;
+export { questionsService }

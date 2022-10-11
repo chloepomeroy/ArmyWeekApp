@@ -1,5 +1,6 @@
-const { json } = require("body-parser");
-const idea = require('../models/idea');
+import pkg from 'body-parser';
+const { json } = pkg;
+import { idea } from '../models/idea.js'
 
 const ideasService = {
  
@@ -159,4 +160,4 @@ const ideasService = {
   }
 };
 
-module.exports = ideasService;
+export { ideasService }

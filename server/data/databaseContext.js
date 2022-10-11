@@ -1,5 +1,5 @@
-const config = require("../config");
-var mongoose = require('mongoose');
+import { config } from '../config.js';
+import mongoose from 'mongoose'
 
 const {
   endpoint,
@@ -9,7 +9,7 @@ const {
   user
 } = config
 
-mongoose.connect("mongodb://"+endpoint+":"+port+"/"+databaseId+"?ssl=true&replicaSet=globaldb", {
+const db = mongoose.connect("mongodb://"+endpoint+":"+port+"/"+databaseId+"?ssl=true&replicaSet=globaldb", {
   auth: {
     username: user,
     password: key
@@ -24,4 +24,4 @@ mongoose.connect("mongodb://"+endpoint+":"+port+"/"+databaseId+"?ssl=true&replic
 })
 .catch((err) => console.error(err));
 
-module.exports = mongoose;
+export default db

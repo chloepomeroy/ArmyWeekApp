@@ -17,7 +17,7 @@ function generateId() {
     return b64.toString()
 }
 
-const imagesService = {
+const imageService = {
  
   async read(query) {
     /** Reading data from CosmosDB - with discriminator **/
@@ -222,4 +222,4 @@ const imagesService = {
   }
 };
 
-module.exports = imagesService;
+module.exports = imageService;

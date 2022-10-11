@@ -1,16 +1,7 @@
-const { json } = require("body-parser");
-const trainingResource = require('../models/trainingResource');
-const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
-const getStream = require('into-stream')
+const { json } = require("body-parser")
+const training = require('../models/Training/trainingResource')
+const btoa = require('btoa')
 const config = require('../config')
-
-const { storage, account, sas } = config
-
-const containerName = 'trainingResources'
-const imageContainerName = 'images'
-
-const blobService = BlobServiceClient.fromConnectionString(storage);
-const uploadOptions = { bufferSize: 4 * 1024 * 1024, maxConcurrency: 20 };
 
 function generateId() {
     let buf = Math.random([0, 999999999])
@@ -18,107 +9,100 @@ function generateId() {
     return b64.toString()
 }
 
-const trainingResourcesService = {
+const trainingService = {
  
   async read(query) {
-    /** Reading data from CosmosDB - with discriminator **/
+    /** Reading data from CosmosDB**/
     try{
-      let resources = await trainingResource.find(query)
-      return resources
+      let trainings = await training.find(query)
+      return trainings
     } catch (err) {
       console.log('problem reading from db', err)
       return false
     }
   },
 
-  async create(file, filename, link) {
-     console.log('file', file)
-     console.log('filename', filename)
-     // first save files to storage then add to database
-
-        try{
-            const blobName = filename.filename
-            console.log('blobname', blobName)
-            // const stream = getStream(file.buffer)
-            const containerClient = blobService.getContainerClient(containerName)
-            const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-
-            await blockBlobClient.uploadStream(
-                file,
-                uploadOptions.bufferSize,
-                uploadOptions.maxConcurrency,
-                { blobHTTPHeaders: { blobContentType: filename.mimetype } },
-            )
-
-            // get url of file and add to data object
-            let url = containerClient.getBlockBlobClient(blobName)
+  async createTrainingRecord(
+    title,
+    description,
+    imageFileName,
+    imageUrl,
+    submitter,
+    subject,
+    level,
+    duration,
+    learningPathway,
+    trainingLink,
+    educator) {        
+        // add training to database
+       
             let data = {
-                fileId: generateId(),
-                fileName: filename.filename,
-                title: filename.filename,
-                description: 'a file',
-                submitter: 'me',
-                url: url ? url.url : link,
-                imgName: 'nope',
-                category: '',
+                trainingId: generateId(),
+                title: title,
+                description: description,
+                imageFileName: imageFileName,
+                imageUrl: imageUrl,
+                submitter: submitter,
+                subject: subject,
+                skills: skills,
+                level: level,
+                duration: duration,
+                learningPathway: learningPathway,
+                trainingLink: trainingLink,
+                educator: educator,
                 likes: [],
                 dislikes: [],
                 neutrals: []
             }
-            //  let data = {...filename, ['url']: url.url}
-            console.log('data', data)
-            /** Write data to CosmosDB - with discriminator **/
             
+            /** Write training data to CosmosDB **/
             try{
-                let newresource = new resource(data)
-                let saved = await newresource.save()
+                let newTraining = new training(data)
+                let saved = await newTraining.save()
                 console.log('saved', saved)
                 return true
             } catch (err) {
                 console.log('problem writing to db', err)
                 return false
             }
-                
-        } catch (err) {
-            console.log('error storing resource', err)
-        }    
   },
 
-  async update(filter, aresource) {
-    /** update existing data to CosmosDB - with discriminator **/
+
+  async update(filter, updatedTrainingData) {
+    /** update existing data to CosmosDB **/
     try{
-      await resource.updateOne(JSON.parse(filter), aresource)
+      await training.updateOne(JSON.parse(filter), updatedTrainingData)
       return true
      } catch (err) {
-      console.log('problem updating record', err)
+      console.log('problem updating training record', err)
       return false
      }
   },
 
   async delete(filter){
-     /** delete identified data from CosmosDB - with discriminator **/
+     /** delete identified data from CosmosDB **/
      try{
-      await resource.deleteOne(JSON.parse(filter))
+      await training.deleteOne(JSON.parse(filter))
       return true
      } catch (err) {
-      console.log('problem deleting record', err)
+      console.log('problem deleting training record', err)
       return false
      }
   },
 
   async deleteAll(filter){
-    /** delete all identified data from CosmosDB - with discriminator **/
+    /** delete all identified data from CosmosDB **/
     try{
-     await resource.deleteMany(JSON.parse(filter))
+     await training.deleteMany(JSON.parse(filter))
      return true
     } catch (err) {
-     console.log('problem deleting all records', err)
+     console.log('problem deleting all training records', err)
      return false
     }
   },
 
   async signal(id, signalType, accountId){
-      let resourceProperties = await resource.findById(id)
+      let resourceProperties = await training.findById(id)
       console.log("resourceProperties", resourceProperties)
       let hasLiked = false
       let hasDisLiked = false
@@ -202,7 +186,7 @@ const trainingResourcesService = {
       }
       
       try{
-        await resource.updateOne(
+        await training.updateOne(
           {_id: id}, 
           {
             likes: resourceProperties.likes,
@@ -211,10 +195,10 @@ const trainingResourcesService = {
           })
         return true
       } catch (err) {
-        console.log('problem recording signal', err)
+        console.log('problem recording training signal', err)
         return false
       }
   }
 };
 
-module.exports = resourcesService;
+module.exports = trainingService;

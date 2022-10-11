@@ -16,7 +16,7 @@ import Dashboards from './components/mainPages/dashboards'
 import SelectedEvent from './components/mainPages/selectedEvent'
 import Support from './components/mainPages/support'
 import Resources from './components/mainPages/resources'
-import ResourceManagement from './components/mainPages/resourceManagement'
+import Administration from './components/mainPages/admin'
 import Settings from './components/mainPages/settings'
 import RandomPhrase from './components/common/RandomPhrase/randomPhrase'
 import BottomAppBar from './components/common/BottomAppBar/bottomAppBar'
@@ -229,7 +229,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<IndexPage state={state}/>}/>
                 <Route path="calendar" element={<Cal state={state}/>}/> 
-                <Route path="admin" element={<ResourceManagement state={state}/>}/>
+                <Route path="admin" element={<Administration />}/>
                 <Route path="settings" 
                     element={
                         <motion.div 

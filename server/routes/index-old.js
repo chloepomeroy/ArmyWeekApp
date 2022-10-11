@@ -1,9 +1,9 @@
-var express = require("express");
+import express from 'express'
 var router = express.Router();
-var questionsService = require("../services/questionsService");
-var ideasService = require("../services/ideasService");
-const cors = require('cors');
-const jwt = require('jsonwebtoken');
+import { questionsService } from '../services/questionsService.js'
+import { ideasService } from '../services/ideasService.js'
+import cors from 'cors'
+import jwt from 'jsonwebtoken'
 
 // Question API
 router.get("/questions", async function (req, res, next) {
@@ -140,4 +140,4 @@ function verifyToken(req, res, next){
   }
 }
 
-module.exports = router;
+export { router }

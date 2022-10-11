@@ -1,7 +1,6 @@
-const db = require('../data/databaseContext')
-const commonModel = require('./commonModel')
+import db from '../data/databaseContext.js'
 
-const idea = commonModel.discriminator('IdeaType', new db.Schema({
+const idea = db.model('IdeaType', new db.Schema({
     idea_title: String,
     idea_description: String,
     submitted_by: String,
@@ -10,6 +9,6 @@ const idea = commonModel.discriminator('IdeaType', new db.Schema({
     likes: [String],
     dislikes: [String],
     neutrals: [String]
-}), commonModel.baseConfig);
+}));
 
-module.exports = idea;
+export { idea }

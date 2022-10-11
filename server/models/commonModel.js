@@ -1,4 +1,4 @@
-const db = require('../data/databaseContext')
+import db from '../data/databaseContext.js'
 
 /** Using Discriminators **/
 //This will create only 1 collection in CosmosDB, thus optimizing costs.
@@ -7,6 +7,8 @@ const baseConfig = {
     collection: "alldata"
 }
 
-const commonModel = db.model('Common', new db.Schema({}, baseConfig));
+const commonModel = db.model('Common', new db.Schema({
+    
+}, baseConfig));
 
-module.exports = commonModel;
+export default commonModel
