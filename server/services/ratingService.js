@@ -1,22 +1,12 @@
-import pkg from 'body-parser'
-const { json } = pkg
-import { Training } from '../models/training.js'
-import btoa from 'btoa'
-import { config } from '../config.js'
+import { Rating } from '../models/rating.js'
 
-function generateId() {
-    let buf = Math.random([0, 999999999])
-    let b64 = btoa(buf);
-    return b64.toString()
-}
-
-const trainingService = {
+const ratingService = {
  
   async findOne(query) {
     /** Reading data from CosmosDB**/
     try{
-      let trainings = await Training.findOne(query).exec()
-      return trainings
+      let ratings = await Rating.findOne(query).exec()
+      return ratings
     } catch (err) {
       console.log('problem reading from db', err)
       return false
@@ -26,8 +16,8 @@ const trainingService = {
   async findAll() {
     /** Reading data from CosmosDB**/
     try{
-      let trainings = await Training.find({})
-      return trainings
+      let ratings = await Rating.find({})
+      return ratings
     } catch (err) {
       console.log('problem reading from db', err)
       return false
@@ -35,31 +25,18 @@ const trainingService = {
   },
 
   async add(args) {        
-    // add training to database
-
-    let tId  = generateId()
-
+    
     let data = {
-        trainingId: tId,
-        title: args.title,
-        description: args.description,
-        imageFileName: args.imageFileName,
-        imageUrl: args.imageUrl,
-        submitter: args.submitter,
-        subject: args.subject,
-        skills: args.skills,
-        level: args.level,
-        duration: args.duration,
-        learningPathway: args.learningPathway,
-        trainingLink: args.trainingLink,
-        educator: args.educator,
-        ratingId: tId
+        ratingId: args.ratingId,
+        likes: args.likes,
+        dislikes: args.dislikes,
+        neutrals: args.neutrals
     }
     
-    /** Write training data to CosmosDB **/
+    /** Write data to CosmosDB **/
     try{
-        let newTraining = new Training(data)
-        let saved = await newTraining.save()
+        let newRating = new Rating(data)
+        let saved = await newRating.save()
         return saved
     } catch (err) {
         console.log('problem writing to db', err)
@@ -71,11 +48,11 @@ const trainingService = {
   async update(filter, data) {
     /** update existing data to CosmosDB **/
     try{
-      let updated = await Training.updateOne(filter, data)
+      let updated = await Rating.updateOne(filter, data)
       console.log('updated', updated)
       return true
      } catch (err) {
-      console.log('problem updating training record', err)
+      console.log('problem updating Rating record', err)
       return false
      }
   },
@@ -83,11 +60,11 @@ const trainingService = {
   async deleteOne(args){
      /** delete identified data from CosmosDB **/
      try{
-      let deleted = await Training.deleteOne(args)
+      let deleted = await Rating.deleteOne(args)
       console.log('deleted', deleted)
       return true
      } catch (err) {
-      console.log('problem deleting training record', err)
+      console.log('problem deleting Rating record', err)
       return false
      }
   },
@@ -95,16 +72,21 @@ const trainingService = {
   async deleteAll(filter){
     /** delete all identified data from CosmosDB **/
     try{
-     await Training.deleteMany(JSON.parse(filter))
+     await Rating.deleteMany(JSON.parse(filter))
      return true
     } catch (err) {
-     console.log('problem deleting all training records', err)
+     console.log('problem deleting all Rating records', err)
      return false
     }
   },
 
-  async signal(id, signalType, accountId){
-      let resourceProperties = await Training.findById(id)
+  async signal(args){
+      const {
+        ratingId,
+        signalType,
+        accountId
+      } = args
+      let resourceProperties = await Rating.findOne(ratingId).exec()
       console.log("resourceProperties", resourceProperties)
       let hasLiked = false
       let hasDisLiked = false
@@ -188,8 +170,8 @@ const trainingService = {
       }
       
       try{
-        await Training.updateOne(
-          {_id: id}, 
+        await Rating.updateOne(
+          {ratingId: resourceProperties.ratingId}, 
           {
             likes: resourceProperties.likes,
             dislikes: resourceProperties.dislikes,
@@ -203,4 +185,4 @@ const trainingService = {
   }
 };
 
-export { trainingService }
+export { ratingService }

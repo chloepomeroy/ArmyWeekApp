@@ -29,6 +29,8 @@
 /contract/nft-contract/target
 /contract/market-contract/target
 
+/server-old
+
 # misc
 .DS_Store
 .env.local

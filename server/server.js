@@ -25,14 +25,15 @@ import {
   } from 'apollo-server-core';
 import { CosmosDataSource } from 'apollo-datasource-cosmosdb'
 import { CosmosClient } from '@azure/cosmos'
-import { schema } from './schema.js'
+
+import { schema } from './schema/index.js'
 
 import { config } from './config.js'
 
 const {
+  configPort,
   cosmosConnectionString,
-  cosmosDatabaseName,
-  configPort
+  cosmosDatabaseName
 } = config
 
 // REST imports
@@ -71,7 +72,7 @@ const {
   app.set("views", path.join(__dirname, "views"));
   app.set("view engine", "jade");
 
-  // REST API endpoints
+  // REST API endpoints (maybe in future)
   // app.use("/api", index);
   // app.use("/upload", upload);
   // app.use("/image", image);
@@ -146,12 +147,12 @@ const {
       ],
       dataSources: () => ({
         training: buildCosmosDataSource('training'),
-        rating: buildCosmosDataSource('ratings')
+        
       })
     })
 
     await server.start();
-    server.applyMiddleware({ app, path: '/' })
+    server.applyMiddleware({ app, path: '/graphql' })
 
     await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve))
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)

@@ -1,6 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
 import timestamps from 'mongoose-timestamp';
-import { composeWithMongoose } from 'graphql-compose-mongoose';
 
 export const TrainingSchema = new Schema(
     {
@@ -43,15 +42,9 @@ export const TrainingSchema = new Schema(
         educator: {
             type: String,
         },
-        likes: {
-            type: [String],
-        },
-        dislikes: {
-            type: [String],
-        },
-        neutrals: {
-            type: [String],
-        },
+       ratingId: {
+            type: String
+       },
     },
     {
         collection: 'training',
@@ -63,4 +56,3 @@ TrainingSchema.plugin(timestamps);
 TrainingSchema.index({ createdAt: 1, updatedAt: 1 });
 
 export const Training = mongoose.model('Training', TrainingSchema);
-export const TrainingTC = composeWithMongoose(Training);

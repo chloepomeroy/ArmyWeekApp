@@ -1,15 +1,18 @@
-import { config } from '../config.js';
+import { config } from '../config.js'
 import mongoose from 'mongoose'
 
 const {
   endpoint,
   key,
   databaseId,
-  port,
+  cosmosPort,
   user
 } = config
 
-const db = mongoose.connect("mongodb://"+endpoint+":"+port+"/"+databaseId+"?ssl=true&replicaSet=globaldb", {
+// Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
+mongoose.Promise = global.Promise
+
+mongoose.connect("mongodb://"+endpoint+":"+cosmosPort+"/"+databaseId+"?ssl=true&replicaSet=globaldb", {
   auth: {
     username: user,
     password: key
@@ -19,9 +22,9 @@ const db = mongoose.connect("mongodb://"+endpoint+":"+port+"/"+databaseId+"?ssl=
   retryWrites: false
 })
 .then((res) => { 
-  console.log('Connection to CosmosDB successful', res)
+  console.log('Connection to CosmosDB successful')
   return res
 })
-.catch((err) => console.error(err));
+.catch((err) => console.error(err))
 
-export default db
+export default mongoose
