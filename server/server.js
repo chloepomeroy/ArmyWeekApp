@@ -16,9 +16,13 @@ import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import busboy from 'connect-busboy'
 import bodyParser from 'body-parser'
+import pkg from 'body-parser'
+const { json } = pkg
+import cors from 'cors'
 
 // GraphQL Imports
 import { ApolloServer } from 'apollo-server-express'
+import { expressMiddleware } from '@apollo/server/express4'
 import {
     ApolloServerPluginDrainHttpServer,
     ApolloServerPluginLandingPageLocalDefault,
@@ -27,7 +31,7 @@ import { CosmosDataSource } from 'apollo-datasource-cosmosdb'
 import { CosmosClient } from '@azure/cosmos'
 
 import { schema } from './schema/index.js'
-
+import mongoose from './data/databaseContext.js'
 import { config } from './config.js'
 
 const {
@@ -40,7 +44,7 @@ const {
 // import { router as index } from './routes/index-old.js'
 // //const index = require("./routes/index-old");
 // const upload = require("./routes/upload");
-// const image = require("./routes/image");
+import { router as image } from './routes/image.js'
 // const category = require("./routes/category");
 // const training = require("./routes/training");
 
@@ -61,11 +65,15 @@ const {
 
   const server = http.createServer(app);
 
+  // CORS configuration
+
+  app.use(cors())
   app.use(logger("dev"));
   app.use(busboy());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
+  
   app.use(express.static(path.join(__dirname, "build")));
 
   // view engine setup
@@ -75,7 +83,7 @@ const {
   // REST API endpoints (maybe in future)
   // app.use("/api", index);
   // app.use("/upload", upload);
-  // app.use("/image", image);
+  app.use("/image", image);
   // app.use("/category", category);
   // app.use("/training", training);
 
@@ -135,6 +143,7 @@ const {
   async function startApolloServer() {
     const app = express()
     const httpServer = http.createServer(app)
+    app.use(cors())
     const server = new ApolloServer({
       schema, 
       csrfPrevention: true,
@@ -148,12 +157,12 @@ const {
       dataSources: () => ({
         training: buildCosmosDataSource('training'),
         
-      })
+      }),
+     
     })
 
-    await server.start();
+    await server.start()
     server.applyMiddleware({ app, path: '/graphql' })
-
     await new Promise(resolve => httpServer.listen({ port: 4000 }, resolve))
     console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
   }

@@ -1,8 +1,5 @@
-import pkg from 'body-parser'
-const { json } = pkg
 import { Training } from '../models/training.js'
 import btoa from 'btoa'
-import { config } from '../config.js'
 
 function generateId() {
     let buf = Math.random([0, 999999999])
@@ -102,105 +99,6 @@ const trainingService = {
      return false
     }
   },
-
-  async signal(id, signalType, accountId){
-      let resourceProperties = await Training.findById(id)
-      console.log("resourceProperties", resourceProperties)
-      let hasLiked = false
-      let hasDisLiked = false
-      let hasNeutral = false
-          
-      hasLiked = resourceProperties.likes.includes(accountId)
-      hasDisLiked = resourceProperties.dislikes.includes(accountId)
-      hasNeutral = resourceProperties.neutrals.includes(accountId)
-
-      if(signalType == 'like' && !hasLiked){
-          resourceProperties.likes.push(accountId)
-          
-          if(hasDisLiked){
-              let k = 0
-              while (k < resourceProperties.dislikes.length){
-                  if(resourceProperties.dislikes[k] == accountId){
-                      resourceProperties.dislikes.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-          if(hasNeutral){
-              let k = 0
-              while (k < resourceProperties.neutrals.length){
-                  if(resourceProperties.neutrals[k] == accountId){
-                      resourceProperties.neutrals.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-      }
-
-      if(signalType == 'dislike' && !hasDisLiked){
-          resourceProperties.dislikes.push(accountId)
-          if(hasLiked){
-              let k = 0
-              while (k < resourceProperties.likes.length){
-                  if(resourceProperties.likes[k] == accountId){
-                      resourceProperties.likes.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-          if(hasNeutral){
-              let k = 0
-              while (k < resourceProperties.neutrals.length){
-                  if(resourceProperties.neutrals[k] == accountId){
-                      resourceProperties.neutrals.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-      }
-
-      if(signalType == 'neutral' && !hasNeutral){
-          resourceProperties.neutrals.push(accountId)
-          if(hasLiked){
-              let k = 0
-              while (k < resourceProperties.likes.length){
-                  if(resourceProperties.likes[k] == accountId){
-                      resourceProperties.likes.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-          if(hasDisLiked){
-              let k = 0
-              while (k < resourceProperties.dislikes.length){
-                  if(resourceProperties.dislikes[k] == accountId){
-                      resourceProperties.dislikes.splice(k,1)
-                      break
-                  }
-              k++
-              }
-          }
-      }
-      
-      try{
-        await Training.updateOne(
-          {_id: id}, 
-          {
-            likes: resourceProperties.likes,
-            dislikes: resourceProperties.dislikes,
-            neutrals: resourceProperties.neutrals
-          })
-        return true
-      } catch (err) {
-        console.log('problem recording training signal', err)
-        return false
-      }
-  }
-};
+}
 
 export { trainingService }

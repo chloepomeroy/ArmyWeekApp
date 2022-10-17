@@ -18,6 +18,9 @@ import Support from './components/mainPages/support'
 import Resources from './components/mainPages/resources'
 import Administration from './components/mainPages/admin'
 import Settings from './components/mainPages/settings'
+import AddTraining from './components/mainPages/addTraining'
+import TrainingAdmin from './components/Admin/Training/training'
+
 import RandomPhrase from './components/common/RandomPhrase/randomPhrase'
 import BottomAppBar from './components/common/BottomAppBar/bottomAppBar'
 import HeaderMenu from './components/common/HeaderMenu/headerMenu'
@@ -230,6 +233,8 @@ const App = () => {
                 <Route path="/" element={<IndexPage state={state}/>}/>
                 <Route path="calendar" element={<Cal state={state}/>}/> 
                 <Route path="admin" element={<Administration />}/>
+                <Route path="admin/training" element={<TrainingAdmin />}/>
+                <Route exact path="/admin/training/add" element={<AddTraining />}/>
                 <Route path="settings" 
                     element={
                         <motion.div 

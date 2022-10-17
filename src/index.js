@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import { AppProvider } from './state/app.js'
-import { PublicClientApplication } from "@azure/msal-browser";
-import { MsalProvider } from "@azure/msal-react";
-import { msalConfig, msalLocalConfig } from '../authConfig';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import { PublicClientApplication } from "@azure/msal-browser"
+import { MsalProvider } from "@azure/msal-react"
+import { msalConfig, msalLocalConfig } from '../authConfig'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { SnackbarProvider, useSnackbar } from 'notistack'
 import './i18n'
 
 // create PublicClientApplication instance
@@ -17,14 +19,31 @@ if(process.env.ENV == 'localhost'){
 	msalInstance = new PublicClientApplication(msalConfig);
 }
 
+let client
+if(process.env.ENV == 'localhost'){
+	client = new ApolloClient({
+		uri: 'http://localhost:4000/graphql',
+		cache: new InMemoryCache(),
+	})
+} else {
+	client = new ApolloClient({
+		uri: 'https://armyweek.cloud.forces.gc.ca:4000/graphql',
+		cache: new InMemoryCache()
+	})
+}
+
 ReactDOM.render(
 	
 	<AppProvider>
-		<BrowserRouter>
-			<MsalProvider instance={msalInstance}>
-				<App />
-			</MsalProvider>
-		</BrowserRouter>
+		<ApolloProvider client={client}>
+			<BrowserRouter>
+				<MsalProvider instance={msalInstance}>
+					<SnackbarProvider>
+						<App />
+					</SnackbarProvider>
+				</MsalProvider>
+			</BrowserRouter>
+		</ApolloProvider>
 	</AppProvider>
 	,
 	document.getElementById('root')

@@ -25,6 +25,6 @@ mongoose.connect("mongodb://"+endpoint+":"+cosmosPort+"/"+databaseId+"?ssl=true&
   console.log('Connection to CosmosDB successful')
   return res
 })
-.catch((err) => console.error(err))
+.catch((err) => console.error(err));
 
 export default mongoose

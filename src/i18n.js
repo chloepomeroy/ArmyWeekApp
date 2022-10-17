@@ -338,7 +338,11 @@ const resources = {
         digital_pol_desc: "Understand the Digital Landscape (ETA Sep 22)",
         caf_od_dash: "CAF Orders and Directives",
         caf_od_desc: "CANFORGENs, DAODs, QR&Os",
-        digital_data_literacy: "Digital and Data Literacy"
+        digital_data_literacy: "Digital and Data Literacy",
+        training: "Training",
+        admin: "Admin Panel",
+        admin_training: "Training Admin",
+        add_training: "Add Training"
       },
     },
     fr: {
@@ -669,7 +673,11 @@ const resources = {
         digital_pol_desc: "Comprendre le paysage numérique (ETA sep 22)",
         caf_od_dash: "Ordonnances et directives des FAC",
         caf_od_desc: "CANFORGEN, DOAD, ORFC",
-        digital_data_literacy: "littératie numérique et data"
+        digital_data_literacy: "littératie numérique et data",
+        training: "formation",
+        admin: "administration",
+        admin_training: "admin de formation",
+        add_training: 'ajouter une formation'
       },
     },
   };

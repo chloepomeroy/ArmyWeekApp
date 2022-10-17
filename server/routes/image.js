@@ -1,16 +1,8 @@
-var express = require("express");
-var router = express.Router();
-const cors = require('cors');
-const jwt = require('jsonwebtoken');
-const multer = require('multer')
-const upload = multer();
-const { DefaultAzureCredential } = require("@azure/identity");
-const BlockBlobClient = require('@azure/storage-blob')
-const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
-const getStream = require('into-stream')
-const config = require('../config')
-const FileReader = require('filereader')
-const imagesService = require('../services/imageService')
+import express from 'express'
+let router = express.Router()
+import { BlobServiceClient, StorageSharedKeyCredential } from '@azure/storage-blob'
+import { config } from '../config.js'
+import { imageService } from '../services/imageService.js'
 
 const { storage, account, sas } = config
 
@@ -26,20 +18,20 @@ const uploadOptions = { bufferSize: 4 * 1024 * 1024, maxConcurrency: 20 };
 
 // Image CRUD
 
-// Add an image to storage and image record to the database
-router.post("/add", async (req, res) => {
-  console.log('req body', req)
-  const {
-    imageFilename,
-    imageTitle,
-    description,
-    submitter,
-    category,
-    link
-  } = req.body
-  const createdRecord = await imagesService.createImageRecord(imageFilename, imageTitle, description, submitter, category, link)
-  res.send(createdRecord)
-})
+// // Add an image to storage and image record to the database
+// router.post("/add", async (req, res) => {
+//   console.log('req body', req)
+//   const {
+//     imageFilename,
+//     imageTitle,
+//     description,
+//     submitter,
+//     category,
+//     link
+//   } = req.body
+//   const createdRecord = await imageService.createImageRecord(imageFilename, imageTitle, description, submitter, category, link)
+//   res.send(createdRecord)
+// })
 
 // Add an image to storage and image record to the database
 router.post("/add-to-storage", async (req, res) => {
@@ -47,7 +39,7 @@ router.post("/add-to-storage", async (req, res) => {
   req.pipe(req.busboy)
   req.busboy.on('file', async (fieldname, file, filename) => {
     console.log("Uploading Image: " + filename);
-    const createdImage = await imagesService.saveToStorage(file, filename)
+    const createdImage = await imageService.saveToStorage(file, filename)
     res.send(createdImage);
   })
 });
@@ -92,4 +84,4 @@ router.get('/get-all', async (req, res, next) => {
 
 })
 
-module.exports = router;
+export { router }

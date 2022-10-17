@@ -42,7 +42,7 @@ export const TrainingSchema = new Schema(
         educator: {
             type: String,
         },
-       ratingId: {
+        ratingId: {
             type: String
        },
     },

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import { useTranslation } from "react-i18next"
+import { matchPath } from 'react-router-dom'
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -113,7 +114,39 @@ export default function HeaderMenu(props) {
           </Typography>
           {Buttons}
         </>: null
-      }
+        }
+        {signedIn && matchPath({path: '/training/add', exact: true}, location.pathname) ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={() => navigate(-1)} />
+          <Typography variant="h5" style={{color: 'white'}}>
+            {t("training")}
+          </Typography>
+          {Buttons}
+        </>: null
+        }
+        {signedIn && matchPath({path: '/admin', exact: true}, location.pathname) ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={() => navigate(-1)} />
+          <Typography variant="h5" style={{color: 'white'}}>
+            {t("admin")}
+          </Typography>
+          {Buttons}
+        </>: null
+        }
+        {signedIn && matchPath({path: '/admin/training', exact: true}, location.pathname) ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={() => navigate(-1)} />
+          <Typography variant="h5" style={{color: 'white'}}>
+            {t("admin_training")}
+          </Typography>
+          {Buttons}
+        </>: null
+        }
+        {signedIn && matchPath({path: '/admin/training/add', exact: true}, location.pathname) ? <>
+          <ArrowBackIcon color="white" style={{marginRight: '30px'}} onClick={() => navigate(-1)} />
+          <Typography variant="h5" style={{color: 'white'}}>
+            {t("add_training")}
+          </Typography>
+          {Buttons}
+        </>: null
+        }
         
       </Toolbar>
       </AppBar> 
